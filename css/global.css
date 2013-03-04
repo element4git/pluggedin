@@ -1,0 +1,11 @@
+@import url("reset.css");
+
+#facebook{
+	width:20px;
+	height:20px;
+	background:blue;
+	color:#fff;
+	padding:10px;
+	text-align:center;
+	cursor:pointer;
+}
