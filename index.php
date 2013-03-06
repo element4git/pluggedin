@@ -1,4 +1,7 @@
 <?php 
+	error_reporting(E_ALL);
+ ini_set("display_errors", 1);
+
 	switch($_SERVER['SERVER_NAME']){
 		case 'pluggedin.azurewebsites.net':
 			$FBID = '205806419459572';
