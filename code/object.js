@@ -50,10 +50,10 @@ var user = function(){
 
 //Enable Objects
 $(function(){
-	$( "#bandSearch" ).autocomplete({
+	/*$( "#bandSearch" ).autocomplete({
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
-	});
+	});*/
 	$('#facebook').bind('click',function(){
 		FB.login(function(response) {
 		   if (response.authResponse) {

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include_once('mongoControl.php');
 	$sxsw_api_url = 'http://www.threechords.org/sxsw-api/index.php/api/getallgigs';
 	

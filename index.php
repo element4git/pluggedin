@@ -30,7 +30,7 @@
 	
 	
 	foreach($gig as $key=>$value){
-		$html = '<div class="gig '.str_replace(' ','_',$gig[$key]['band_name']).'">
+		$html = '<div class="gig '.str_replace(' ','_',$gig[$key]['band_name']).' '.str_replace(' ','_',$gig[$key]['venue_name']).'">
 					<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
 				</div>';
 	
