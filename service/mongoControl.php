@@ -5,7 +5,7 @@
 		public function __construct($dbPass = null){
 			$this->m =  new MongoClient(mongoServer);
 			
-			$this->collection = $this->m->selectCollection('pluggedIn','bandList');
+			$this->collection = $this->m->selectCollection('pluggedin','bandList');
 		}
 		public function find($passCollection, $query = array()){
 			
