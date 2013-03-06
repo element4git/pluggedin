@@ -3,11 +3,9 @@
 		private $db;
 		private $m;
 		public function __construct($dbPass = null){
-			$this->m =  new MongoClient('mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
+			$this->m =  new MongoClient(mongoServer);
 			
-			$this->collection = $this->m->selectCollection('pluggedin','bandList');
-			
-			print_r($this->db);
+			$this->collection = $this->m->selectCollection('pluggedIn','bandList');
 		}
 		public function find($passCollection, $query = array()){
 			

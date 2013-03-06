@@ -1,6 +1,14 @@
 <?php 
-	error_reporting(E_ALL);
- ini_set("display_errors", 1);
+	switch($_SERVER['SERVER_NAME']){
+		case 'pluggedin.azurewebsites.net':
+			$FBID = '205806419459572';
+			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
+		break;
+		default:
+			$FBID = '205806419459572';
+			define('mongoServer', 'mongodb://127.0.0.1');
+		break;
+	}
 
 	include_once('service/mongoControl.php');
 	$md = new mongoDBcontrol('pluggedIn');
@@ -49,7 +57,7 @@
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script>
   FB.init({
-    appId  : '205806419459572',
+    appId  : '<?php echo $FBID; ?>',
     status : true, // check login status
     cookie : true, // enable cookies to allow the server to access the session
     xfbml  : true, // parse XFBML
