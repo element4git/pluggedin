@@ -3,7 +3,7 @@
  ini_set("display_errors", 1);
 
 	switch($_SERVER['SERVER_NAME']){
-		case 'pluggedin.azurewebsites.net':
+		case 'pluggedin.rga.com':
 			$FBID = '439511386129295';
 			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
 			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
