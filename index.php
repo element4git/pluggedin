@@ -6,6 +6,7 @@
 		case 'pluggedin.rga.com':
 			$FBID = '439511386129295';
 			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
+			$soundCloudRedirect = 'http://pluggedin.rga.com/soundcloudAuth/';
 			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
 		break;
 		default:
@@ -94,8 +95,8 @@
 <script>
 // initialize client with app credentials
 SC.initialize({
-  client_id: 'YOUR_CLIENT_ID',
-  redirect_uri: 'REDIRECT_URL'
+  client_id: '<?php echo $soundCloudID; ?>',
+  redirect_uri: '<?php echo $soundCloudRedirect ?>'
 });
 
 // initiate auth popup
