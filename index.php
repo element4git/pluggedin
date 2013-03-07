@@ -5,6 +5,7 @@
 	switch($_SERVER['SERVER_NAME']){
 		case 'pluggedin.azurewebsites.net':
 			$FBID = '439511386129295';
+			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
 			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
 		break;
 		default:
@@ -71,6 +72,22 @@
     oauth  : true // enable OAuth 2.0
   });
 </script>
+<script src="http://connect.soundcloud.com/sdk.js"></script>
+<script>
+// initialize client with app credentials
+SC.initialize({
+  client_id: 'YOUR_CLIENT_ID',
+  redirect_uri: 'REDIRECT_URL'
+});
+
+// initiate auth popup
+SC.connect(function() {
+  SC.get('/me', function(me) { 
+    alert('Hello, ' + me.username); 
+  });
+});
+</script>
+
 <script type="text/javascript" src="code/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="code/jquery-ui-1.10.1.custom.min.js"></script>
 <script type="text/javascript" src="code/global.js"></script>
