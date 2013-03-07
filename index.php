@@ -91,21 +91,7 @@
     oauth  : true // enable OAuth 2.0
   });
 </script>
-<script src="http://connect.soundcloud.com/sdk.js"></script>
-<script>
-// initialize client with app credentials
-SC.initialize({
-  client_id: '<?php echo $soundCloudID; ?>',
-  redirect_uri: '<?php echo $soundCloudRedirect ?>'
-});
 
-// initiate auth popup
-SC.connect(function() {
-  SC.get('/me', function(me) { 
-    alert('Hello, ' + me.username); 
-  });
-});
-</script>
 
 <script type="text/javascript" src="code/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="code/jquery-ui-1.10.1.custom.min.js"></script>
