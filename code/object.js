@@ -144,6 +144,6 @@ $(function(){
 		   } else {
 			 debug.log('User cancelled login or did not fully authorize.');
 		   }
-		});
+		},{scope:'user_likes'});
 	})
 });
