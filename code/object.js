@@ -94,7 +94,7 @@ var user = function(){
 					});
 					FBLikes = searchUnique;
 				}			
-				if(typeof r.paging.next == 'string')
+				if(r.hasOwnProperty('paging') && typeof r.paging.next == 'string')
 					user.initFB(r.paging.next);
 				else if(!checkSpotify){
 					debug.log(FBLikes)
