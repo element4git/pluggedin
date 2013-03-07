@@ -3,20 +3,20 @@
 		private $db;
 		private $m;
 		public function __construct($dbPass = null){
-			$this->m = new Mongo();
-			$this->db = $this->m->selectDB($dbPass);
+			$this->m =  new MongoClient(mongoServer);
+			
+			$this->collection = $this->m->selectCollection('pluggedin','bandList');
 		}
 		public function find($passCollection, $query = array()){
-			$collection = $this->db->$passCollection;
-			return $collection->find($query);
+			
+			return $this->collection->find($query);
 		}
 		public function findOne($passCollection, $query = array()){
 			$collection = $this->db->$passCollection;
-			return $collection->findOne($query);
+			return $this->collection->findOne($query);
 		}
 		public function insert($passCollection, $passInsertArray){
-			$collection = $this->db->$passCollection;
-			$collection->insert($passInsertArray);		
+			$this->collection->insert($passInsertArray);		
 		}
 		public function remove($passCollection, $passInsertArray){
 			$collection = $this->db->$passCollection;

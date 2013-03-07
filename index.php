@@ -1,4 +1,18 @@
 <?php 
+	error_reporting(E_ALL);
+ ini_set("display_errors", 1);
+
+	switch($_SERVER['SERVER_NAME']){
+		case 'pluggedin.azurewebsites.net':
+			$FBID = '439511386129295';
+			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
+		break;
+		default:
+			$FBID = '205806419459572';
+			define('mongoServer', 'mongodb://127.0.0.1');
+		break;
+	}
+
 	include_once('service/mongoControl.php');
 	$md = new mongoDBcontrol('pluggedIn');
 	$results = $md->find('bandList');
@@ -46,9 +60,12 @@
 	//generate HTML
 	foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
 	
+	$pattern = '/&|\'| /';
 	
 	foreach($gig as $key=>$value){
-		$html = '<div class="gig '.str_replace(' ','_',$gig[$key]['band_name']).'">
+		$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
+		$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
+		$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
 					<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
 				</div>';
 	
@@ -64,7 +81,7 @@
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script>
   FB.init({
-    appId  : '205806419459572',
+    appId  : '<?php echo $FBID; ?>',
     status : true, // check login status
     cookie : true, // enable cookies to allow the server to access the session
     xfbml  : true, // parse XFBML
