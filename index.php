@@ -34,11 +34,29 @@
 <body>
 	<div id="mainContainer" class="print">
 		<div id="mainContent">
-        	<div id="socialConnect">
-            	<div id="facebook"> f </div>
+        	<div id="logo">
+            	<img class="logoLarge" src="/images/logos/pluggedin_logo.png">
             </div>
-			Search a band <input id="bandSearch" />
-            <div id="sxswMusic">
+        	<div id="socialConnect" class="row">
+            	<div id="socialbtn1" class="socialBtn btnBg1">
+                	<div class="socialIcn ico-facebook"></div>
+                </div>
+                <div id="socialbtn2" class="socialBtn btnBg2">
+                	<div class="socialIcn ico-soundcloud"></div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+			<div id="searchbar">
+            	Search a band <input id="bandSearch" />
+            </div>
+            <div id="masterList">
 <?php 
 	//generate HTML
 	foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
@@ -92,12 +110,9 @@ SC.connect(function() {
 <script type="text/javascript" src="code/jquery-ui-1.10.1.custom.min.js"></script>
 <script type="text/javascript" src="code/global.js"></script>
 <script type="text/javascript" src="code/object.js"></script>
+
 <script type="text/javascript">
-
-
-var sxswMusic = <?php echo json_encode($results); ?>;
-sxswObject.init();
-
+	var sxswMusic = <?php echo json_encode($results); ?>;
+	sxswObject.init();
 </script>
-
 </html>

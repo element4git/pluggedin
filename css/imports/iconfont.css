@@ -1,0 +1,51 @@
+@font-face {
+	font-family: 'PluggedIn';
+	src:url('../../fonts/PluggedIn.eot');
+	src:url('../../fonts/PluggedIn.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/PluggedIn.woff') format('woff'),
+		url('../../fonts/PluggedIn.ttf') format('truetype'),
+		url('../../fonts/PluggedIn.svg#PluggedIn') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="ico-"]:before {
+*/
+.ico-facebook:before, .ico-twitter:before, .ico-search:before, .ico-rga_logo:before, .ico-checkmark-circle:before, .ico-calendar:before, .ico-plus-alt:before, .ico-soundcloud:before {
+	font-family: 'PluggedIn';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.ico-facebook:before {
+	content: "\66";
+}
+.ico-twitter:before {
+	content: "\74";
+}
+.ico-search:before {
+	content: "\73";
+}
+.ico-rga_logo:before {
+	content: "\72";
+}
+.ico-checkmark-circle:before {
+	content: "\76";
+}
+.ico-calendar:before {
+	content: "\63";
+}
+.ico-plus-alt:before {
+	content: "\2b";
+}
+.ico-soundcloud:before {
+	content: "\21";
+}

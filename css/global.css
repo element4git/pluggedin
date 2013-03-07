@@ -1,13 +1,44 @@
-@import url("reset.css");
+@import url("imports/reset.css");
+@import url("imports/iconfont.css");
+#mainContainer {
+  width: 100%;
+  height: 100%;
+  background: url("/images/pluggedin_bg.gif");
+  background-position: center;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  max-width: 35em;
+  min-width: 20em;
+  color: #ffffff; }
 
-#facebook{
-	width:20px;
-	height:20px;
-	background:blue;
-	color:#fff;
-	padding:10px;
-	text-align:center;
-	cursor:pointer;
-}
+.logoLarge {
+  width: 100%;
+  max-width: 30em;
+  heigh: auto; }
 
-#sxswMusic div.gig{display:none;}
+.row {
+  width: 100%;
+  height: auto;
+  background: #FF0000; }
+
+.socialBtn {
+  width: 6em;
+  height: 6em;
+  background: blue;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  float: left;
+  text-align: center; }
+
+.socialIcn {
+  width: 100%;
+  height: 100%;
+  font-size: 5em; }
+
+.btnBg1 {
+  background: url("/images/buttons/social_btn_bg1.jpg"); }
+
+.btnBg2 {
+  background: url("/images/buttons/social_btn_bg2.jpg"); }
