@@ -23,7 +23,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> TITLE </title>
+<title> Plugged In - R/GA </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
 <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
 <!--[if lt IE 7]>
@@ -34,45 +34,57 @@
 	<div id="mainContainer" class="print">
 		<div id="mainContent">
         	<div id="logo">
-            	<img class="logoLarge" src="/images/logos/pluggedin_logo.png">
+            	<img src="/images/logos/pluggedin_logo.png">
+                <img class="displayNone" src="/images/logos/pluggedin_logo_small.png">
             </div>
-        	<div id="socialConnect" class="row">
-            	<div id="socialbtn1" class="socialBtn btnBg1">
-                	<div class="socialIcn ico-facebook"></div>
-                </div>
-                <div id="socialbtn2" class="socialBtn btnBg2">
-                	<div class="socialIcn ico-soundcloud"></div>
-                </div>
-            </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-			<div id="searchbar">
-            	Search a band <input id="bandSearch" />
-            </div>
+            <div id="nav" class="row">
+            	<br/>
+            	<span>Connect to locate bands you like<br/>playing nearby.</span>
+            	<br/><br/>
+	        	<div id="social-buttons">
+	            	<div id="socialbtn1" class="btn bg1">
+	                	<div class="icn ico-facebook"></div>
+	                </div>
+	                <div id="socialbtn2" class="btn bg2">
+	                	<div class="icn ico-soundcloud"></div>
+	                </div>
+	            </div>
+	            <br/>
+	            <div id="text-devider">
+	            	<h2 class="devide"> OR  </h2>
+		        </div>
+		        <br/>
+	            <div id="searchbar">
+	            	Search a band <input id="bandSearch" />
+	            	<div id="searchbtn" class="btn">
+	                	<div class="icn ico-search"></div>
+	                </div>
+	            </div>
+	        </div>
             <div id="masterList">
-<?php 
-	//generate HTML
-	foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
-	
-	$pattern = '/&|\'| /';
-	
-	foreach($gig as $key=>$value){
-		$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
-		$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
-		$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
-					<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
-				</div>';
-	
-	echo $html;
-	}
-?>
+			<?php 
+				//generate HTML
+				foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
+				
+				$pattern = '/&|\'| /';
+				
+				foreach($gig as $key=>$value){
+					$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
+					$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
+					$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
+								<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
+							</div>';
+				
+				echo $html;
+				}
+			?>
             </div>
+		</div>
+		<div id="footer" class="row">
+			<a href="http://www.rga.com/careers">
+				<div class="lbl">PRESENTED BY</div>
+				<div class="icn ico-rga-logo"></div>
+			</a>
 		</div>
 	</div>
 

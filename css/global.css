@@ -1,44 +1,146 @@
 @import url("imports/reset.css");
 @import url("imports/iconfont.css");
+/* Imports */
+/* Imported Mixins */
+/* Test: Rounded corner mixin partial */
+/* Variables */
+/* Mixins */
+/* Utilities */
+/* line 20, global.scss */
+.displayNone {
+  display: none;
+}
+
+/* DOM Styles */
+/* line 25, global.scss */
 #mainContainer {
   width: 100%;
-  height: 100%;
-  background: url("/images/pluggedin_bg.gif");
+  display: block;
+  text-align: center;
+  background-image: url("/images/pluggedin_bg.gif");
   background-position: center;
-  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-  max-width: 35em;
-  min-width: 20em;
-  color: #ffffff; }
-
-.logoLarge {
-  width: 100%;
-  max-width: 30em;
-  heigh: auto; }
-
-.row {
+}
+/* line 34, global.scss */
+#mainContainer h2 {
+  display: block;
+  font-size: 1em;
+  box-sizing: border-box;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+/* line 45, global.scss */
+#mainContainer h2 .devide:before {
+  content: "";
+  position: absolute;
+  border-top: 2px solid #00ff00;
+  width: 24%;
+  left: 0;
+}
+/* line 53, global.scss */
+#mainContainer h2 .devide:after {
+  content: "";
+  position: absolute;
+  border-top: 2px solid #00ff00;
+  width: 24%;
+  right: 0;
+}
+/* line 63, global.scss */
+#mainContainer .row {
   width: 100%;
   height: auto;
-  background: #FF0000; }
+  display: block;
+}
 
-.socialBtn {
-  width: 6em;
-  height: 6em;
-  background: blue;
-  color: #fff;
-  padding: 10px;
+/* line 70, global.scss */
+#mainContent {
+  width: 90%;
+  height: 100%;
+  display: inline-block;
+  color: white;
+  /*color: #cccccc;*/
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+@media screen and (max-width: 20em) {
+  /* line 70, global.scss */
+  #mainContent {
+    width: 18em;
+    color: #ff0000;
+  }
+}
+@media screen and (min-width: 45em) {
+  /* line 70, global.scss */
+  #mainContent {
+    width: 40.5em;
+    color: #00ff00;
+  }
+}
+
+/* line 95, global.scss */
+#logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 105, global.scss */
+#social-buttons {
+  width: 100%;
+  height: 7.8em;
+  /*background: red;*/
+  display: block;
+}
+/* line 110, global.scss */
+#social-buttons .btn {
+  width: 7.8em;
+  height: auto;
   text-align: center;
   cursor: pointer;
-  display: block;
-  float: left;
-  text-align: center; }
-
-.socialIcn {
+  display: inline-block;
+  padding-right: 2em;
+}
+/* line 117, global.scss */
+#social-buttons .btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+}
+/* line 123, global.scss */
+#social-buttons .icn {
   width: 100%;
   height: 100%;
-  font-size: 5em; }
+  font-size: 5em;
+}
+/* line 128, global.scss */
+#social-buttons .bg1 {
+  background-image: url("/images/buttons/social_btn_bg1.jpg");
+  background-repeat: no-repeat;
+  background-padding-right: 2em;
+}
+/* line 136, global.scss */
+#social-buttons .bg2 {
+  background-image: url("/images/buttons/social_btn_bg2.jpg");
+  background-repeat: no-repeat;
+  background-margin-left: 10px;
+}
 
-.btnBg1 {
-  background: url("/images/buttons/social_btn_bg1.jpg"); }
+/* line 145, global.scss */
+#footer {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 149, global.scss */
+#footer .lbl {
+  color: white;
+  font-size: 0.8em;
+}
+/* line 156, global.scss */
+#footer .icn {
+  color: white;
+  font-size: 3em;
+}
 
-.btnBg2 {
-  background: url("/images/buttons/social_btn_bg2.jpg"); }
+/* line 164, global.scss */
+#masterList {
+  display: none;
+}
