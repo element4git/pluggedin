@@ -8,9 +8,11 @@
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
     $response = curl_exec ($ch); 
     curl_close ($ch); 
-    $bandlist = json_decode($response);
 	
-	//print_r($bandlist);
+    //$bandlist = json_decode($response);
+	$bandlist = json_decode($_REQUEST['bandlist']);
+	
+	//print_r($bandlist); return false;
 	
 	$md = new mongoDBcontrol('pluggedin');
 	

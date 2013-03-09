@@ -53,10 +53,26 @@ var sortList = function(){
 var user = function(){
 	var initialized = false,
 		FBLikes = [],
+		SDsongs = [],
 		optionsSelected = {},
 		selectedObject,
 		checkSpotify = false;
 	return {
+		initSC : function(paging){
+			var url = (paging) ? paging : '/me/followings';
+			SC.get(url, function(r) { 
+				if(r.length > 0){
+					for(var i=0; i < r.length; i++){
+						SDsongs.push(r[i].username)
+					}
+				}
+				if(r.hasOwnProperty('next_href')){
+					user.initSC(r.next_href);
+				}
+				debug.log(SDsongs);
+			});
+			
+		},
 		initFB : function(paging){
 			
 			//Start Loading Grapic
@@ -134,7 +150,7 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('#facebook').bind('click',function(){
+	$('.ico-facebook').bind('click',function(){
 		var $this = $(this);
 		FB.login(function(response) {
 		   if (response.authResponse) {
@@ -145,5 +161,10 @@ $(function(){
 			 debug.log('User cancelled login or did not fully authorize.');
 		   }
 		},{scope:'user_likes,user_actions.music'});
+	});
+	$('.ico-soundcloud').bind('click',function(){
+		SC.connect(function() {
+		  user.initSC();
+		});
 	})
 });

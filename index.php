@@ -10,7 +10,9 @@
 			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
 		break;
 		default:
-			$FBID = '205806419459572';
+			$FBID = '456738747726141';
+			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
+			$soundCloudRedirect = 'http://pluggedin.com/soundcloudAuth';
 			define('mongoServer', 'mongodb://127.0.0.1');
 		break;
 	}
@@ -92,6 +94,17 @@
   });
 </script>
 
+<script src="http://connect.soundcloud.com/sdk.js"></script>
+<script>
+// initialize client with app credentials
+SC.initialize({
+  client_id: '<?php echo $soundCloudID; ?>',
+  redirect_uri: '<?php echo $soundCloudRedirect ?>'
+});
+
+// initiate auth popup
+
+</script>
 
 <script type="text/javascript" src="code/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="code/jquery-ui-1.10.1.custom.min.js"></script>
