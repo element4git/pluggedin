@@ -1,146 +1,323 @@
-@import url("imports/reset.css");
 @import url("imports/iconfont.css");
-/* Imports */
-/* Imported Mixins */
+/* 	PLUGGED IN - STYLES
+ *	Author: EF
+ * 	Created: 03/2013
+ */
+/* Imports 
+---------------------------------------------------------*/
 /* Test: Rounded corner mixin partial */
-/* Variables */
-/* Mixins */
-/* Utilities */
+/* Variables 
+---------------------------------------------------------*/
+/* Default 
+---------------------------------------------------------*/
 /* line 20, global.scss */
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+/* Fluid Grid 
+---------------------------------------------------------*/
+/* line 28, global.scss */
+.grid-container {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10px;
+  float: left;
+  /*outline: rgba(black, $alpha) dotted thin;*/
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 36, global.scss */
+.grid-container div {
+  height: auto;
+  /*outline: rgba(black, $alpha) dotted thin;*/
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* line 53, global.scss */
+.grid-1,
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-5,
+.grid-6,
+.grid-7,
+.grid-8,
+.grid-9,
+.grid-10,
+.grid-11,
+.grid-12 {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+/* line 61, global.scss */
+.grid-container .grid-1 {
+  width: 6.333%;
+}
+
+/* line 65, global.scss */
+.grid-container .grid-2 {
+  width: 14.667%;
+}
+
+/* line 69, global.scss */
+.grid-container .grid-3 {
+  width: 23.0%;
+}
+
+/* line 73, global.scss */
+.grid-container .grid-4 {
+  width: 31.333%;
+}
+
+/* line 77, global.scss */
+.grid-container .grid-5 {
+  width: 39.667%;
+}
+
+/* line 81, global.scss */
+.grid-container .grid-6 {
+  width: 48.0%;
+}
+
+/* line 85, global.scss */
+.grid-container .grid-7 {
+  width: 56.333%;
+}
+
+/* line 89, global.scss */
+.grid-container .grid-8 {
+  width: 64.667%;
+}
+
+/* line 93, global.scss */
+.grid-container .grid-9 {
+  width: 73.0%;
+}
+
+/* line 97, global.scss */
+.grid-container .grid-10 {
+  width: 81.333%;
+}
+
+/* line 101, global.scss */
+.grid-container .grid-11 {
+  width: 89.667%;
+}
+
+/* line 105, global.scss */
+.grid-container .grid-12 {
+  width: 98.0%;
+}
+
+/* Utilities 
+---------------------------------------------------------*/
+/* line 111, global.scss */
+.full-width {
+  width: 100%;
+}
+
+/* line 115, global.scss */
 .displayNone {
   display: none;
 }
 
-/* DOM Styles */
-/* line 25, global.scss */
+/* Custom 
+---------------------------------------------------------*/
+/* line 121, global.scss */
 #mainContainer {
-  width: 100%;
   display: block;
+  min-height: 100%;
+  /*height: 100% /* for IE only */
+  position: relative;
   text-align: center;
+  color: white;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   background-image: url("/images/pluggedin_bg.gif");
   background-position: center;
 }
-/* line 34, global.scss */
-#mainContainer h2 {
-  display: block;
-  font-size: 1em;
-  box-sizing: border-box;
-  -webkit-margin-before: 0.83em;
-  -webkit-margin-after: 0.83em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-}
-/* line 45, global.scss */
-#mainContainer h2 .devide:before {
-  content: "";
-  position: absolute;
-  border-top: 2px solid #00ff00;
-  width: 24%;
-  left: 0;
-}
-/* line 53, global.scss */
-#mainContainer h2 .devide:after {
-  content: "";
-  position: absolute;
-  border-top: 2px solid #00ff00;
-  width: 24%;
-  right: 0;
-}
-/* line 63, global.scss */
-#mainContainer .row {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 
-/* line 70, global.scss */
+/* line 137, global.scss */
 #mainContent {
-  width: 90%;
-  height: 100%;
   display: inline-block;
-  color: white;
-  /*color: #cccccc;*/
-  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-}
-@media screen and (max-width: 20em) {
-  /* line 70, global.scss */
-  #mainContent {
-    width: 18em;
-    color: #ff0000;
-  }
-}
-@media screen and (min-width: 45em) {
-  /* line 70, global.scss */
-  #mainContent {
-    width: 40.5em;
-    color: #00ff00;
-  }
+  padding-bottom: 35px;
+  /*outline: rgba(black, $alpha) dotted thin;*/
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* line 95, global.scss */
-#logo img {
-  width: 100%;
-  height: auto;
-}
-
-/* line 105, global.scss */
-#social-buttons {
-  width: 100%;
-  height: 7.8em;
-  /*background: red;*/
-  display: block;
-}
-/* line 110, global.scss */
-#social-buttons .btn {
-  width: 7.8em;
-  height: auto;
-  text-align: center;
-  cursor: pointer;
-  display: inline-block;
-  padding-right: 2em;
-}
-/* line 117, global.scss */
-#social-buttons .btn:hover {
-  color: rgba(255, 255, 255, 0.8);
-  border-bottom-right-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  -webkit-border-bottom-right-radius: 20px;
-}
-/* line 123, global.scss */
-#social-buttons .icn {
-  width: 100%;
-  height: 100%;
-  font-size: 5em;
-}
-/* line 128, global.scss */
-#social-buttons .bg1 {
-  background-image: url("/images/buttons/social_btn_bg1.jpg");
-  background-repeat: no-repeat;
-  background-padding-right: 2em;
-}
-/* line 136, global.scss */
-#social-buttons .bg2 {
-  background-image: url("/images/buttons/social_btn_bg2.jpg");
-  background-repeat: no-repeat;
-  background-margin-left: 10px;
-}
-
-/* line 145, global.scss */
+/* line 143, global.scss */
 #footer {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-/* line 149, global.scss */
-#footer .lbl {
-  color: white;
-  font-size: 0.8em;
-}
-/* line 156, global.scss */
-#footer .icn {
-  color: white;
-  font-size: 3em;
+  position: absolute;
+  bottom: 0;
+  height: 35px;
 }
 
-/* line 164, global.scss */
-#masterList {
-  display: none;
+/* Imports */
+/*@import url("imports/reset.css");
+@import url("imports/iconfont.css");
+*/
+/* Imported Mixins */
+/*@import "rounded";*/
+/* Variables */
+/*$break-small: 20em;
+$break-large: 45em;
+$full: 100%;
+$content-padding:5%;
+$default-text-color: #ffffff;
+$default-text-size: 5em;
+$social-btn-size: 7.8em;
+*/
+/* Mixins */
+/* Utilities */
+/*.displayNone {
+	display:none;	
+}*/
+/* DOM Styles */
+/*
+#mainContainer {
+	width: $full;
+	display: block;
+	text-align: center;
+	background: {
+		image: url("/images/pluggedin_bg.gif");
+		position: center;
+	}
+
+	h2 {
+		display: block;
+		font-size: 1em;
+		box-sizing: border-box;
+		-webkit-margin-before: 0.83em;
+		-webkit-margin-after: 0.83em;
+		-webkit-margin-start: 0px;
+		-webkit-margin-end: 0px;
+
+		.devide {
+
+			&:before {
+				content: "";
+				position: absolute;
+				border-top: 2px solid #00ff00;
+				width: 24%;
+				left:0;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				border-top: 2px solid #00ff00;
+				width: 24%;
+				right: 0;
+			}
+		}
+	}
+
+	.row {
+		width: $full;
+		height:auto;
+		display:block;
+	}
 }
+
+#mainContent {
+	width: $full - $content-padding*2;
+	height: $full;
+	display: inline-block;
+	color: $default-text-color;
+	background: {
+	}
+	font: {
+		family:	Helvetica, "Helvetica Neue", Arial, sans-serif;
+	}
+
+	@media screen and (max-width: $break-small) {
+		width: $break-small *0.9;
+	    color: #ff0000;
+	}
+
+	@media screen and (min-width: $break-large) {
+		width: $break-large *0.9;
+	    color: #00ff00;
+	}
+}
+
+#logo {
+	
+	img {
+		width: $full;
+		height: auto;
+	}
+}
+
+#nav {
+	
+}
+
+#social-buttons {
+	width: $full;
+	height: $social-btn-size;
+	display: block;
+	.btn {
+		width: $social-btn-size;
+		height: auto;
+		text-align: center;
+		cursor: pointer;
+		display: inline-block;
+		
+		&:hover {
+			color:fade-out($default-text-color, 0.2);
+			@include rounded(bottom, right, 20px);
+		}
+		padding: { right: 2em; }
+	}
+	.icn {
+		width: $full;
+		height: $full;
+		font-size: $default-text-size;
+	}
+	.bg1 {
+		background: {
+			image: url("/images/buttons/social_btn_bg1.jpg");
+			repeat: no-repeat;
+			padding-right: 2em;
+		}
+	}
+	
+	.bg2 {
+		background: {
+			image: url("/images/buttons/social_btn_bg2.jpg");
+			repeat: no-repeat;
+			margin-left: 10px;
+		}
+	}
+}
+
+#footer {
+	background: {
+		color: rgba(black, 0.5);
+	}
+	.lbl {
+		color: $default-text-color;
+		font: {
+			size: 0.8em;
+		}
+	}
+
+	.icn {
+		color: $default-text-color;
+		font: {
+			size: 3em;
+		}
+	}
+}
+
+#masterList {
+	display:none;
+}
+*/

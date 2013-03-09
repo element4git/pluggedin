@@ -1,6 +1,7 @@
-<?php 
+<!--<?php 
+	/*
 	error_reporting(E_ALL);
- ini_set("display_errors", 1);
+	ini_set("display_errors", 1);
 
 	switch($_SERVER['SERVER_NAME']){
 		case 'pluggedin.azurewebsites.net':
@@ -17,7 +18,8 @@
 	$md = new mongoDBcontrol('pluggedIn');
 	$results = $md->find('bandList');
 		$results = iterator_to_array($results);
-?>
+	*/
+?>-->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,64 +33,73 @@
 <![endif]-->
 </head>
 <body>
-	<div id="mainContainer" class="print">
-		<div id="mainContent">
-        	<div id="logo">
-            	<img src="/images/logos/pluggedin_logo.png">
-                <img class="displayNone" src="/images/logos/pluggedin_logo_small.png">
+	<div id="mainContainer" class="full-width">
+        <div id="mainContent" class="full-width">
+            <div id="logo" class="grid-container">
+                <div class="grid-12">Logo</div>
             </div>
-            <div id="nav" class="row">
-            	<br/>
-            	<span>Connect to locate bands you like<br/>playing nearby.</span>
-            	<br/><br/>
-	        	<div id="social-buttons">
-	            	<div id="socialbtn1" class="btn bg1">
-	                	<div class="icn ico-facebook"></div>
-	                </div>
-	                <div id="socialbtn2" class="btn bg2">
-	                	<div class="icn ico-soundcloud"></div>
-	                </div>
-	            </div>
-	            <br/>
-	            <div id="text-devider">
-	            	<h2 class="devide"> OR  </h2>
-		        </div>
-		        <br/>
-	            <div id="searchbar">
-	            	Search a band <input id="bandSearch" />
-	            	<div id="searchbtn" class="btn">
-	                	<div class="icn ico-search"></div>
-	                </div>
-	            </div>
-	        </div>
-            <div id="masterList">
-			<?php 
-				//generate HTML
-				foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
-				
-				$pattern = '/&|\'| /';
-				
-				foreach($gig as $key=>$value){
-					$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
-					$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
-					$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
-								<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
-							</div>';
-				
-				echo $html;
-				}
-			?>
+            <div id="filters" class="full-width">
+                <div id="socialDesc" class="grid-container">
+                    <div class="grid-12">Text goes here</div>
+                </div>
+                <div id="socialBtns" class="grid-container">
+                    <div class="grid-6">Button 1</div>
+                    <div class="grid-6">Button 2</div>
+                </div>
+                <div id="deviderTxt" class="grid-container">
+                    <div class="grid-12">--- OR ---</div>
+                </div>
+                <div id="search" class="grid-container">
+                    <div class="grid-12">Search</div>
+                </div>
             </div>
-		</div>
-		<div id="footer" class="row">
-			<a href="http://www.rga.com/careers">
-				<div class="lbl">PRESENTED BY</div>
-				<div class="icn ico-rga-logo"></div>
-			</a>
-		</div>
+            <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
+                <div class="grid-container">
+                    <div class="grid-12">Today</div>
+                    <div class="full-width">
+                        <div class="grid-3">7:30pm</div>
+                        <div class="grid-7">The Greatest Band in the World</div>
+                        <div class="grid-2">+Cal</div>
+                    </div>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-12">Tomorrow</div>
+                    <div class="full-width">
+                        <div class="grid-3">8:00pm</div>
+                        <div class="grid-7">The 2nd Greatest Band in the World</div>
+                        <div class="grid-2">+Cal</div>
+                    </div>
+                    <div class="full-width">
+                        <div class="grid-3">8:30pm</div>
+                        <div class="grid-7">The 3rdGreatest Band in the World</div>
+                        <div class="grid-2">+Cal</div>
+                    </div>
+                </div>
+                <div class="displayNone">
+                <?php 
+					//generate HTML
+					foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
+					
+					$pattern = '/&|\'| /';
+					
+					foreach($gig as $key=>$value){
+						$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
+						$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
+						$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
+									<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
+								</div>';
+					
+					echo $html;
+					}
+				?>
+				</div>
+            </div>
+        </div>
+        <div id="footer" class="full-width">
+            Footer
+        </div>
 	</div>
-
-<div id="fb-root"></div>
+	<div id="fb-root"></div>
 </body>
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script>
