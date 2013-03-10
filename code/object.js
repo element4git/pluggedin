@@ -21,6 +21,17 @@ var sxswObject = function(){
 		},
 		searchAutoComplete : function(){
 			return searchAutoComplete;
+		},
+		searchValue : function(searchSet){
+			var searchUnique = [];
+			
+			$.each(searchAutoComplete, function(i, el){
+				if(searchAutoComplete[i].search(searchSet) != -1){
+					searchUnique.push(searchAutoComplete[i])
+				}
+			});
+			
+			sortList.checkResults(searchUnique);
 		}
 		
 	}
@@ -166,5 +177,11 @@ $(function(){
 		SC.connect(function() {
 		  user.initSC();
 		});
-	})
+	});
+	$('#bandSearch').bind('keyup',function(ev){
+		debug.log(this.value.length);
+		if(this.value.length > 2){
+			sxswObject.searchValue(this.value);
+		}
+	});
 });

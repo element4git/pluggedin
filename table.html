@@ -74297,20 +74297,26 @@
   <script>
   	var rows = $('table tr'),
 		gigDate = '',
-		gigs = [];
+		gigs = [],
+		days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	
 	for(var i=0; i < rows.length; i++){
 		var time = $(rows[i]).find('.time');
 		if(typeof time[0] == 'undefined')
 			gigDate =  $(rows[i]).find('h2').attr('id');
 		else{
-			var gigInfo = {};
+			var date = new Date(gigDate),
+				gigInfo = {};
 			gigInfo.id = $(rows[i]).find('a').attr('id');
 			gigInfo.date = gigDate;
 			gigInfo.band_name = $(rows[i]).find('a').html().split(' <span')[0];
 			gigInfo.venue_name = $(rows[i]).find('.vs').html();
 			gigInfo.start_time =  time.html().replace(/&nbsp;| |<span>|<\/span>|\n/g,'').split('-')[0];
 			gigInfo.end_time =  time.html().replace(/&nbsp;| |<span>|<\/span>|\n/g,'').split('-')[1];
+			gigInfo.day = days[date.getDay()];
+			
+			
+			
 			
 			gigs.push(gigInfo);
 		}
