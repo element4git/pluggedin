@@ -1,8 +1,11 @@
 <?php 
-	error_reporting(E_ALL);
- ini_set("display_errors", 1);
-
-	switch($_SERVER['SERVER_NAME']){
+	//error_reporting(E_ALL);
+ 	//ini_set("display_errors", 1);
+	$server = explode('www.',$_SERVER['SERVER_NAME']);
+	
+	$server = (isset($server[1])) ?  $server[1] : $server;
+	
+	switch($server){
 		case 'pluggedin.rga.com':
 			$FBID = '439511386129295';
 			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
@@ -60,11 +63,10 @@
             	Search a band <input id="bandSearch" />
             </div>
             <div id="masterList">
-<?php 
-	//generate HTML
-	foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
+<?php //generate HTML
+	/*foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
 	
-	$pattern = '/&|\'| /';
+	$pattern = '/&|\'|\$|\(|\)|\||;|,|\!|\/|\\\|\:| /';
 	
 	foreach($gig as $key=>$value){
 		$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
@@ -74,8 +76,7 @@
 				</div>';
 	
 	echo $html;
-	}
-?>
+	}*/?>
             </div>
 		</div>
 	</div>

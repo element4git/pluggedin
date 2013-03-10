@@ -1,6 +1,7 @@
 var sxswObject = function(){
 	var gigs,
-		searchAutoComplete = [];
+		searchAutoComplete = [],
+		gigHTML = $('<div id="gightml" />');
 	return{
 		init:function(){
 			for(var n in sxswMusic)
@@ -9,6 +10,7 @@ var sxswObject = function(){
 			for(var i=0; i < gigs.length; i++){
 				searchAutoComplete.push(gigs[i].band_name);
 				searchAutoComplete.push(gigs[i].venue_name);
+				this.generateGigHTML(gigs[i]);
 			
 			}
 			searchAutoComplete = searchAutoComplete.sort();
@@ -18,15 +20,27 @@ var sxswObject = function(){
 				if($.inArray(el, searchUnique) === -1) searchUnique.push(el);
 			});
 			searchAutoComplete = searchUnique;
+			debug.log(gigHTML);
+		},
+		generateGigHTML : function(gig){
+			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g;
+			var cleanBandName = gig.band_name.replace(pattern,'');
+			var cleanVenueName = gig.venue_name.replace(pattern,'');
+			var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
+			gigHTML.append(html);
 		},
 		searchAutoComplete : function(){
 			return searchAutoComplete;
 		},
+		gigHTML : function(){
+			return gigHTML;
+		},
 		searchValue : function(searchSet){
 			var searchUnique = [];
-			
+			debug.log(searchSet);
 			$.each(searchAutoComplete, function(i, el){
-				if(searchAutoComplete[i].search(searchSet) != -1){
+				var string = searchAutoComplete[i].toUpperCase();
+				if(string.search(searchSet.toUpperCase()) != -1){
 					searchUnique.push(searchAutoComplete[i])
 				}
 			});
@@ -44,19 +58,25 @@ var sortList = function(){
 			var results = []
 			
 			for(var i=0; i < gigSet.length; i++){
-				
 				if($.inArray(gigSet[i], gigs) != -1){
-					results.push('.'+gigSet[i].replace(/&|\'| /g,''));
+					
+					results.push('.'+gigSet[i].replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,''));
 				}
 			}
 			
+			
+			debug.log(results);
 			this.showGigs(results);
 			
 		},
 		showGigs:function(gigSet){
-			$('#sxswMusic div.gig').removeAttr('style');
+			var gigHTML = sxswObject.gigHTML();
 			
-			$(gigSet.toString()).css('display','block');
+			$('#masterList div.gig').remove();
+			
+			var currentHTML = gigHTML.find(gigSet.toString());
+			
+			$('#masterList').append(gigHTML.find(gigSet.toString()).clone());
 		}
 	}
 }();
@@ -124,7 +144,6 @@ var user = function(){
 				if(r.hasOwnProperty('paging') && typeof r.paging.next == 'string')
 					user.initFB(r.paging.next);
 				else if(!checkSpotify){
-					debug.log(FBLikes)
 					checkSpotify = true;
 					user.initFB();
 					return false;
@@ -132,8 +151,8 @@ var user = function(){
 				else{
 					selectedObject.unbind('click').bind('click',function(){user.toggle('FBLikes')});
 					user.toggle('FBLikes');
-					sortList.checkResults(FBLikes);
 					debug.log(FBLikes);
+					sortList.checkResults(FBLikes);
 					
 					//End Loading Graphic Here
 				}
@@ -179,9 +198,7 @@ $(function(){
 		});
 	});
 	$('#bandSearch').bind('keyup',function(ev){
-		debug.log(this.value.length);
-		if(this.value.length > 2){
+		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
-		}
 	});
 });
