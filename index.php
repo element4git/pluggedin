@@ -3,7 +3,7 @@
  	ini_set("display_errors", 1);
 	$server = explode('www.',$_SERVER['SERVER_NAME']);
 	
-	$server = (isset($server[1])) ?  $server[1] : $server;
+	$server = (isset($server[1])) ?  $server[1] : $server[0];
 	
 	print_r($server); return false;
 	
