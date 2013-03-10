@@ -30,7 +30,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> TITLE </title>
+<title> Plugged In The Live Music Connect </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
 <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
 <!--[if lt IE 7]>
