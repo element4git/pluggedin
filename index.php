@@ -1,5 +1,4 @@
-<!--<?php 
-	/*
+<?php 
 	error_reporting(E_ALL);
  	ini_set("display_errors", 1);
 	$server = explode('www.',$_SERVER['SERVER_NAME']);
@@ -25,8 +24,7 @@
 	$md = new mongoDBcontrol('pluggedIn');
 	$results = $md->find('bandList');
 		$results = iterator_to_array($results);
-	*/
-?>-->
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -104,42 +102,30 @@
                         <div class="grid-2"><span class="ico-calendar"></span></div>
                     </div>
                 </div>
-                <div class="displayNone">
-                <?php 
-					//generate HTML
-					foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
-					
-					$pattern = '/&|\'| /';
-					
-					foreach($gig as $key=>$value){
-						$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
-						$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
-						$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
-									<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
-								</div>';
-					
-					echo $html;
-					}
-				?>
-				</div>
             </div>
-            <div id="masterList">
-<?php //generate HTML
-	/*foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
-	
-	$pattern = '/&|\'|\$|\(|\)|\||;|,|\!|\/|\\\|\:| /';
-	
-	foreach($gig as $key=>$value){
-		$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
-		$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
-		$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
-					<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
-				</div>';
-	
-	echo $html;
-	}*/?>
-            </div>
+            <!--div id="masterList">
+			<?php //generate HTML
+				/*foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
+				
+				$pattern = '/&|\'|\$|\(|\)|\||;|,|\!|\/|\\\|\:| /';
+				
+				foreach($gig as $key=>$value){
+					$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
+					$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
+					$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
+								<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
+							</div>';
+				
+				echo $html;
+				}*/?>
+            </div-->
 		</div>
+		<div id="footer" class="full-width">
+	        <div class="wrapper">
+	           	<div class="label">Presented by&nbsp;&nbsp;</div>
+	            <div class="logo ico-rga-logo"> </div>
+	        </div>
+	    </div>
 	</div>
 	<div id="fb-root"></div>
 </body>
