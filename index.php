@@ -5,6 +5,8 @@
 	
 	$server = (isset($server[1])) ?  $server[1] : $server;
 	
+	print_r($server); return false;
+	
 	switch($server){
 		case 'pluggedin.rga.com':
 			$FBID = '439511386129295';
