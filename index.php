@@ -36,21 +36,43 @@
 	<div id="mainContainer" class="full-width">
         <div id="mainContent" class="full-width">
             <div id="logo" class="grid-container">
-                <div class="grid-12">Logo</div>
+                <div class="logo-lrg grid-12">
+                	<img src="/images/logos/pluggedin_logo.png" />
+                </div>
+                <div class="logo-sml grid-12 displayNone">Logo</div>
             </div>
             <div id="filters" class="full-width">
-                <div id="socialDesc" class="grid-container">
-                    <div class="grid-12">Text goes here</div>
+                <div class="grid-container">
+                    <div class="grid-12">
+                    	<span>Connect to local bands you like<br />playing nearby.</span>
+                    </div>
                 </div>
-                <div id="socialBtns" class="grid-container">
-                    <div class="grid-6">Button 1</div>
-                    <div class="grid-6">Button 2</div>
+                <div class="social-btns grid-container">
+                	<div class="grid-3 pad-1"></div>
+                	<div class="grid-3">
+                		<div class="btn">
+                			<div class="icn ico-facebook"></div>
+                		</div>
+                	</div>
+                	<div class="grid-3">
+                		<div class="btn">
+                			<div class="icn ico-soundcloud"></div>
+                		</div>
+                	</div>
+                	<div class="grid-3 pad-1"></div>
                 </div>
-                <div id="deviderTxt" class="grid-container">
-                    <div class="grid-12">--- OR ---</div>
+                <div class="devider-txt grid-container">
+                    <div class="grid-12">
+                    	<span>
+                    		--- OR ---
+                    	</span>
+                    </div>
                 </div>
-                <div id="search" class="grid-container">
-                    <div class="grid-12">Search</div>
+                <div class="search-bar grid-container">
+                    <div class="grid-12">
+						<input type="text" id="search-form" placeholder="Search bands or local venues" />
+						<input type="button" class="ico-font" value="s"/>
+					</div>
                 </div>
             </div>
             <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
@@ -59,7 +81,7 @@
                     <div class="full-width">
                         <div class="grid-3">7:30pm</div>
                         <div class="grid-7">The Greatest Band in the World</div>
-                        <div class="grid-2">+Cal</div>
+                        <div class="grid-2"><span class="ico-calendar"></span></div>
                     </div>
                 </div>
                 <div class="grid-container">
@@ -67,12 +89,12 @@
                     <div class="full-width">
                         <div class="grid-3">8:00pm</div>
                         <div class="grid-7">The 2nd Greatest Band in the World</div>
-                        <div class="grid-2">+Cal</div>
+                        <div class="grid-2"><span class="ico-calendar"></span></div>
                     </div>
                     <div class="full-width">
                         <div class="grid-3">8:30pm</div>
                         <div class="grid-7">The 3rdGreatest Band in the World</div>
-                        <div class="grid-2">+Cal</div>
+                        <div class="grid-2"><span class="ico-calendar"></span></div>
                     </div>
                 </div>
                 <div class="displayNone">
@@ -96,7 +118,10 @@
             </div>
         </div>
         <div id="footer" class="full-width">
-            Footer
+            <div class="wrapper">
+	           	<div class="label">Presented by&nbsp;&nbsp;</div>
+	            <div class="logo ico-rga-logo"> </div>
+	        </div>
         </div>
 	</div>
 	<div id="fb-root"></div>

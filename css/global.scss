@@ -12,15 +12,18 @@
 /* Variables 
 ---------------------------------------------------------*/
 $hl-color: white;
-$hl-alpha: 0.2;
+$hl-alpha: 0;
 $default-color: white;
+$full: 100%;
+$footer-height: 50px;
+$footer-top: 15px;
 
 /* Default 
 ---------------------------------------------------------*/
 html, body {
       padding: 0;
       margin: 0;
-      height: 100%;
+      height: $full;
 }
 
 /* Fluid Grid 
@@ -106,10 +109,37 @@ html, body {
     width:98.0%;
 }
 
+/* grid height */
+.grid-container .pad-1 {
+    padding-top:3.1665%; 
+    padding-bottom:3.1665%;
+}
+.grid-container .pad-2 {
+    padding-top:7.3335%; 
+    padding-bottom:7.3335%;
+}
+
+.grid-container .pad-3 {
+    padding-top:11.5%; 
+    padding-bottom:11.5%;
+}
+
+.grid-container .pad-4 {
+    padding-top:15.6665%; 
+    padding-bottom:15.6665%;
+}
+
+.grid-container .pad-5 {
+    padding-top:19.833%; 
+    padding-bottom:19.833%;
+}
+
+
+
 /* Utilities 
 ---------------------------------------------------------*/
 .full-width {
-     width: 100%;
+     width: $full;
 }
 
 .displayNone {
@@ -136,184 +166,81 @@ html, body {
 
 #mainContent {
     display: inline-block;
-    padding-bottom: 35px;
-    @include highlight($hl-color, $hl-alpha); 
+    padding-bottom: $footer-height;
+    @include highlight($hl-color, $hl-alpha);
+
+    .logo-lrg {
+		img {
+			width: $full;
+			height: auto;
+		}
+	}
+
+	.social-btns {
+		.btn {
+			background: {
+				image: url("/images/buttons/social_btn_bg1.jpg");
+				repeat: no-repeat;
+				size: $full;
+			}
+			padding: 22% 0 22% 0;
+			cursor: pointer;
+		}
+		.icn {
+			font-size: 3em;
+			pointer-events: none;
+       		cursor: pointer;
+		}
+		
+    }
+
+    .devider-text {
+
+    }
+
+    .search-bar {
+    	input[type=text] {
+    		font-size: 1.15em;
+    		width: 65%;
+    		height: 3.2em;
+    		padding: 0 0.8em 0 0.8em;
+    		border: 0;
+    	}
+    	input[type=button] {
+    		cursor: pointer;
+    		width: 2.5em;
+    		height: 2.5em;
+    		font-size: 1.3em;
+    		border: 0;
+    		color: black;
+    		background: white;
+    	}
+
+    }
+
+    #masterList {
+		div {
+			background: rgba(black, 0.2);
+		}
+	}
 }
 
 #footer {
+	display: block;
     position: absolute;
     bottom: 0;
-    height: 35px;
-}
+    background: rgba(black, 0.8);
+    color: #555;
 
-
-
-
-/* Imports */
-/*@import url("imports/reset.css");
-@import url("imports/iconfont.css");
-*/
-
-/* Imported Mixins */
-/*@import "rounded";*/
-
-/* Variables */
-/*$break-small: 20em;
-$break-large: 45em;
-$full: 100%;
-$content-padding:5%;
-$default-text-color: #ffffff;
-$default-text-size: 5em;
-$social-btn-size: 7.8em;
-*/
-
-/* Mixins */
-
-/* Utilities */
-/*.displayNone {
-	display:none;	
-}*/
-
-/* DOM Styles */
-/*
-#mainContainer {
-	width: $full;
-	display: block;
-	text-align: center;
-	background: {
-		image: url("/images/pluggedin_bg.gif");
-		position: center;
-	}
-
-	h2 {
-		display: block;
-		font-size: 1em;
-		box-sizing: border-box;
-		-webkit-margin-before: 0.83em;
-		-webkit-margin-after: 0.83em;
-		-webkit-margin-start: 0px;
-		-webkit-margin-end: 0px;
-
-		.devide {
-
-			&:before {
-				content: "";
-				position: absolute;
-				border-top: 2px solid #00ff00;
-				width: 24%;
-				left:0;
-			}
-
-			&:after {
-				content: "";
-				position: absolute;
-				border-top: 2px solid #00ff00;
-				width: 24%;
-				right: 0;
-			}
-		}
-	}
-
-	.row {
-		width: $full;
-		height:auto;
-		display:block;
+    .wrapper {
+    	display: inline-block;
+    	.label {
+    		padding-top: 15px;
+	    	float: left;
+	    }
+		.logo {
+			float: left;
+			font-size: 3.2em;
+	    }
 	}
 }
-
-#mainContent {
-	width: $full - $content-padding*2;
-	height: $full;
-	display: inline-block;
-	color: $default-text-color;
-	background: {
-	}
-	font: {
-		family:	Helvetica, "Helvetica Neue", Arial, sans-serif;
-	}
-
-	@media screen and (max-width: $break-small) {
-		width: $break-small *0.9;
-	    color: #ff0000;
-	}
-
-	@media screen and (min-width: $break-large) {
-		width: $break-large *0.9;
-	    color: #00ff00;
-	}
-}
-
-#logo {
-	
-	img {
-		width: $full;
-		height: auto;
-	}
-}
-
-#nav {
-	
-}
-
-#social-buttons {
-	width: $full;
-	height: $social-btn-size;
-	display: block;
-	.btn {
-		width: $social-btn-size;
-		height: auto;
-		text-align: center;
-		cursor: pointer;
-		display: inline-block;
-		
-		&:hover {
-			color:fade-out($default-text-color, 0.2);
-			@include rounded(bottom, right, 20px);
-		}
-		padding: { right: 2em; }
-	}
-	.icn {
-		width: $full;
-		height: $full;
-		font-size: $default-text-size;
-	}
-	.bg1 {
-		background: {
-			image: url("/images/buttons/social_btn_bg1.jpg");
-			repeat: no-repeat;
-			padding-right: 2em;
-		}
-	}
-	
-	.bg2 {
-		background: {
-			image: url("/images/buttons/social_btn_bg2.jpg");
-			repeat: no-repeat;
-			margin-left: 10px;
-		}
-	}
-}
-
-#footer {
-	background: {
-		color: rgba(black, 0.5);
-	}
-	.lbl {
-		color: $default-text-color;
-		font: {
-			size: 0.8em;
-		}
-	}
-
-	.icn {
-		color: $default-text-color;
-		font: {
-			size: 3em;
-		}
-	}
-}
-
-#masterList {
-	display:none;
-}
-*/

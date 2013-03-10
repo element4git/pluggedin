@@ -15,7 +15,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="ico-"]:before {
 */
-.ico-facebook:before, .ico-twitter:before, .ico-search:before, .ico-rga-logo:before, .ico-checkmark-circle:before, .ico-calendar:before, .ico-plus-alt:before, .ico-soundcloud:before {
+.ico-font, .ico-facebook:before, .ico-twitter:before, .ico-search:before, .ico-rga-logo:before, .ico-checkmark-circle:before, .ico-calendar:before, .ico-plus-alt:before, .ico-soundcloud:before {
 	font-family: 'PluggedIn';
 	speak: none;
 	font-style: normal;
