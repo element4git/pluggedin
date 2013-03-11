@@ -26,7 +26,8 @@ var sxswObject = function(){
 			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g;
 			var cleanBandName = gig.band_name.replace(pattern,'');
 			var cleanVenueName = gig.venue_name.replace(pattern,'');
-			var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
+			var html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div class="grid-3">'+gig.start_time+'</div><div class="grid-7">'+gig.band_name+'</div><div class="grid-2"><span class="ico-calendar"></span></div></div>'
+			//var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
 			gigHTML.append(html);
 		},
 		searchAutoComplete : function(){
@@ -76,7 +77,7 @@ var sortList = function(){
 			
 			var currentHTML = gigHTML.find(gigSet.toString());
 			
-			$('#masterList').append(gigHTML.find(gigSet.toString()).clone());
+			$('#masterList .grid-container').append(gigHTML.find(gigSet.toString()).clone());
 		}
 	}
 }();
@@ -100,7 +101,7 @@ var user = function(){
 				if(r.hasOwnProperty('next_href')){
 					user.initSC(r.next_href);
 				}
-				debug.log(SDsongs);
+				sortList.checkResults(SDsongs);
 			});
 			
 		},
@@ -180,7 +181,7 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('.ico-facebook').bind('click',function(){
+	$('.btn.facebook').bind('click',function(){
 		var $this = $(this);
 		FB.login(function(response) {
 		   if (response.authResponse) {
@@ -192,12 +193,12 @@ $(function(){
 		   }
 		},{scope:'user_likes,user_actions.music'});
 	});
-	$('.ico-soundcloud').bind('click',function(){
+	$('.btn.soundcloud').bind('click',function(){
 		SC.connect(function() {
 		  user.initSC();
 		});
 	});
-	$('#bandSearch').bind('keyup',function(ev){
+	$('#search-form').bind('keyup',function(ev){
 		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
 	});

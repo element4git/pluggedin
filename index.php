@@ -55,12 +55,12 @@
                 <div class="social-btns grid-container">
                 	<div class="grid-3 pad-1"></div>
                 	<div class="grid-3">
-                		<div class="btn">
+                		<div class="btn facebook">
                 			<div class="icn ico-facebook"></div>
                 		</div>
                 	</div>
                 	<div class="grid-3">
-                		<div class="btn">
+                		<div class="btn soundcloud">
                 			<div class="icn ico-soundcloud"></div>
                 		</div>
                 	</div>
@@ -81,7 +81,8 @@
                 </div>
             </div>
             <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
-                <div class="grid-container">
+               <div class="grid-container"></div>
+               <!-- <div class="grid-container">
                     <div class="grid-12">Today</div>
                     <div class="full-width">
                         <div class="grid-3">7:30pm</div>
@@ -101,7 +102,7 @@
                         <div class="grid-7">The 3rdGreatest Band in the World</div>
                         <div class="grid-2"><span class="ico-calendar"></span></div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <!--div id="masterList">
 			<?php //generate HTML
