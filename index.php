@@ -22,16 +22,14 @@
                     </div>
                 </div>
                 <div class="social-btns grid-container">
+                	<div class="grid-2">&nbsp;</div>
                 	<div class="grid-4">
-                		<input type="button" class="ico-font" value="f"/>
+                		<input type="button" class="ico-font facebook" value="f"/>
                 	</div>
                 	<div class="grid-4">
-                		<input type="button" class="middle ico-font" value="!"/>
+                		<input type="button" class="ico-font soundcloud" value="!"/>
                 	</div>
-                	<div class="grid-4">
-                		<input type="button" class="ico-font" value="t"/>
-                	</div>
-                </div>
+                	<div class="grid-2">&nbsp;</div>
                 <div class="divider grid-container">
                     <div class="grid-5"><hr/></div>
                     <div class="grid-2"><h2>or</h2></div>
