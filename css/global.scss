@@ -12,15 +12,16 @@
 /* Variables 
 ---------------------------------------------------------*/
 $hl-color: white;
-$hl-alpha: 0;
-/*$bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
+/*$hl-alpha: 0.1;
+$bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
+$hl-alpha: 0.0;
 $bg-home: "/images/pluggedin_bg.jpg";
 $default-color: #ccc;
 $default-size: 1em;
 $full: 100%;
 $max-width: 40em;
-$footer-height: 50px;
-$footer-top: 15px;
+$footer-height: 5.4em;
+$footer-top: 1.12em;
 
 /* Default 
 ---------------------------------------------------------*/
@@ -49,7 +50,7 @@ h1 {
 
 h2 {
 	font: {
-		size: 1.6em;
+		size: 1.65em;
 		weight: 600;
 	}
 }
@@ -66,7 +67,7 @@ h2 {
 
     div {
     	height:auto;
-    	@include highlight($hl-color, $hl-alpha); 
+    	/*@include highlight($hl-color, $hl-alpha); */
     }
 }
 
@@ -223,17 +224,8 @@ h2 {
 	@include highlight($hl-color, $hl-alpha);
 
     display: inline-block;
-    max-width: $max-width;
+    /*max-width: $max-width;*/
     padding-bottom: $footer-height;
-
-	/*
-    .logo-lrg {
-		img {
-			width: $full;
-			height: auto;
-		}
-	}
-	*/
 
 	.connect-lbl {
 		padding: 0 1.7em 0 1.7em;
@@ -255,26 +247,42 @@ h2 {
 		}
     }
 
-    .divider-text {
-
+    .divider {
+    	hr {
+    		width: 94%;
+    		padding: 0.95em 0 0.95em 0;
+    		border: {
+    			style: solid;
+    			right: 0;
+    			left: 0;
+    			top: 0;
+    		}
+    	}
     }
 
     .search-bar {
+    	padding-top: 0.22em;
     	input[type=text] {
-    		font-size: 1.15em;
-    		width: 65%;
-    		height: 3.2em;
-    		padding: 0 0.8em 0 0.8em;
+    		float: left;
+    		font-size: 1.8em;
+    		width: 74%;
+    		height: 100px;
+    		padding: 0 0.4em 0 0.4em;
+    		margin-left: 1%;
     		border: 0;
+    		border-style: none;
+    		color: black;
     	}
     	input[type=button] {
+    		float: left;
     		cursor: pointer;
-    		width: 2.5em;
-    		height: 2.5em;
-    		font-size: 1.3em;
+    		width: 100px;
+    		height: 100px;
+    		font-size: 2.4em;
     		border: 0;
     		color: black;
     		background: white;
+    		margin-left: 1%;
     	}
     }
 }
@@ -290,16 +298,13 @@ h2 {
 		color: #777 !important;
 	}
 
-	a: hover {
-		color: #666 !important;
-	}
-
 	.event-date {
 		font: {
-			size: 1.5em;
+			size: 1.8em;
 			weight: 600;
 		}
-		padding: 1em 0 1em 0;
+		color: #666;
+		padding: 0.72em 0 0.72em 0;
 		background: {
 			image: url("/images/list_header_bg_sml.jpg");
 			repeat: repeat-x;
@@ -308,7 +313,7 @@ h2 {
 
 	.event-time {
 		font: {
-			size: 1.3em;
+			size: 1.6em;
 		}
 		color: #777;
 		text-align: left;
@@ -316,7 +321,7 @@ h2 {
 
 	.band-name {
 		font: {
-			size: 1.4em;
+			size: 1.75em;
 			weight: 600;
 		}
 		padding: 0 0 0.2em 0;
@@ -324,15 +329,15 @@ h2 {
 	}
 
 	.venue-name {
-		font-size: 1.2em;
+		font-size: 1.4em;
 		text-align: left;
 		padding: 0 0 1em 0;
 	}
 	
 	.add-to-cal {
-		font-size: 1.8em;
+		font-size: 3.4em;
 		text-align: right;
-		padding: 0.15em 0 0 0;
+		padding: 0.05em 0 0 0;
 	}
 }
 
@@ -340,18 +345,20 @@ h2 {
 	display: block;
     position: absolute;
     bottom: 0;
-    background: rgba(black, 0.8);
-    color: #555;
+    background: rgba(white, 0.05);
 
     .wrapper {
     	display: inline-block;
     	.label {
-    		padding-top: 15px;
+    		color: #444;
+    		font-size: 1.6em;
 	    	float: left;
+	    	padding: $footer-top 0 $footer-top 0;
 	    }
 		.logo {
 			float: left;
-			font-size: 3.2em;
+			color: #444;
+			font-size: 5.5em;
 	    }
 	}
 }

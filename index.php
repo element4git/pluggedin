@@ -32,15 +32,19 @@
                 		<input type="button" class="ico-font" value="t"/>
                 	</div>
                 </div>
-                <div class="divider-txt grid-container">
+                <div class="divider grid-container">
                     <div class="grid-5"><hr/></div>
-                    <div class="grid-2"><h2>OR</h2></div>
+                    <div class="grid-2"><h2>or</h2></div>
                     <div class="grid-5"><hr/></div>
                 </div>
                 <div class="search-bar grid-container">
                     <div class="grid-12">
-						<input type="text" id="search-form" placeholder="Search bands or local venues" />
-						<input type="button" class="ico-font" value="s"/>
+                    	<div class="">
+							<input type="text" id="search-form" placeholder="Search bands or local venues" />
+						</div>
+						<div class="">
+							<input type="button" class="ico-font" value="s"/>
+						</div>
 					</div>
                 </div>
             </div>
