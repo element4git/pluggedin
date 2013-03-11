@@ -1,6 +1,6 @@
 <?php 
-	error_reporting(E_ALL);
- 	ini_set("display_errors", 1);
+	//error_reporting(E_ALL);
+ 	//ini_set("display_errors", 1);
 	$server = explode('www.',$_SERVER['SERVER_NAME']);
 	
 	$server = (isset($server[1])) ?  $server[1] : $server[0];
@@ -16,12 +16,17 @@
 			$FBID = '456738747726141';
 			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
 			$soundCloudRedirect = 'http://pluggedin.com/soundcloudAuth';
-			define('mongoServer', 'mongodb://127.0.0.1');
+			define('mongoServer', 'mongodb://12.0.0.1');
 		break;
 	}
 
 	include_once('service/mongoControl.php');
-	$md = new mongoDBcontrol('pluggedIn');
+	try{
+		$md = new mongoDBcontrol('pluggedIn');
+	}catch (Exception $e) {
+		echo 'There is a problem with the server, please try again. If the problem persists please try again in a few mintues. Sorry for the trouble.';
+		return false;
+	}
 	$results = $md->find('bandList');
 		$results = iterator_to_array($results);
 ?>
