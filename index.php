@@ -77,16 +77,16 @@
             <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
                 <div class="grid-container">
                     <div id="eventDate" class="event-date grid-12">Today</div>
-                    <div class="full-width">
+                    <!--<div class="full-width">
                         <div id="eventTime" class="event-time grid-3">7:30pm</div>
                         <div class="grid-7">
                         	<div id="bandName" class="band-name full-width">The Greatest Band in the World</div>
                         	<div id="venueName" class="venue-name full-width"><a>Lounge #1</a></div>
                         </div>
                         <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
-                    </div>
+                    </div>-->
                 </div>
-                <div class="grid-container">
+                <!--<div class="grid-container">
                     <div id="eventDate" class="event-date grid-12">3/12/2013</div>
                     <div class="full-width">
                         <div id="eventTime" class="event-time grid-3">8:00pm</div>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
                     </div>
-                </div>
+                </div>-->
             </div>
 		</div>
 		<div id="footer" class="full-width">
