@@ -1,35 +1,3 @@
-<?php 
-	//error_reporting(E_ALL);
- 	//ini_set("display_errors", 1);
-	$server = explode('www.',$_SERVER['SERVER_NAME']);
-	
-	$server = (isset($server[1])) ?  $server[1] : $server[0];
-	
-	switch($server){
-		case 'pluggedin.rga.com':
-			$FBID = '439511386129295';
-			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
-			$soundCloudRedirect = 'http://pluggedin.rga.com/soundcloudAuth/';
-			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
-		break;
-		default:
-			$FBID = '456738747726141';
-			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
-			$soundCloudRedirect = 'http://pluggedin.com/soundcloudAuth';
-			define('mongoServer', 'mongodb://127.0.0.1');
-		break;
-	}
-
-	include_once('service/mongoControl.php');
-	try{
-		$md = new mongoDBcontrol('pluggedIn');
-	}catch (Exception $e) {
-		echo 'There is a problem with the server, please try again. If the problem persists please try again in a few mintues. Sorry for the trouble.';
-		return false;
-	}
-	$results = $md->find('bandList');
-		$results = iterator_to_array($results);
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -54,31 +22,33 @@
                     </div>
                 </div>
                 <div class="social-btns grid-container">
+                	<div class="grid-2">&nbsp;</div>
                 	<div class="grid-4">
                 		<input type="button" class="ico-font facebook" value="f"/>
                 	</div>
                 	<div class="grid-4">
-                		<input type="button" class="middle ico-font soundcloud" value="!"/>
+                		<input type="button" class="ico-font soundcloud" value="!"/>
                 	</div>
-                	<div class="grid-4">
-                		<input type="button" class="ico-font twitter" value="t"/>
-                	</div>
-                </div>
-                <div class="divider-txt grid-container">
+                	<div class="grid-2">&nbsp;</div>
+                <div class="divider grid-container">
                     <div class="grid-5"><hr/></div>
-                    <div class="grid-2"><h2>OR</h2></div>
+                    <div class="grid-2"><h2>or</h2></div>
                     <div class="grid-5"><hr/></div>
                 </div>
                 <div class="search-bar grid-container">
                     <div class="grid-12">
-						<input type="text" id="search-form" placeholder="Search bands or local venues" />
-						<input type="button" class="ico-font" value="s"/>
+                    	<div class="">
+							<input type="text" id="search-form" placeholder="Search bands or local venues" />
+						</div>
+						<div class="">
+							<input type="button" class="ico-font" value="s"/>
+						</div>
 					</div>
                 </div>
             </div>
             <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
                 <div class="grid-container">
-                    <!--<div id="eventDate" class="event-date grid-12">Today</div>
+                    <div id="eventDate" class="event-date grid-12">Today</div>
                     <div class="full-width">
                         <div id="eventTime" class="event-time grid-3">7:30pm</div>
                         <div class="grid-7">
@@ -86,9 +56,9 @@
                         	<div id="venueName" class="venue-name full-width"><a>Lounge #1</a></div>
                         </div>
                         <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
-                    </div>-->
+                    </div>
                 </div>
-               <!-- <div class="grid-container">
+                <div class="grid-container">
                     <div id="eventDate" class="event-date grid-12">3/12/2013</div>
                     <div class="full-width">
                         <div id="eventTime" class="event-time grid-3">8:00pm</div>
@@ -106,7 +76,7 @@
                         </div>
                         <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
                     </div>
-                </div>-->
+                </div>
             </div>
 		</div>
 		<div id="footer" class="full-width">
