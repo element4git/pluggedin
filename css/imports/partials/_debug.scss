@@ -2,6 +2,6 @@
 @mixin highlight($clr: black, $alpha: 0.5) {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background: {
-  	color: rgba(black, $alpha);
+  	color: rgba($clr, $alpha);
   }
 }

@@ -13,8 +13,12 @@
 ---------------------------------------------------------*/
 $hl-color: white;
 $hl-alpha: 0;
+/*$bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
+$bg-home: "/images/pluggedin_bg.jpg";
 $default-color: white;
+$default-size: 1em;
 $full: 100%;
+$max-width: 40em;
 $footer-height: 50px;
 $footer-top: 15px;
 
@@ -24,14 +28,31 @@ html, body {
       padding: 0;
       margin: 0;
       height: $full;
+      background: black;
+}
+
+div, p, span, h1, h2, h3, h4, h5, h6, input, a {
+	color: $default-color;
+	font: {
+		family:	Helvetica, "Helvetica Neue", Arial, sans-serif;
+		size: $default-size;
+	}
+}
+
+h1 {
+	font: {
+		size: 1.8em;
+		weight: 600;
+	}
+	line-height: 1.1em;
 }
 
 /* Fluid Grid 
 ---------------------------------------------------------*/
 .grid-container {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 84%;
+    margin-left: 8%;
+    margin-right: 8%;
     margin-bottom: 10px;
     float: left;
     @include highlight($hl-color, $hl-alpha); 
@@ -134,6 +155,31 @@ html, body {
     padding-bottom:19.833%;
 }
 
+.grid-container .pad-6 {
+    padding-top:24%; 
+    padding-bottom:24%;
+}
+
+.grid-container .pad-7 {
+    padding-top:28.1665%; 
+    padding-bottom:28.1665%;
+}
+
+.grid-container .pad-8 {
+    padding-top:32.3335%; 
+    padding-bottom:32.3335%;
+}
+
+.grid-container .pad-9 {
+    padding-top:36.5%; 
+    padding-bottom:36.5%;
+}
+
+.grid-container .pad-10 {
+    padding-top:41.5%; 
+    padding-bottom:41.5%;
+}
+
 
 
 /* Utilities 
@@ -150,30 +196,40 @@ html, body {
 ---------------------------------------------------------*/
 #mainContainer {
     display: block;
-    min-height: 100%;
-    /*height: 100% /* for IE only */;
+    min-height: $full; /*height: 100% /* for IE only */
     position: relative;
     text-align: center;
-    color: $default-color;
-	font: {
-		family:	Helvetica, "Helvetica Neue", Arial, sans-serif;
-	}
+
 	background: {
-		image: url("/images/pluggedin_bg.gif");
-		position: center;
+		image: url($bg-home);
+		repeat: no-repeat;
+		size: $full;
+		position: top;
+	}
+
+	@media screen and (min-width: 40em) {
+		background-size: 40em;
 	}
 }
 
 #mainContent {
-    display: inline-block;
-    padding-bottom: $footer-height;
-    @include highlight($hl-color, $hl-alpha);
+	@include highlight($hl-color, $hl-alpha);
 
+    display: inline-block;
+    max-width: $max-width;
+    padding-bottom: $footer-height;
+
+	/*
     .logo-lrg {
 		img {
 			width: $full;
 			height: auto;
 		}
+	}
+	*/
+
+	.connect-lbl {
+		padding: 0 1.7em 0 1.7em;
 	}
 
 	.social-btns {
@@ -191,7 +247,6 @@ html, body {
 			pointer-events: none;
        		cursor: pointer;
 		}
-		
     }
 
     .devider-text {
@@ -215,13 +270,65 @@ html, body {
     		color: black;
     		background: white;
     	}
-
     }
+}
 
-    #masterList {
-		div {
-			background: rgba(black, 0.2);
+#masterList {
+	background: rgba(black, 1);
+	div {
+		/*background: rgba(black, 0.2);*/
+	}
+
+	a {
+		cursor: pointer;
+		color: #777 !important;
+	}
+
+	a: hover {
+		color: #666 !important;
+	}
+
+	.event-date {
+		font: {
+			size: 1.5em;
+			weight: 600;
 		}
+		color: #ccc;
+		padding: 1em 0 1em 0;
+		background: {
+			image: url("/images/list_header_bg_sml.jpg");
+			repeat: repeat-x;
+		}
+	}
+
+	.event-time {
+		font: {
+			size: 1.3em;
+		}
+		color: #777;
+		text-align: left;
+	} 
+
+	.band-name {
+		font: {
+			size: 1.4em;
+			weight: 600;
+		}
+		color: #ccc;
+		padding: 0 0 0.2em 0;
+		text-align: left;
+	}
+
+	.venue-name {
+		font-size: 1.2em;
+		text-align: left;
+		padding: 0 0 1em 0;
+	}
+	
+	.add-to-cal {
+		font-size: 1.8em;
+		text-align: right;
+		padding: 0.15em 0 0 0;
 	}
 }
 
