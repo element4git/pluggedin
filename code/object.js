@@ -26,7 +26,8 @@ var sxswObject = function(){
 			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g;
 			var cleanBandName = gig.band_name.replace(pattern,'');
 			var cleanVenueName = gig.venue_name.replace(pattern,'');
-			var html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div class="grid-3">'+gig.start_time+'</div><div class="grid-7">'+gig.band_name+'</div><div class="grid-2"><span class="ico-calendar"></span></div></div>'
+			var html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div></div>'
+			
 			//var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
 			gigHTML.append(html);
 		},

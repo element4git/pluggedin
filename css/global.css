@@ -263,12 +263,13 @@ h1 {
 /* line 257, global.scss */
 #mainContent .search-bar input[type=text] {
   font-size: 1.15em;
+  color: #000;
   width: 65%;
   height: 3.2em;
   padding: 0 0.8em 0 0.8em;
   border: 0;
 }
-/* line 264, global.scss */
+/* line 265, global.scss */
 #mainContent .search-bar input[type=button] {
   cursor: pointer;
   width: 2.5em;
@@ -279,22 +280,22 @@ h1 {
   background: white;
 }
 
-/* line 276, global.scss */
+/* line 277, global.scss */
 #masterList {
   background: black;
   a: hover;
   a-color: #666 !important;
 }
-/* line 278, global.scss */
+/* line 279, global.scss */
 #masterList div {
   /*background: rgba(black, 0.2);*/
 }
-/* line 282, global.scss */
+/* line 283, global.scss */
 #masterList a {
   cursor: pointer;
   color: #777 !important;
 }
-/* line 291, global.scss */
+/* line 292, global.scss */
 #masterList .event-date {
   font-size: 1.5em;
   font-weight: 600;
@@ -303,13 +304,13 @@ h1 {
   background-image: url("/images/list_header_bg_sml.jpg");
   background-repeat: repeat-x;
 }
-/* line 304, global.scss */
+/* line 305, global.scss */
 #masterList .event-time {
   font-size: 1.3em;
   color: #777;
   text-align: left;
 }
-/* line 312, global.scss */
+/* line 313, global.scss */
 #masterList .band-name {
   font-size: 1.4em;
   font-weight: 600;
@@ -317,20 +318,20 @@ h1 {
   padding: 0 0 0.2em 0;
   text-align: left;
 }
-/* line 322, global.scss */
+/* line 323, global.scss */
 #masterList .venue-name {
   font-size: 1.2em;
   text-align: left;
   padding: 0 0 1em 0;
 }
-/* line 328, global.scss */
+/* line 329, global.scss */
 #masterList .add-to-cal {
   font-size: 1.8em;
   text-align: right;
   padding: 0.15em 0 0 0;
 }
 
-/* line 335, global.scss */
+/* line 336, global.scss */
 #footer {
   display: block;
   position: absolute;
@@ -338,16 +339,16 @@ h1 {
   background: rgba(0, 0, 0, 0.8);
   color: #555;
 }
-/* line 342, global.scss */
+/* line 343, global.scss */
 #footer .wrapper {
   display: inline-block;
 }
-/* line 344, global.scss */
+/* line 345, global.scss */
 #footer .wrapper .label {
   padding-top: 15px;
   float: left;
 }
-/* line 348, global.scss */
+/* line 349, global.scss */
 #footer .wrapper .logo {
   float: left;
   font-size: 3.2em;
