@@ -182,7 +182,7 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('.btn.facebook').bind('click',function(){
+	$('.ico-font.facebook').bind('click',function(){
 		var $this = $(this);
 		FB.login(function(response) {
 		   if (response.authResponse) {
@@ -194,7 +194,7 @@ $(function(){
 		   }
 		},{scope:'user_likes,user_actions.music'});
 	});
-	$('.btn.soundcloud').bind('click',function(){
+	$('.ico-font.soundcloud').bind('click',function(){
 		SC.connect(function() {
 		  user.initSC();
 		});

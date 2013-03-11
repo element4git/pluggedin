@@ -15,7 +15,7 @@ $hl-color: white;
 $hl-alpha: 0;
 /*$bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
 $bg-home: "/images/pluggedin_bg.jpg";
-$default-color: white;
+$default-color: #ccc;
 $default-size: 1em;
 $full: 100%;
 $max-width: 40em;
@@ -45,6 +45,13 @@ h1 {
 		weight: 600;
 	}
 	line-height: 1.1em;
+}
+
+h2 {
+	font: {
+		size: 1.6em;
+		weight: 600;
+	}
 }
 
 /* Fluid Grid 
@@ -233,30 +240,28 @@ h1 {
 	}
 
 	.social-btns {
-		.btn {
+		input[type=button] {
+			width: 155px;
+			height: 155px;
+			border: 0;
+			font-size: 4em;
 			background: {
-				image: url("/images/buttons/social_btn_bg1.jpg");
+				image: url("/images/buttons/social_btn.png");
 				repeat: no-repeat;
 				size: $full;
+				color: transparent;
 			}
-			padding: 22% 0 22% 0;
 			cursor: pointer;
-		}
-		.icn {
-			font-size: 3em;
-			pointer-events: none;
-       		cursor: pointer;
 		}
     }
 
-    .devider-text {
+    .divider-text {
 
     }
 
     .search-bar {
     	input[type=text] {
     		font-size: 1.15em;
-			color:#000;
     		width: 65%;
     		height: 3.2em;
     		padding: 0 0.8em 0 0.8em;
@@ -294,7 +299,6 @@ h1 {
 			size: 1.5em;
 			weight: 600;
 		}
-		color: #ccc;
 		padding: 1em 0 1em 0;
 		background: {
 			image: url("/images/list_header_bg_sml.jpg");
@@ -315,7 +319,6 @@ h1 {
 			size: 1.4em;
 			weight: 600;
 		}
-		color: #ccc;
 		padding: 0 0 0.2em 0;
 		text-align: left;
 	}

@@ -25,7 +25,6 @@
 	$results = $md->find('bandList');
 		$results = iterator_to_array($results);
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -40,12 +39,6 @@
 <body>
 	<div id="mainContainer" class="full-width">
         <div id="mainContent" class="full-width">
-            <!--div id="logo" class="grid-container">
-                <div class="logo-lrg grid-12">
-                	<img src="/images/logos/pluggedin_logo.png" />
-                </div>
-                <div class="logo-sml grid-12 displayNone">Logo</div>
-            </div-->
             <div id="topSpacer" class="grid-container">
                 <div class="grid-12 pad-8">&nbsp;</div>
             </div>
@@ -56,25 +49,20 @@
                     </div>
                 </div>
                 <div class="social-btns grid-container">
-                	<div class="grid-3 pad-1"></div>
-                	<div class="grid-3">
-                		<div class="btn facebook">
-                			<div class="icn ico-facebook"></div>
-                		</div>
+                	<div class="grid-4">
+                		<input type="button" class="ico-font facebook" value="f"/>
                 	</div>
-                	<div class="grid-3">
-                		<div class="btn soundcloud">
-                			<div class="icn ico-soundcloud"></div>
-                		</div>
+                	<div class="grid-4">
+                		<input type="button" class="middle ico-font soundcloud" value="!"/>
                 	</div>
-                	<div class="grid-3 pad-1"></div>
+                	<div class="grid-4">
+                		<input type="button" class="ico-font" value="t"/>
+                	</div>
                 </div>
-                <div class="devider-txt grid-container">
-                    <div class="grid-12">
-                    	<span>
-                    		--- OR ---
-                    	</span>
-                    </div>
+                <div class="divider-txt grid-container">
+                    <div class="grid-5"><hr/></div>
+                    <div class="grid-2"><h2>OR</h2></div>
+                    <div class="grid-5"><hr/></div>
                 </div>
                 <div class="search-bar grid-container">
                     <div class="grid-12">
@@ -95,7 +83,7 @@
                         <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
                     </div>-->
                 </div>
-                <!--<div class="grid-container">
+               <!-- <div class="grid-container">
                     <div id="eventDate" class="event-date grid-12">3/12/2013</div>
                     <div class="full-width">
                         <div id="eventTime" class="event-time grid-3">8:00pm</div>
@@ -115,22 +103,6 @@
                     </div>
                 </div>-->
             </div>
-            <!--div id="masterList">
-			<?php //generate HTML
-				/*foreach($results as $key=>$value) $gig = $results[$key]['response']['gigs'];
-				
-				$pattern = '/&|\'|\$|\(|\)|\||;|,|\!|\/|\\\|\:| /';
-				
-				foreach($gig as $key=>$value){
-					$cleanVenueName = preg_replace($pattern,'',$gig[$key]['venue_name']);
-					$cleanBandName = preg_replace($pattern,'',$gig[$key]['band_name']);
-					$html = '<div class="gig '.$cleanBandName.' '.$cleanVenueName.'">
-								<div class="time">'.$gig[$key]['start_time'].'</div><div class="gigInfo"><span class="band">'.$gig[$key]['band_name'].'</span><span class="venue">'.$gig[$key]['venue_name'].'</span></div><div class="calendar"></div>
-							</div>';
-				
-				echo $html;
-				}*/?>
-            </div-->
 		</div>
 		<div id="footer" class="full-width">
 	        <div class="wrapper">
