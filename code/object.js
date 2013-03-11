@@ -23,12 +23,18 @@ var sxswObject = function(){
 			debug.log(gigHTML);
 		},
 		generateGigHTML : function(gig){
-			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g;
-			var cleanBandName = gig.band_name.replace(pattern,'');
-			var cleanVenueName = gig.venue_name.replace(pattern,'');
-			var html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div></div>'
+			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
+				cleanBandName = gig.band_name.replace(pattern,''),
+				cleanVenueName = gig.venue_name.replace(pattern,''),
+				currentDate = '',
+				days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+				today = new Date(),
+				text_day = '';
+				
+				html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+' '+gig.date+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'+gig.date+'" /></div></div>'
 			
 			//var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
+			
 			gigHTML.append(html);
 		},
 		searchAutoComplete : function(){
@@ -198,6 +204,11 @@ $(function(){
 		SC.connect(function() {
 		  user.initSC();
 		});
+	});
+	$('.ico-font.twitter').bind('click',function(){
+		$.ajax({
+			url:'service/getInvatationURLs.php'
+		})
 	});
 	$('#search-form').bind('keyup',function(ev){
 		if(this.value.length > 2)

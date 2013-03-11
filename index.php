@@ -61,7 +61,7 @@
                 		<input type="button" class="middle ico-font soundcloud" value="!"/>
                 	</div>
                 	<div class="grid-4">
-                		<input type="button" class="ico-font" value="t"/>
+                		<input type="button" class="ico-font twitter" value="t"/>
                 	</div>
                 </div>
                 <div class="divider-txt grid-container">
@@ -78,8 +78,8 @@
             </div>
             <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
                 <div class="grid-container">
-                    <div id="eventDate" class="event-date grid-12">Today</div>
-                    <!--<div class="full-width">
+                    <!--<div id="eventDate" class="event-date grid-12">Today</div>
+                    <div class="full-width">
                         <div id="eventTime" class="event-time grid-3">7:30pm</div>
                         <div class="grid-7">
                         	<div id="bandName" class="band-name full-width">The Greatest Band in the World</div>
