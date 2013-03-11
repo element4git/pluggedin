@@ -1,3 +1,31 @@
+<?php 
+	error_reporting(E_ALL);
+ 	ini_set("display_errors", 1);
+	$server = explode('www.',$_SERVER['SERVER_NAME']);
+	
+	$server = (isset($server[1])) ?  $server[1] : $server[0];
+	
+	switch($server){
+		case 'pluggedin.rga.com':
+			$FBID = '439511386129295';
+			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
+			$soundCloudRedirect = 'http://pluggedin.rga.com/soundcloudAuth/';
+			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
+		break;
+		default:
+			$FBID = '456738747726141';
+			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
+			$soundCloudRedirect = 'http://pluggedin.com/soundcloudAuth';
+			define('mongoServer', 'mongodb://127.0.0.1');
+		break;
+	}
+
+	include_once('service/mongoControl.php');
+	$md = new mongoDBcontrol('pluggedIn');
+	$results = $md->find('bandList');
+		$results = iterator_to_array($results);
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

@@ -183,17 +183,16 @@ h2 {
 
 /* line 176, global.scss */
 .grid-container .pad-8 {
-  padding-top: 32.3335%;
   padding-bottom: 32.3335%;
 }
 
-/* line 181, global.scss */
+/* line 180, global.scss */
 .grid-container .pad-9 {
   padding-top: 36.5%;
   padding-bottom: 36.5%;
 }
 
-/* line 186, global.scss */
+/* line 185, global.scss */
 .grid-container .pad-10 {
   padding-top: 41.5%;
   padding-bottom: 41.5%;
@@ -201,19 +200,19 @@ h2 {
 
 /* Utilities 
 ---------------------------------------------------------*/
-/* line 195, global.scss */
+/* line 194, global.scss */
 .full-width {
   width: 100%;
 }
 
-/* line 199, global.scss */
+/* line 198, global.scss */
 .displayNone {
   display: none;
 }
 
 /* Custom 
 ---------------------------------------------------------*/
-/* line 205, global.scss */
+/* line 204, global.scss */
 #mainContainer {
   display: block;
   min-height: 100%;
@@ -226,13 +225,13 @@ h2 {
   background-position: top;
 }
 @media screen and (min-width: 40em) {
-  /* line 205, global.scss */
+  /* line 204, global.scss */
   #mainContainer {
     background-size: 40em;
   }
 }
 
-/* line 223, global.scss */
+/* line 222, global.scss */
 #mainContent {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
@@ -240,11 +239,11 @@ h2 {
   /*max-width: $max-width;*/
   padding-bottom: 5.4em;
 }
-/* line 230, global.scss */
+/* line 229, global.scss */
 #mainContent .connect-lbl {
   padding: 0 1.7em 0 1.7em;
 }
-/* line 235, global.scss */
+/* line 234, global.scss */
 #mainContent .social-btns input[type=button] {
   width: 155px;
   height: 155px;
@@ -256,7 +255,7 @@ h2 {
   background-color: transparent;
   cursor: pointer;
 }
-/* line 251, global.scss */
+/* line 250, global.scss */
 #mainContent .divider hr {
   width: 94%;
   padding: 0.95em 0 0.95em 0;
@@ -265,11 +264,11 @@ h2 {
   border-left: 0;
   border-top: 0;
 }
-/* line 263, global.scss */
+/* line 262, global.scss */
 #mainContent .search-bar {
   padding-top: 0.22em;
 }
-/* line 265, global.scss */
+/* line 264, global.scss */
 #mainContent .search-bar input[type=text] {
   float: left;
   font-size: 1.8em;
@@ -281,7 +280,7 @@ h2 {
   border-style: none;
   color: black;
 }
-/* line 276, global.scss */
+/* line 275, global.scss */
 #mainContent .search-bar input[type=button] {
   float: left;
   cursor: pointer;
@@ -294,20 +293,20 @@ h2 {
   margin-left: 1%;
 }
 
-/* line 290, global.scss */
+/* line 289, global.scss */
 #masterList {
   background: black;
 }
-/* line 292, global.scss */
+/* line 291, global.scss */
 #masterList div {
   /*background: rgba(black, 0.2);*/
 }
-/* line 296, global.scss */
+/* line 295, global.scss */
 #masterList a {
   cursor: pointer;
   color: #777 !important;
 }
-/* line 301, global.scss */
+/* line 300, global.scss */
 #masterList .event-date {
   font-size: 1.8em;
   font-weight: 600;
@@ -316,51 +315,51 @@ h2 {
   background-image: url("/images/list_header_bg_sml.jpg");
   background-repeat: repeat-x;
 }
-/* line 314, global.scss */
+/* line 313, global.scss */
 #masterList .event-time {
   font-size: 1.6em;
   color: #777;
   text-align: left;
 }
-/* line 322, global.scss */
+/* line 321, global.scss */
 #masterList .band-name {
   font-size: 1.75em;
   font-weight: 600;
   padding: 0 0 0.2em 0;
   text-align: left;
 }
-/* line 331, global.scss */
+/* line 330, global.scss */
 #masterList .venue-name {
   font-size: 1.4em;
   text-align: left;
   padding: 0 0 1em 0;
 }
-/* line 337, global.scss */
+/* line 336, global.scss */
 #masterList .add-to-cal {
   font-size: 3.4em;
   text-align: right;
   padding: 0.05em 0 0 0;
 }
 
-/* line 344, global.scss */
+/* line 343, global.scss */
 #footer {
   display: block;
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.05);
 }
-/* line 350, global.scss */
+/* line 349, global.scss */
 #footer .wrapper {
   display: inline-block;
 }
-/* line 352, global.scss */
+/* line 351, global.scss */
 #footer .wrapper .label {
   color: #444;
   font-size: 1.6em;
   float: left;
   padding: 1.12em 0 1.12em 0;
 }
-/* line 358, global.scss */
+/* line 357, global.scss */
 #footer .wrapper .logo {
   float: left;
   color: #444;
