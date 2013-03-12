@@ -54,9 +54,7 @@ var sortList = function(){
 					results.push('.'+gigSet[i].replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,''));
 				}
 			}
-			
-			debug.log(gigs);
-			
+						
 			this.showGigs(results);
 			
 		},
