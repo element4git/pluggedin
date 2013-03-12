@@ -1,4 +1,4 @@
-<!--?php 
+<?php 
 	error_reporting(E_ALL);
  	ini_set("display_errors", 1);
 	$server = explode('www.',$_SERVER['SERVER_NAME']);
@@ -48,7 +48,7 @@
 	
 	$results = $md->find('bandList');
 	$results = iterator_to_array($results);
-?-->
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
