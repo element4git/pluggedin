@@ -20,18 +20,14 @@ var sxswObject = function(){
 				if($.inArray(el, searchUnique) === -1) searchUnique.push(el);
 			});
 			searchAutoComplete = searchUnique;
-			debug.log(gigHTML);
+			
 		},
 		generateGigHTML : function(gig){
 			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
 				cleanBandName = gig.band_name.replace(pattern,''),
-				cleanVenueName = gig.venue_name.replace(pattern,''),
-				currentDate = '',
-				days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-				today = new Date(),
-				text_day = '';
+				cleanVenueName = gig.venue_name.replace(pattern,'');
 				
-				html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+' '+gig.date+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'+gig.date+'" /></div></div>'
+				html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'+gig.date+'" /></div></div>'
 			
 			//var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
 			
@@ -45,7 +41,7 @@ var sxswObject = function(){
 		},
 		searchValue : function(searchSet){
 			var searchUnique = [];
-			debug.log(searchSet);
+			
 			$.each(searchAutoComplete, function(i, el){
 				var string = searchAutoComplete[i].toUpperCase();
 				if(string.search(searchSet.toUpperCase()) != -1){
@@ -72,19 +68,40 @@ var sortList = function(){
 				}
 			}
 			
-			
-			debug.log(results);
 			this.showGigs(results);
 			
 		},
 		showGigs:function(gigSet){
 			var gigHTML = sxswObject.gigHTML();
 			
-			$('#masterList div.gig').remove();
+			$('#masterList .grid-container div').remove();
 			
-			var currentHTML = gigHTML.find(gigSet.toString());
+			var currentHTML = gigHTML.find(gigSet.toString()),
+				currentDate = '',
+				days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+				today = new Date(),
+				text_day = '';
 			
-			$('#masterList .grid-container').append(gigHTML.find(gigSet.toString()).clone());
+			$.each(currentHTML,function(key, value){
+				var $date = $(value).find('.gigInfo input[name=date]').val();
+				
+				if(currentDate != $date){
+					currentDate = $date;
+					var jsdate = new Date($date+'T12:00');
+					if(today.getDay() == jsdate.getDay())
+						text_day = 'today';
+					else if(today.getDay() - jsdate.getDay() == -1)
+						text_day = 'tomorrow';
+					else
+						text_day = days[jsdate.getDay()];
+					
+					$('#masterList .grid-container').append('<div id="eventDate" class="event-date grid-12">'+text_day+'</div>');
+				}
+				$('#masterList .grid-container').append(value);
+			});
+			
+			
+			
 		}
 	}
 }();
