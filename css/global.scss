@@ -20,8 +20,7 @@ $default-color: #ccc;
 $default-size: 1em;
 $full: 100%;
 $max-width: 40em;
-$footer-height: 5.4em;
-$footer-top: 1.12em;
+$padding-btm: 10em;
 
 /* Default 
 ---------------------------------------------------------*/
@@ -40,12 +39,20 @@ div, p, span, h1, h2, h3, h4, h5, h6, input, a {
 	}
 }
 
+a {
+	text-decoration: none;
+	border: 0;
+}
+
 h1 {
 	font: {
 		size: 1.8em;
 		weight: 600;
 	}
 	line-height: 1.1em;
+	@media screen and (min-width: 40em) {
+
+	}
 }
 
 h2 {
@@ -55,19 +62,204 @@ h2 {
 	}
 }
 
+
+/* Utilities 
+---------------------------------------------------------*/
+.full-width {
+     width: $full;
+}
+
+.displayNone {
+	display: none;	
+}
+
+/* Custom 
+---------------------------------------------------------*/
+#mainContainer {
+    display: block;
+    min-height: $full; /*height: 100% /* for IE only */
+    position: relative;
+    text-align: center;
+
+	background: {
+		image: url($bg-home);
+		repeat: no-repeat;
+		size: $full;
+		position: top;
+	}
+
+	/*
+	@media screen and (min-width: 40em) {
+		background-size: 40em;
+	}*/
+}
+
+#mainContent {
+	@include highlight($hl-color, $hl-alpha);
+
+    display: inline-block;
+    /*max-width: $max-width;*/
+    padding-bottom: $padding-btm;
+
+    ul {
+    	list-style-type: none;
+    	text-align: center;
+    	margin: 0;
+    	padding: 0;
+    }
+    li {
+    	display: inline-block;
+    	width: 24%;
+    	margin: 0 4%;
+    	a {
+    		display: block;
+    	}
+    	img {
+    		width: 100%;
+    	}
+    }
+
+	.connect-lbl {
+		padding: 0 1.7em 0 1.7em;
+	}
+
+    .divider {
+    	hr {
+    		padding: 0.95em 0;
+    		border: {
+    			style: solid;
+    			right: 0;
+    			left: 0;
+    			top: 0;
+    		}
+    	}
+    }
+
+    .search-bar {
+
+    	form {
+    		height: 0;
+    		padding-bottom: 18%;
+    		position: relative;
+    	}
+
+    	input {
+    		position: absolute;
+    		height: 100%;
+    	}
+
+    	input[type=text] {
+    		font-size: 2.2em;
+    		width: 90%;
+    		left: 0;
+    		border: 0;
+    		padding: 0 5%;
+    		border-style: none;
+    		color: black;
+    	}
+    	input[type=button] {
+    		cursor: pointer;
+    		width: 13%;
+    		right: 0;
+    		font-size: 2.4em;
+    		border: 0;
+    		color: black;
+    		background: white;
+    	}
+    }
+}
+
+#masterList {
+	background: rgba(black, 1);
+	div {
+		/*background: rgba(black, 0.2);*/
+	}
+
+	a {
+		cursor: pointer;
+		color: #777 !important;
+	}
+
+	.event-date {
+		font: {
+			size: 1.8em;
+			weight: 600;
+		}
+		color: #666;
+		padding: 0.72em 0 0.72em 0;
+		background: {
+			image: url("/images/list_header_bg_sml.jpg");
+			repeat: repeat-x;
+		}
+	}
+
+	.event-time {
+		font: {
+			size: 1.6em;
+		}
+		color: #777;
+		text-align: left;
+	} 
+
+	.band-name {
+		font: {
+			size: 1.75em;
+			weight: 600;
+		}
+		padding: 0 0 0.2em 0;
+		text-align: left;
+	}
+
+	.venue-name {
+		font-size: 1.4em;
+		text-align: left;
+		padding: 0 0 1em 0;
+	}
+	
+	.add-to-cal {
+		font-size: 3.4em;
+		text-align: right;
+		padding: 0.05em 0 0 0;
+	}
+}
+
+#footer {
+	display: block;
+    position: absolute;
+    bottom: 0;
+    background: rgba(white, 0.05);
+
+    .wrapper {
+    	display: inline-block;
+    	.label {
+    		color: #555;
+    		font-size: 1.95em;
+	    	float: left;
+	    	padding: 1.75em 0;
+	    }
+		.logo {
+			float: left;
+			color: #555;
+			font-size: 7em;
+			padding: 0.15em 0 0 0;
+
+	    }
+	}
+}
+
 /* Fluid Grid 
 ---------------------------------------------------------*/
 .grid-container {
-    width: 84%;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-bottom: 10px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
     float: left;
     @include highlight($hl-color, $hl-alpha); 
 
     div {
     	height:auto;
-    	/*@include highlight($hl-color, $hl-alpha); */
+    	@include highlight($hl-color, $hl-alpha);
     }
 }
 
@@ -186,180 +378,4 @@ h2 {
 .grid-container .pad-10 {
     padding-top:41.5%; 
     padding-bottom:41.5%;
-}
-
-
-
-/* Utilities 
----------------------------------------------------------*/
-.full-width {
-     width: $full;
-}
-
-.displayNone {
-	display:none;	
-}
-
-/* Custom 
----------------------------------------------------------*/
-#mainContainer {
-    display: block;
-    min-height: $full; /*height: 100% /* for IE only */
-    position: relative;
-    text-align: center;
-
-	background: {
-		image: url($bg-home);
-		repeat: no-repeat;
-		size: $full;
-		position: top;
-	}
-
-	/*
-	@media screen and (min-width: 40em) {
-		background-size: 40em;
-	}*/
-}
-
-#mainContent {
-	@include highlight($hl-color, $hl-alpha);
-
-    display: inline-block;
-    /*max-width: $max-width;*/
-    padding-bottom: $footer-height;
-
-	.connect-lbl {
-		padding: 0 1.7em 0 1.7em;
-	}
-
-	.social-btns {
-		input[type=button] {
-			width: 155px;
-			height: 155px;
-			border: 0;
-			font-size: 4em;
-			background: {
-				image: url("/images/buttons/social_btn.png");
-				repeat: no-repeat;
-				size: $full;
-				color: transparent;
-			}
-			cursor: pointer;
-		}
-    }
-
-    .divider {
-    	hr {
-    		width: 94%;
-    		padding: 0.95em 0 0.95em 0;
-    		border: {
-    			style: solid;
-    			right: 0;
-    			left: 0;
-    			top: 0;
-    		}
-    	}
-    }
-
-    .search-bar {
-    	padding-top: 0.22em;
-    	input[type=text] {
-    		float: left;
-    		font-size: 1.8em;
-    		width: 72%;
-    		height: 100px;
-    		padding: 0 0.4em 0 0.4em;
-    		margin-left: 1%;
-    		border: 0;
-    		border-style: none;
-    		color: black;
-    	}
-    	input[type=button] {
-    		float: left;
-    		cursor: pointer;
-    		width: 100px;
-    		height: 100px;
-    		font-size: 2.4em;
-    		border: 0;
-    		color: black;
-    		background: white;
-    		margin-left: 1%;
-    	}
-    }
-}
-
-#masterList {
-	background: rgba(black, 1);
-	div {
-		/*background: rgba(black, 0.2);*/
-	}
-
-	a {
-		cursor: pointer;
-		color: #777 !important;
-	}
-
-	.event-date {
-		font: {
-			size: 1.8em;
-			weight: 600;
-		}
-		color: #666;
-		padding: 0.72em 0 0.72em 0;
-		background: {
-			image: url("/images/list_header_bg_sml.jpg");
-			repeat: repeat-x;
-		}
-	}
-
-	.event-time {
-		font: {
-			size: 1.6em;
-		}
-		color: #777;
-		text-align: left;
-	} 
-
-	.band-name {
-		font: {
-			size: 1.75em;
-			weight: 600;
-		}
-		padding: 0 0 0.2em 0;
-		text-align: left;
-	}
-
-	.venue-name {
-		font-size: 1.4em;
-		text-align: left;
-		padding: 0 0 1em 0;
-	}
-	
-	.add-to-cal {
-		font-size: 3.4em;
-		text-align: right;
-		padding: 0.05em 0 0 0;
-	}
-}
-
-#footer {
-	display: block;
-    position: absolute;
-    bottom: 0;
-    background: rgba(white, 0.05);
-
-    .wrapper {
-    	display: inline-block;
-    	.label {
-    		color: #444;
-    		font-size: 1.6em;
-	    	float: left;
-	    	padding: $footer-top 0 $footer-top 0;
-	    }
-		.logo {
-			float: left;
-			color: #444;
-			font-size: 5.5em;
-	    }
-	}
 }

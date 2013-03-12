@@ -1,4 +1,4 @@
-<?php 
+<!--?php 
 	error_reporting(E_ALL);
  	ini_set("display_errors", 1);
 	$server = explode('www.',$_SERVER['SERVER_NAME']);
@@ -47,14 +47,15 @@
 	
 	
 	$results = $md->find('bandList');
-		$results = iterator_to_array($results);
-?>
+	$results = iterator_to_array($results);
+?-->
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> Plugged In - R/GA </title>
+<meta id="Viewport" name="viewport" width="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title> Plugged In - by R/GA </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
 <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
 <!--[if lt IE 7]>
@@ -74,14 +75,23 @@
                     </div>
                 </div>
                 <div class="social-btns grid-container">
-                	<div class="grid-2">&nbsp;</div>
-                	<div class="grid-4">
-                		<input type="button" class="ico-font facebook" value="f"/>
+                	<div class="grid-12">
+                		<ul>
+	                		<li id="fbToggle">
+	                			<a href="javascript:void(0)"><img id="fbToggle-on" src="/images/buttons/social_btn_fb.png"/></a>
+	                			<a href="javascript:void(0)"><img id="fbToggle-off" class="displayNone" src="/images/buttons/social_btn_fb_active.png"/></a>
+	                		</li>
+	                		<li id="scToggle">
+	                			<a href="javascript:void(0)"><img id="scToggle-on" src="/images/buttons/social_btn_sc.png"/></a>
+	                			<a href="javascript:void(0)"><img id="scToggle-off" class="displayNone" src="/images/buttons/social_btn_sc_active.png"/></a>
+	                		</li>
+	                		<!--li id="rdioToggle" class="displayNone">
+	                			<a href="javascript:void(0)"><img id="rdioToggle-on" src="/images/buttons/social_btn_rdio.png"/></a>
+	                			<a href="javascript:void(0)"><img id="rdioToggle-off" class="displayNone" src="/images/buttons/social_btn_rdio_active.png"/></a>
+	                		</li-->
+	                	</ul>
                 	</div>
-                	<div class="grid-4">
-                		<input type="button" class="ico-font soundcloud" value="!"/>
-                	</div>
-                	<div class="grid-2">&nbsp;</div>
+                </div>
                 <div class="divider grid-container">
                     <div class="grid-5"><hr/></div>
                     <div class="grid-2"><h2>or</h2></div>
@@ -89,16 +99,13 @@
                 </div>
                 <div class="search-bar grid-container">
                     <div class="grid-12">
-                    	<div class="">
-							<input type="text" id="search-form" placeholder="Search bands or local venues" />
-						</div>
-						<div class="">
-							<input type="button" class="ico-font" value="s"/>
-						</div>
+                    	<form>
+							<input type="text" id="searcForm" placeholder="Search bands or local venues" />
+							<input type="button" class="displayNone co-font" value="s"/>
+						</form>
 					</div>
                 </div>
-            </div>
-            <div id="masterList" class="full-width"> <!-- preferred name: schedule -->
+   				<div id="masterList" class="full-width"> <!-- preferred name: schedule -->
                 <div class="grid-container">
                    <!--< <div id="eventDate" class="event-date grid-12">Today</div>
                     div class="full-width">

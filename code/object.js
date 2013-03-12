@@ -205,8 +205,9 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('.ico-font.facebook').bind('click',function(){
+	$('#fbToggle').bind('click',function(e){
 		var $this = $(this);
+		setBtnToggle(e);
 		FB.login(function(response) {
 		   if (response.authResponse) {
 			 debug.log('Welcome!  Fetching your information.... ');
@@ -214,21 +215,36 @@ $(function(){
 			 user.initFB();
 		   } else {
 			 debug.log('User cancelled login or did not fully authorize.');
+			 setBtnToggle(e);
 		   }
 		},{scope:'user_likes,user_actions.music'});
 	});
-	$('.ico-font.soundcloud').bind('click',function(){
+	$('#scToggle').bind('click',function(e){
+		setBtnToggle(e);
 		SC.connect(function() {
 		  user.initSC();
 		});
 	});
-	$('.ico-font.twitter').bind('click',function(){
+	$('#rdioToggle').bind('click',function(e){
+		setBtnToggle(e);
 		$.ajax({
 			url:'service/getInvatationURLs.php'
 		})
 	});
-	$('#search-form').bind('keyup',function(ev){
+	$('#searcForm').bind('keyup',function(ev){
 		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
 	});
+
+	function setBtnToggle(evnt) {
+		var on = $("#"+evnt.currentTarget.id+"-on")
+		var off = $("#"+evnt.currentTarget.id+"-off")
+		if(off.hasClass("displayNone")) {
+			off.removeClass("displayNone");
+			on.addClass("displayNone");
+		} else {
+			off.addClass("displayNone");
+			on.removeClass("displayNone");
+		}
+	}
 });
