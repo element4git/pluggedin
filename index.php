@@ -48,6 +48,35 @@
 	
 	$results = $md->find('bandList');
 		$results = iterator_to_array($results);
+		
+	$patern = "/[-!$%^&*()_+|~=`{}\[\]:\";'<>?,.\/]|@| /";
+	foreach($results as $key => $value){
+		$gigs = $results[$key]['response']['gigs'];
+	}
+	$html = '';
+	$searchArray = array();
+	foreach($gigs as $key => $gig){
+		$cleanBandName = preg_replace($patern,'',$gig['band_name']);
+		$cleanVenueName = preg_replace($patern,'',$gig['venue_name']);
+		
+		array_push($searchArray,$gig['band_name']);
+		array_push($searchArray,$gig['venue_name']);
+		
+		$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'.$gig['date'].'" /></div></div>';
+	}
+	
+	$searchArray = array_unique($searchArray);
+	
+	print_r($html); return false;
+	
+	/*?>
+	gigs = sxswMusic[n].response.gigs;
+	
+	var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
+				cleanBandName = gig.band_name.replace(pattern,''),
+				cleanVenueName = gig.venue_name.replace(pattern,'');
+				
+				html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'+gig.date+'" /></div></div>'<?php */
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -172,7 +201,8 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	var sxswMusic = <?php echo json_encode($results); ?>;
+	var phpGigHTML = '<?php echo json_encode($results); ?>';
+	var phpGigHTML = <?php echo json_encode($results); ?>;
 	sxswObject.init();
 </script>
 </html>
