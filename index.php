@@ -172,7 +172,7 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	//var sxswMusic = <?php echo json_encode($results); ?>;
+	var sxswMusic = <?php echo json_encode($results); ?>;
 	//sxswObject.init();
 </script>
 </html>
