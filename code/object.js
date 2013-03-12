@@ -76,7 +76,7 @@ var sortList = function(){
 			
 			$('#masterList .grid-container div').remove();
 			
-			var currentHTML = gigHTML.find(gigSet.toString()),
+			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
 				days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
 				today = new Date(),
