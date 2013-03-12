@@ -26,6 +26,7 @@
 		$md = new mongoDBcontrol('pluggedIn'); }
 	catch (Exception $e){
 		echo "There seems to be a problem with the server. Please try again, if this problem persists try again in a few minutes. Sorry for the trouble.";
+		return false;
 	}
 	
 	
