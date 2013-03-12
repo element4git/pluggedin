@@ -59,15 +59,22 @@
 		$cleanBandName = preg_replace($patern,'',$gig['band_name']);
 		$cleanVenueName = preg_replace($patern,'',$gig['venue_name']);
 		
-		array_push($searchArray,$gig['band_name']);
-		array_push($searchArray,$gig['venue_name']);
+		$searchArray[] = $gig['band_name'];
+		$searchArray[] = $gig['venue_name'];
 		
 		$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'.$gig['date'].'" /></div></div>';
 	}
 	
+	$html = str_replace("'","\\'",$html);
+	
+	$html =  '$(\'<div id="gightml">'.$html.'</div>\')';
+	
+	//print_r($html); return false;
+	
 	$searchArray = array_unique($searchArray);
 	
-	print_r($html); return false;
+	$searchArray = array_values($searchArray);
+	
 	
 	/*?>
 	gigs = sxswMusic[n].response.gigs;
@@ -201,8 +208,8 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	var phpGigHTML = '<?php echo json_encode($results); ?>';
-	var phpGigHTML = <?php echo json_encode($results); ?>;
+	var phpGigHTML = <?php echo $html; ?>;
+	var phpSearchArray = <?php echo json_encode($searchArray); ?>;
 	sxswObject.init();
 </script>
 </html>

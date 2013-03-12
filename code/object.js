@@ -1,26 +1,13 @@
 var sxswObject = function(){
 	var gigs,
 		searchAutoComplete = [],
-		gigHTML = $('<div id="gightml" />');
+		gigHTML ='';
 	return{
 		init:function(){
-			for(var n in sxswMusic)
-				gigs = sxswMusic[n].response.gigs;
 			
-			for(var i=0; i < gigs.length; i++){
-				searchAutoComplete.push(gigs[i].band_name);
-				searchAutoComplete.push(gigs[i].venue_name);
-				this.generateGigHTML(gigs[i]);
-			
-			}
-			searchAutoComplete = searchAutoComplete.sort();
-			var searchUnique = [];
-			
-			$.each(searchAutoComplete, function(i, el){
-				if($.inArray(el, searchUnique) === -1) searchUnique.push(el);
-			});
-			searchAutoComplete = searchUnique;
-			
+			searchAutoComplete = phpSearchArray;
+			gigHTML = phpGigHTML;
+						
 		},
 		generateGigHTML : function(gig){
 			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
@@ -68,11 +55,14 @@ var sortList = function(){
 				}
 			}
 			
+			debug.log(gigs);
+			
 			this.showGigs(results);
 			
 		},
 		showGigs:function(gigSet){
 			var gigHTML = sxswObject.gigHTML();
+			
 			
 			$('#masterList .grid-container div').remove();
 			
