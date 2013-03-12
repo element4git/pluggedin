@@ -1,26 +1,13 @@
 var sxswObject = function(){
 	var gigs,
 		searchAutoComplete = [],
-		gigHTML = $('<div id="gightml" />');
+		gigHTML ='';
 	return{
 		init:function(){
-			for(var n in sxswMusic)
-				gigs = sxswMusic[n].response.gigs;
 			
-			for(var i=0; i < gigs.length; i++){
-				searchAutoComplete.push(gigs[i].band_name);
-				searchAutoComplete.push(gigs[i].venue_name);
-				this.generateGigHTML(gigs[i]);
-			
-			}
-			searchAutoComplete = searchAutoComplete.sort();
-			var searchUnique = [];
-			
-			$.each(searchAutoComplete, function(i, el){
-				if($.inArray(el, searchUnique) === -1) searchUnique.push(el);
-			});
-			searchAutoComplete = searchUnique;
-			
+			searchAutoComplete = phpSearchArray;
+			gigHTML = phpGigHTML;
+						
 		},
 		generateGigHTML : function(gig){
 			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
@@ -67,16 +54,17 @@ var sortList = function(){
 					results.push('.'+gigSet[i].replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,''));
 				}
 			}
-			
+						
 			this.showGigs(results);
 			
 		},
 		showGigs:function(gigSet){
 			var gigHTML = sxswObject.gigHTML();
 			
+			
 			$('#masterList .grid-container div').remove();
 			
-			var currentHTML = gigHTML.find(gigSet.toString()),
+			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
 				days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
 				today = new Date(),
@@ -117,6 +105,9 @@ var user = function(){
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
 			SC.get(url, function(r) { 
+				
+			debug.log(window.opener);
+			
 				if(r.length > 0){
 					for(var i=0; i < r.length; i++){
 						SDsongs.push(r[i].username)
@@ -231,7 +222,7 @@ $(function(){
 			url:'service/getInvatationURLs.php'
 		})
 	});
-	$('#searcForm').bind('keyup',function(ev){
+	$('#searchForm').bind('keyup',function(ev){
 		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
 	});

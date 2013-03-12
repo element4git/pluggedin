@@ -10,13 +10,12 @@
 			$FBID = '439511386129295';
 			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
 			$soundCloudRedirect = 'http://pluggedin.rga.com/soundcloudAuth/';
-			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds041167.mongolab.com:41167/pluggedin');
 		break;
 		default:
 			$FBID = '456738747726141';
 			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
 			$soundCloudRedirect = 'http://pluggedin.com/soundcloudAuth';
-			define('mongoServer', 'mongodb://127.0.0.1');
+			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds053607.mongolab.com:53607/pluggedin');//define('mongoServer', 'mongodb://127.0.0.1');
 		break;
 	}
 
@@ -48,13 +47,48 @@
 	
 	$results = $md->find('bandList');
 	$results = iterator_to_array($results);
+		
+	$patern = "/[-!$%^&*()_+|~=`{}\[\]:\";'<>?,.\/]|@| /";
+	foreach($results as $key => $value){
+		$gigs = $results[$key]['response']['gigs'];
+	}
+	$html = '';
+	$searchArray = array();
+	foreach($gigs as $key => $gig){
+		$cleanBandName = preg_replace($patern,'',$gig['band_name']);
+		$cleanVenueName = preg_replace($patern,'',$gig['venue_name']);
+		
+		$searchArray[] = $gig['band_name'];
+		$searchArray[] = $gig['venue_name'];
+		
+		$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'.$gig['date'].'" /></div></div>';
+	}
+	
+	$html = str_replace("'","\\'",$html);
+	
+	$html =  '$(\'<div id="gightml">'.$html.'</div>\')';
+	
+	//print_r($html); return false;
+	
+	$searchArray = array_unique($searchArray);
+	
+	$searchArray = array_values($searchArray);
+	
+	
+	/*?>
+	gigs = sxswMusic[n].response.gigs;
+	
+	var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
+				cleanBandName = gig.band_name.replace(pattern,''),
+				cleanVenueName = gig.venue_name.replace(pattern,'');
+				
+				html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'+gig.date+'" /></div></div>'<?php */
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta id="Viewport" name="viewport" width="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 <title> Plugged In - by R/GA </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
 <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
@@ -100,15 +134,15 @@
                 <div class="search-bar grid-container">
                     <div class="grid-12">
                     	<form>
-							<input type="text" id="searcForm" placeholder="Search bands or local venues" />
+							<input type="text" id="searchForm" placeholder="Search bands or local venues" />
 							<input type="button" class="displayNone co-font" value="s"/>
 						</form>
 					</div>
                 </div>
    				<div id="masterList" class="full-width"> <!-- preferred name: schedule -->
                 <div class="grid-container">
-                   <!--< <div id="eventDate" class="event-date grid-12">Today</div>
-                    div class="full-width">
+                   <!-- <div id="eventDate" class="event-date grid-12">Today</div>
+                    <div class="full-width">
                         <div id="eventTime" class="event-time grid-3">7:30pm</div>
                         <div class="grid-7">
                         	<div id="bandName" class="band-name full-width">The Greatest Band in the World</div>
@@ -179,7 +213,8 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	var sxswMusic = <?php echo json_encode($results); ?>;
+	var phpGigHTML = <?php echo $html; ?>;
+	var phpSearchArray = <?php echo json_encode($searchArray); ?>;
 	sxswObject.init();
 </script>
 </html>
