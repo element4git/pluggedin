@@ -117,6 +117,12 @@ var user = function(){
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
 			SC.get(url, function(r) { 
+				
+			debug.log(window.opener);
+			debug.log(r);
+			debug.log('made it');
+			return false;
+			
 				if(r.length > 0){
 					for(var i=0; i < r.length; i++){
 						SDsongs.push(r[i].username)
