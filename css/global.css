@@ -224,15 +224,13 @@ h2 {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
-}
-@media screen and (min-width: 40em) {
-  /* line 205, global.scss */
-  #mainContainer {
-    background-size: 40em;
-  }
+  /*
+  @media screen and (min-width: 40em) {
+  	background-size: 40em;
+  }*/
 }
 
-/* line 223, global.scss */
+/* line 224, global.scss */
 #mainContent {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
@@ -240,11 +238,11 @@ h2 {
   /*max-width: $max-width;*/
   padding-bottom: 5.4em;
 }
-/* line 230, global.scss */
+/* line 231, global.scss */
 #mainContent .connect-lbl {
   padding: 0 1.7em 0 1.7em;
 }
-/* line 235, global.scss */
+/* line 236, global.scss */
 #mainContent .social-btns input[type=button] {
   width: 155px;
   height: 155px;
@@ -256,7 +254,7 @@ h2 {
   background-color: transparent;
   cursor: pointer;
 }
-/* line 251, global.scss */
+/* line 252, global.scss */
 #mainContent .divider hr {
   width: 94%;
   padding: 0.95em 0 0.95em 0;
@@ -265,11 +263,11 @@ h2 {
   border-left: 0;
   border-top: 0;
 }
-/* line 263, global.scss */
+/* line 264, global.scss */
 #mainContent .search-bar {
   padding-top: 0.22em;
 }
-/* line 265, global.scss */
+/* line 266, global.scss */
 #mainContent .search-bar input[type=text] {
   float: left;
   font-size: 1.8em;
@@ -281,7 +279,7 @@ h2 {
   border-style: none;
   color: black;
 }
-/* line 276, global.scss */
+/* line 277, global.scss */
 #mainContent .search-bar input[type=button] {
   float: left;
   cursor: pointer;
@@ -294,20 +292,20 @@ h2 {
   margin-left: 1%;
 }
 
-/* line 290, global.scss */
+/* line 291, global.scss */
 #masterList {
   background: black;
 }
-/* line 292, global.scss */
+/* line 293, global.scss */
 #masterList div {
   /*background: rgba(black, 0.2);*/
 }
-/* line 296, global.scss */
+/* line 297, global.scss */
 #masterList a {
   cursor: pointer;
   color: #777 !important;
 }
-/* line 301, global.scss */
+/* line 302, global.scss */
 #masterList .event-date {
   font-size: 1.8em;
   font-weight: 600;
@@ -316,51 +314,51 @@ h2 {
   background-image: url("/images/list_header_bg_sml.jpg");
   background-repeat: repeat-x;
 }
-/* line 314, global.scss */
+/* line 315, global.scss */
 #masterList .event-time {
   font-size: 1.6em;
   color: #777;
   text-align: left;
 }
-/* line 322, global.scss */
+/* line 323, global.scss */
 #masterList .band-name {
   font-size: 1.75em;
   font-weight: 600;
   padding: 0 0 0.2em 0;
   text-align: left;
 }
-/* line 331, global.scss */
+/* line 332, global.scss */
 #masterList .venue-name {
   font-size: 1.4em;
   text-align: left;
   padding: 0 0 1em 0;
 }
-/* line 337, global.scss */
+/* line 338, global.scss */
 #masterList .add-to-cal {
   font-size: 3.4em;
   text-align: right;
   padding: 0.05em 0 0 0;
 }
 
-/* line 344, global.scss */
+/* line 345, global.scss */
 #footer {
   display: block;
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.05);
 }
-/* line 350, global.scss */
+/* line 351, global.scss */
 #footer .wrapper {
   display: inline-block;
 }
-/* line 352, global.scss */
+/* line 353, global.scss */
 #footer .wrapper .label {
   color: #444;
   font-size: 1.6em;
   float: left;
   padding: 1.12em 0 1.12em 0;
 }
-/* line 358, global.scss */
+/* line 359, global.scss */
 #footer .wrapper .logo {
   float: left;
   color: #444;
