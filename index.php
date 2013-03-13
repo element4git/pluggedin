@@ -23,7 +23,7 @@
             <div id="filters" class="full-width">
                 <div class="grid-container">
                     <div class="grid-12">
-                    	<h1 class="connect-lbl">Connect to local bands you like playing nearby</h1>
+                    	<h1 class="connect-lbl">Connect to locate bands you like playing nearby</h1>
                     </div>
                 </div>
                 <div class="social-btns grid-container">
