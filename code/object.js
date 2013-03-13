@@ -9,17 +9,6 @@ var sxswObject = function(){
 			gigHTML = phpGigHTML;
 						
 		},
-		generateGigHTML : function(gig){
-			var pattern = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,
-				cleanBandName = gig.band_name.replace(pattern,''),
-				cleanVenueName = gig.venue_name.replace(pattern,'');
-				
-				html = '<div class="full-width gig '+cleanBandName+' '+cleanVenueName+'"><div id="eventTime" class="event-time grid-3">'+gig.start_time+'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'+gig.band_name+'</div><div id="venueName" class="venue-name full-width"><a>'+gig.venue_name+'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'+gig.date+'" /></div></div>'
-			
-			//var html = '<div class="gig '+cleanBandName+' '+cleanVenueName+'"><div class="time">'+gig.start_time+'</div><div class="gigInfo"><span class="band">'+gig.band_name+'</span><span class="venue">'+gig.venue_name+'</span></div><div class="calendar"></div></div>';
-			
-			gigHTML.append(html);
-		},
 		searchAutoComplete : function(){
 			return searchAutoComplete;
 		},
@@ -88,6 +77,8 @@ var sortList = function(){
 				$('#masterList .grid-container').append(value);
 			});
 			
+			scrollWindow.go();
+			
 			
 			
 		}
@@ -104,10 +95,7 @@ var user = function(){
 	return {
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
-			SC.get(url, function(r) { 
-				
-			debug.log(window.opener);
-			
+			SC.get(url, function(r) {	
 				if(r.length > 0){
 					for(var i=0; i < r.length; i++){
 						SDsongs.push(r[i].username)
@@ -116,7 +104,8 @@ var user = function(){
 				if(r.hasOwnProperty('next_href')){
 					user.initSC(r.next_href);
 				}
-				sortList.checkResults(SDsongs);
+				selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
+				user.toggle('SDsongs');
 			});
 			
 		},
@@ -165,10 +154,8 @@ var user = function(){
 					return false;
 				}
 				else{
-					selectedObject.unbind('click').bind('click',function(){user.toggle('FBLikes')});
+					selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
 					user.toggle('FBLikes');
-					debug.log(FBLikes);
-					sortList.checkResults(FBLikes);
 					
 					//End Loading Graphic Here
 				}
@@ -178,17 +165,56 @@ var user = function(){
 			selectedObject = obj;
 		},
 		toggle : function(obj){
-			if(typeof optionsSelected[obj] == 'boolean')
-				delete optionsSelected[obj]
-			else
+			
+			var joinedArrays = []
+			
+			if(typeof optionsSelected[obj] == 'boolean'){
+				delete optionsSelected[obj];
+				selectedObject.find('.toggle-on').removeClass("displayNone");
+				selectedObject.find('.toggle-off').addClass("displayNone");
+			}
+			else{
 				optionsSelected[obj] = true;
+				selectedObject.find('.toggle-on').addClass("displayNone");
+				selectedObject.find('.toggle-off').removeClass("displayNone");
+			}
 				
-			debug.log(optionsSelected);
+			for(var list in optionsSelected){
+				joinedArrays = joinedArrays.concat(eval(list));
+			};
+			
+			sortList.checkResults(joinedArrays);
 		}
 	}
 }();
 
-
+var scrollWindow = function(){
+	var searchBarOffset = '';
+	var pos = 0;
+	return{
+		go:function(){
+			if(typeof searchBarOffset == 'string')
+				searchBarOffset = $('#searchForm').offset().top;
+			
+			pos = $(document).scrollTop();
+			
+			$('#mainContent').addClass('minHeight')
+			
+			var scrollani = setInterval(function(){
+				if(pos > searchBarOffset)
+					clearInterval(scrollani);
+				else{
+					pos = pos+10;
+					$(document).scrollTop(pos);
+				}
+				
+				debug.log(pos);
+				debug.log(searchBarOffset)
+				debug.log('inter');
+			},10);
+		}
+	}
+}();
 
 //Enable Objects
 $(function(){
@@ -198,7 +224,6 @@ $(function(){
 	});*/
 	$('#fbToggle').bind('click',function(e){
 		var $this = $(this);
-		setBtnToggle(e);
 		FB.login(function(response) {
 		   if (response.authResponse) {
 			 debug.log('Welcome!  Fetching your information.... ');
@@ -209,12 +234,15 @@ $(function(){
 			 setBtnToggle(e);
 		   }
 		},{scope:'user_likes,user_actions.music'});
+		return false;
 	});
 	$('#scToggle').bind('click',function(e){
-		setBtnToggle(e);
+		var $this = $(this);
+		user.setObject($this);
 		SC.connect(function() {
 		  user.initSC();
 		});
+		return false;
 	});
 	$('#rdioToggle').bind('click',function(e){
 		setBtnToggle(e);
@@ -225,17 +253,9 @@ $(function(){
 	$('#searchForm').bind('keyup',function(ev){
 		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
+		else
+			sortList.checkResults([]);
+	}).bind('focus',function(){
+		scrollWindow.go();
 	});
-
-	function setBtnToggle(evnt) {
-		var on = $("#"+evnt.currentTarget.id+"-on")
-		var off = $("#"+evnt.currentTarget.id+"-off")
-		if(off.hasClass("displayNone")) {
-			off.removeClass("displayNone");
-			on.addClass("displayNone");
-		} else {
-			off.addClass("displayNone");
-			on.removeClass("displayNone");
-		}
-	}
 });

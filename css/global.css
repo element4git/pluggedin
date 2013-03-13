@@ -96,6 +96,11 @@ hr {
 }
 
 /* line 114, global.scss */
+#mainContent.minHeight {
+  min-height: 130em;
+}
+
+/* line 116, global.scss */
 #mainContent {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
@@ -103,56 +108,56 @@ hr {
   /*max-width: $max-width;*/
   padding-bottom: 10em;
 }
-/* line 121, global.scss */
+/* line 123, global.scss */
 #mainContent ul {
   list-style-type: none;
   text-align: center;
   margin: 0;
   padding: 0;
 }
-/* line 127, global.scss */
+/* line 129, global.scss */
 #mainContent li {
   display: inline-block;
   width: 27.5%;
   margin: 0.3% 3.4% 0;
 }
-/* line 131, global.scss */
+/* line 133, global.scss */
 #mainContent li a {
   display: block;
 }
-/* line 134, global.scss */
+/* line 136, global.scss */
 #mainContent li img {
   width: 100%;
 }
-/* line 139, global.scss */
+/* line 141, global.scss */
 #mainContent .connect-lbl {
   padding: 0 9.7%;
 }
-/* line 143, global.scss */
+/* line 145, global.scss */
 #mainContent .divider {
   padding-bottom: 1.9%;
 }
-/* line 145, global.scss */
+/* line 147, global.scss */
 #mainContent .divider .pad-left {
   margin: 0 4.2% 0 10.8%;
 }
-/* line 148, global.scss */
+/* line 150, global.scss */
 #mainContent .divider .pad-right {
   margin: 0 12% 0 1.4%;
 }
-/* line 154, global.scss */
+/* line 156, global.scss */
 #mainContent .search-bar form {
   height: 0;
   padding-bottom: 18%;
   position: relative;
   margin: 0 4.2% 8.6%;
 }
-/* line 161, global.scss */
+/* line 163, global.scss */
 #mainContent .search-bar input {
   position: absolute;
   height: 100%;
 }
-/* line 166, global.scss */
+/* line 168, global.scss */
 #mainContent .search-bar input[type=text] {
   font-size: 2.15em;
   width: 90%;
@@ -162,7 +167,7 @@ hr {
   border-style: none;
   color: black;
 }
-/* line 175, global.scss */
+/* line 177, global.scss */
 #mainContent .search-bar input[type=button] {
   cursor: pointer;
   width: 13%;
@@ -173,33 +178,33 @@ hr {
   background: white;
 }
 
-/* line 187, global.scss */
+/* line 189, global.scss */
 #masterList {
   background: black;
   /* grid mod */
 }
-/* line 191, global.scss */
+/* line 193, global.scss */
 #masterList .grid-3 {
   width: 18.3% !important;
 }
-/* line 194, global.scss */
+/* line 196, global.scss */
 #masterList .grid-7 {
   width: 61% !important;
 }
-/* line 198, global.scss */
+/* line 200, global.scss */
 #masterList a {
   cursor: pointer;
   color: #666;
 }
-/* line 203, global.scss */
+/* line 205, global.scss */
 #masterList a:hover {
   color: #8c8c8c;
 }
-/* line 207, global.scss */
+/* line 209, global.scss */
 #masterList a:active {
   color: #8c8c8c;
 }
-/* line 211, global.scss */
+/* line 213, global.scss */
 #masterList .event-date {
   font-size: 3.75em;
   font-weight: 600;
@@ -209,12 +214,12 @@ hr {
   background-image: url("/images/list_header_bg.jpg");
   background-repeat: repeat-x;
 }
-/* line 223, global.scss */
+/* line 225, global.scss */
 #masterList .event-date span {
   padding-left: 23.6%;
   color: #666;
 }
-/* line 229, global.scss */
+/* line 231, global.scss */
 #masterList .event-time {
   font-size: 1.8em;
   font-weight: 600;
@@ -222,7 +227,7 @@ hr {
   text-align: left;
   padding-top: 0.15em;
 }
-/* line 239, global.scss */
+/* line 241, global.scss */
 #masterList .band-name {
   font-size: 3.75em;
   font-weight: 600;
@@ -231,7 +236,7 @@ hr {
   padding: 0 0 0.2em 0;
   text-align: left;
 }
-/* line 250, global.scss */
+/* line 252, global.scss */
 #masterList .venue-name {
   font-size: 2em;
   font-weight: 600;
@@ -239,32 +244,32 @@ hr {
   text-align: left;
   padding: 0 0 1em 0;
 }
-/* line 261, global.scss */
+/* line 263, global.scss */
 #masterList .add-to-cal {
   font-size: 4.7em !important;
   text-align: right;
   padding-top: 0.05em;
 }
 
-/* line 268, global.scss */
+/* line 270, global.scss */
 #footer {
   display: block;
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.05);
 }
-/* line 274, global.scss */
+/* line 276, global.scss */
 #footer .wrapper {
   display: inline-block;
 }
-/* line 276, global.scss */
+/* line 278, global.scss */
 #footer .wrapper .label {
   color: #555;
   font-size: 2.2em;
   float: left;
   padding: 1.05em 0;
 }
-/* line 282, global.scss */
+/* line 284, global.scss */
 #footer .wrapper .logo {
   float: left;
   color: #555;
@@ -274,7 +279,7 @@ hr {
 
 /* Fluid Grid 
 ---------------------------------------------------------*/
-/* line 294, global.scss */
+/* line 296, global.scss */
 .grid-container, .grid-container-pad0, .cal-container {
   width: 90%;
   margin-left: 5%;
@@ -284,28 +289,28 @@ hr {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
-/* line 302, global.scss */
+/* line 304, global.scss */
 .grid-container div, .grid-container-pad0 div, .cal-container div {
   height: auto;
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
 
-/* line 308, global.scss */
+/* line 310, global.scss */
 .cal-container {
   width: 93.2%;
   margin-left: 3.4%;
   margin-right: 3.4%;
 }
 
-/* line 314, global.scss */
+/* line 316, global.scss */
 .grid-container-pad0 {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
 }
 
-/* line 331, global.scss */
+/* line 333, global.scss */
 .grid-1,
 .grid-2,
 .grid-3,
@@ -325,122 +330,122 @@ hr {
   margin-right: 1%;
 }
 
-/* line 339, global.scss */
+/* line 341, global.scss */
 .grid-1 {
   width: 6.333%;
 }
 
-/* line 343, global.scss */
+/* line 345, global.scss */
 .grid-2 {
   width: 14.667%;
 }
 
-/* line 347, global.scss */
+/* line 349, global.scss */
 .grid-3 {
   width: 23.0%;
 }
 
-/* line 351, global.scss */
+/* line 353, global.scss */
 .grid-4 {
   width: 31.333%;
 }
 
-/* line 355, global.scss */
+/* line 357, global.scss */
 .grid-5 {
   width: 39.667%;
 }
 
-/* line 359, global.scss */
+/* line 361, global.scss */
 .grid-6 {
   width: 48.0%;
 }
 
-/* line 363, global.scss */
+/* line 365, global.scss */
 .grid-7 {
   width: 56.333%;
 }
 
-/* line 367, global.scss */
+/* line 369, global.scss */
 .grid-8 {
   width: 64.667%;
 }
 
-/* line 371, global.scss */
+/* line 373, global.scss */
 .grid-9 {
   width: 73.0%;
 }
 
-/* line 375, global.scss */
+/* line 377, global.scss */
 .grid-10 {
   width: 81.333%;
 }
 
-/* line 379, global.scss */
+/* line 381, global.scss */
 .grid-11 {
   width: 89.667%;
 }
 
-/* line 383, global.scss */
+/* line 385, global.scss */
 .grid-12 {
   width: 98.0%;
 }
 
 /* grid height */
-/* line 388, global.scss */
+/* line 390, global.scss */
 .pad-1 {
   padding-top: 3.1665%;
   padding-bottom: 3.1665%;
 }
 
-/* line 392, global.scss */
+/* line 394, global.scss */
 .pad-2 {
   padding-top: 7.3335%;
   padding-bottom: 7.3335%;
 }
 
-/* line 397, global.scss */
+/* line 399, global.scss */
 .pad-3 {
   padding-top: 11.5%;
   padding-bottom: 11.5%;
 }
 
-/* line 402, global.scss */
+/* line 404, global.scss */
 .pad-4 {
   padding-top: 15.6665%;
   padding-bottom: 15.6665%;
 }
 
-/* line 407, global.scss */
+/* line 409, global.scss */
 .pad-5 {
   padding-top: 19.833%;
   padding-bottom: 19.833%;
 }
 
-/* line 412, global.scss */
+/* line 414, global.scss */
 .pad-6 {
   padding-top: 24%;
   padding-bottom: 24%;
 }
 
-/* line 417, global.scss */
+/* line 419, global.scss */
 .pad-7 {
   padding-top: 28.1665%;
   padding-bottom: 28.1665%;
 }
 
-/* line 422, global.scss */
+/* line 424, global.scss */
 .pad-8 {
   padding-top: 32.3335%;
   padding-bottom: 32.3335%;
 }
 
-/* line 427, global.scss */
+/* line 429, global.scss */
 .pad-9 {
   padding-top: 36.5%;
   padding-bottom: 36.5%;
 }
 
-/* line 432, global.scss */
+/* line 434, global.scss */
 .pad-10 {
   padding-top: 41.5%;
   padding-bottom: 41.5%;
