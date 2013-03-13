@@ -3,7 +3,6 @@
  * 	Created: 03/2013
  */
 
-
 /* Imports 
 ---------------------------------------------------------*/
 @import url("imports/iconfont.css");
@@ -16,11 +15,11 @@ $hl-color: white;
 $bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
 $hl-alpha: 0.0;
 $bg-home: "/images/pluggedin_bg.jpg";
-$default-color: #ccc;
+$default-color: #fcfcfc;
 $default-size: 1em;
 $full: 100%;
-$max-width: 40em;
-$padding-btm: 10em;
+$max-width: 640px;
+$padding-btm: 6.5em;
 
 /* Default 
 ---------------------------------------------------------*/
@@ -46,20 +45,29 @@ a {
 
 h1 {
 	font: {
-		size: 1.8em;
+		size: 1.9em;
 		weight: 600;
 	}
-	line-height: 1.1em;
-	@media screen and (min-width: 40em) {
-
-	}
+	line-height: 1.04em;
 }
 
 h2 {
 	font: {
-		size: 1.65em;
+		size: 2em;
 		weight: 600;
 	}
+	line-height: 40.5%;
+}
+
+hr {
+	border: {
+		style: solid;
+		right: 0;
+		left: 0;
+		top: 0;
+	}
+    padding: 1.07em 0;
+    /*padding: 7.6% 0;*/
 }
 
 
@@ -91,7 +99,15 @@ h2 {
 	/*
 	@media screen and (min-width: 40em) {
 		background-size: 40em;
-	}*/
+	}
+	*/
+}
+
+#topSpacer {
+	div {
+		padding-top: 0%;
+		padding-bottom: 64.6%;
+	}
 }
 
 #mainContent.minHeight {min-height:130em;}
@@ -111,8 +127,8 @@ h2 {
     }
     li {
     	display: inline-block;
-    	width: 24%;
-    	margin: 0 4%;
+    	width: 27.5%;
+    	margin: 0.3% 3.4% 0;
     	a {
     		display: block;
     	}
@@ -122,27 +138,25 @@ h2 {
     }
 
 	.connect-lbl {
-		padding: 0 1.7em 0 1.7em;
+		padding: 0 9.7%;
 	}
 
     .divider {
-    	hr {
-    		padding: 0.95em 0;
-    		border: {
-    			style: solid;
-    			right: 0;
-    			left: 0;
-    			top: 0;
-    		}
+    	padding-bottom: 1.9%;
+    	.pad-left {
+			margin: 0 4.2% 0 10.8%;
+    	}
+    	.pad-right {
+    		margin: 0 12% 0 1.4%
     	}
     }
 
     .search-bar {
-
     	form {
     		height: 0;
     		padding-bottom: 18%;
     		position: relative;
+    		margin: 0 4.2% 8.6%;
     	}
 
     	input {
@@ -151,7 +165,7 @@ h2 {
     	}
 
     	input[type=text] {
-    		font-size: 2.2em;
+    		font-size: 2.15em;
     		width: 90%;
     		left: 0;
     		border: 0;
@@ -173,55 +187,82 @@ h2 {
 
 #masterList {
 	background: rgba(black, 1);
-	div {
-		/*background: rgba(black, 0.2);*/
+
+	/* grid mod */
+	.grid-3 {
+		width: 18.3% !important;
+	}
+	.grid-7 {
+		width: 61% !important;
 	}
 
 	a {
 		cursor: pointer;
-		color: #777 !important;
+		color: #666;
+	}
+
+	a:hover {
+		color: #8c8c8c;
+	}
+
+	a:active {
+		color: #8c8c8c;
 	}
 
 	.event-date {
 		font: {
-			size: 1.8em;
+			size: 3.75em;
 			weight: 600;
 		}
-		color: #666;
-		padding: 0.72em 0 0.72em 0;
+		padding: 0.22em 0 0.4em;
+		margin: 0 0 4.5%;
+		text-align: left;
 		background: {
-			image: url("/images/list_header_bg_sml.jpg");
+			image: url("/images/list_header_bg.jpg");
 			repeat: repeat-x;
+		}
+		span {
+			padding-left: 23.6%;
+			color: #666;
 		}
 	}
 
 	.event-time {
 		font: {
-			size: 1.6em;
+			size: 1.8em;
+			weight: 600;
 		}
-		color: #777;
+		color: #8c8c8c !important;
 		text-align: left;
+		padding-top: 0.15em;
 	} 
 
 	.band-name {
 		font: {
-			size: 1.75em;
+			size: 3.75em;
 			weight: 600;
 		}
+		line-height: 106%;
+		color: $default-color;
 		padding: 0 0 0.2em 0;
 		text-align: left;
 	}
 
 	.venue-name {
-		font-size: 1.4em;
+		font: {
+			size: 2em;
+			weight: 600;
+		}
+		line-height: 106%;
 		text-align: left;
 		padding: 0 0 1em 0;
+
 	}
 	
 	.add-to-cal {
-		font-size: 3.4em;
+		font-size: 4.7em !important;
 		text-align: right;
-		padding: 0.05em 0 0 0;
+		padding-top: 0.05em;
 	}
 }
 
@@ -235,15 +276,15 @@ h2 {
     	display: inline-block;
     	.label {
     		color: #555;
-    		font-size: 1.95em;
+    		font-size: 2.2em;
 	    	float: left;
-	    	padding: 1.75em 0;
+	    	padding: 0.92em 0;
 	    }
 		.logo {
 			float: left;
 			color: #555;
-			font-size: 7em;
-			padding: 0.15em 0 0 0;
+			font-size: 4.2em;
+			padding: 0.25em 0 0.1em 0;
 
 	    }
 	}
@@ -251,7 +292,7 @@ h2 {
 
 /* Fluid Grid 
 ---------------------------------------------------------*/
-.grid-container {
+.grid-container, .grid-container-pad0, .cal-container {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
@@ -263,6 +304,18 @@ h2 {
     	height:auto;
     	@include highlight($hl-color, $hl-alpha);
     }
+}
+
+.cal-container {
+	width: 93.2%;
+	margin-left: 3.4%;
+    margin-right: 3.4%;
+}
+
+.grid-container-pad0 {
+	width: 100%;
+	margin-left: 0%;
+    margin-right: 0%;
 }
 
 .grid-1,
@@ -284,100 +337,100 @@ h2 {
     margin-right: 1%;
 }
 
-.grid-container .grid-1 {
+.grid-1 {
     width:6.333%;
 }
 
-.grid-container .grid-2 {
+.grid-2 {
     width:14.667%;
 }
 
-.grid-container .grid-3 {
+.grid-3 {
     width:23.0%;
 }
 
-.grid-container .grid-4 {
+.grid-4 {
     width:31.333%;
 }
 
-.grid-container .grid-5 {
+.grid-5 {
     width:39.667%;
 }
 
-.grid-container .grid-6 {
+.grid-6 {
     width:48.0%;
 }
 
-.grid-container .grid-7 {
+.grid-7 {
     width:56.333%;
 }
 
-.grid-container .grid-8 {
+.grid-8 {
     width:64.667%;
 }
 
-.grid-container .grid-9 {
+.grid-9 {
     width:73.0%;
 }
 
-.grid-container .grid-10 {
+.grid-10 {
     width:81.333%;
 }
 
-.grid-container .grid-11 {
+.grid-11 {
     width:89.667%;
 }
 
-.grid-container .grid-12 {
+.grid-12 {
     width:98.0%;
 }
 
 /* grid height */
-.grid-container .pad-1 {
+.pad-1 {
     padding-top:3.1665%; 
     padding-bottom:3.1665%;
 }
-.grid-container .pad-2 {
+.pad-2 {
     padding-top:7.3335%; 
     padding-bottom:7.3335%;
 }
 
-.grid-container .pad-3 {
+.pad-3 {
     padding-top:11.5%; 
     padding-bottom:11.5%;
 }
 
-.grid-container .pad-4 {
+.pad-4 {
     padding-top:15.6665%; 
     padding-bottom:15.6665%;
 }
 
-.grid-container .pad-5 {
+.pad-5 {
     padding-top:19.833%; 
     padding-bottom:19.833%;
 }
 
-.grid-container .pad-6 {
+.pad-6 {
     padding-top:24%; 
     padding-bottom:24%;
 }
 
-.grid-container .pad-7 {
+.pad-7 {
     padding-top:28.1665%; 
     padding-bottom:28.1665%;
 }
 
-.grid-container .pad-8 {
+.pad-8 {
     padding-top:32.3335%; 
     padding-bottom:32.3335%;
 }
 
-.grid-container .pad-9 {
+.pad-9 {
     padding-top:36.5%; 
     padding-bottom:36.5%;
 }
 
-.grid-container .pad-10 {
+.pad-10 {
     padding-top:41.5%; 
     padding-bottom:41.5%;
 }
