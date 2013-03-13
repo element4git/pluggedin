@@ -51,7 +51,7 @@ var sortList = function(){
 			var gigHTML = sxswObject.gigHTML();
 			
 			
-			$('#masterList .grid-container div').remove();
+			$('#masterList div').remove();
 			
 			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
