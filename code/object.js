@@ -73,12 +73,19 @@ var sortList = function(){
 				text_day = '';
 			
 			
+			var gridContain = '';
+			
 			$.each(currentHTML,function(key, value){
 				var $date = $(value).find('form[name=gigInfo] input[name=date]').val();
+				
 				
 				if(currentDate != $date){
 					currentDate = $date;
 					var jsdate = new Date($date+'T12:00');
+					
+					gridContain = $('<div class="grid-container-pad0" />');
+					
+					
 					if(today.getDay() == jsdate.getDay())
 						text_day = 'today';
 					else if(today.getDay() - jsdate.getDay() == -1)
@@ -86,9 +93,12 @@ var sortList = function(){
 					else
 						text_day = days[jsdate.getDay()];
 					
-					$('#masterList .grid-container').append('<div id="eventDate" class="event-date grid-12">'+text_day+'</div>');
+					gridContain.append('<div id="eventDate" class="event-date grid-12"><span>'+text_day+'</span></div>');
+					
+					$('#masterList').append(gridContain);
 				}
-				$('#masterList .grid-container').append(value);
+								
+				gridContain.append(value);
 			});
 			
 			scrollWindow.go();

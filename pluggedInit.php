@@ -62,7 +62,10 @@ error_reporting(E_ALL);
 		$searchArray[] = $gig['band_name'];
 		$searchArray[] = $gig['venue_name'];
 		
-		$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"><form name="gigInfo"><input type="hidden" name="band" value="'.$gig['band_name'].'" /><input type="hidden" name="venue" value="'.$gig['venue_name'].'" /><input type="hidden" name="date" value="'.$gig['date'].'" /><input type="hidden" name="startTime" value="'.$gig['start_time'].'" /></form></a></div></div>';
+		//$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"><form name="gigInfo"><input type="hidden" name="band" value="'.$gig['band_name'].'" /><input type="hidden" name="venue" value="'.$gig['venue_name'].'" /><input type="hidden" name="date" value="'.$gig['date'].'" /><input type="hidden" name="startTime" value="'.$gig['start_time'].'" /></form></a></div></div>';
+		
+		$html .='<div class="cal-container gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].' </div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"><form name="gigInfo"><input type="hidden" name="band" value="'.$gig['band_name'].'" /><input type="hidden" name="venue" value="'.$gig['venue_name'].'" /><input type="hidden" name="date" value="'.$gig['date'].'" /><input type="hidden" name="startTime" value="'.$gig['start_time'].'" /></form></a></div></div>';
+		
 	}
 	
 	$html = str_replace("'","\\'",$html);

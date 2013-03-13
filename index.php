@@ -59,8 +59,8 @@
                 </div>
    				<div id="masterList" class="full-width"> <!-- preferred name: schedule -->
 	                <!-- CHANGE: grid-container :: grid-container-pad0 !-->
-	                <div class="grid-container-pad0">
-	                	<!-- CHANGE: event-date grid12 :: event-date full-width -->
+	                <!-- <div class="grid-container-pad0">
+	                	CHANGE: event-date grid12 :: event-date full-width -->
 	                	<!-- CHANGE: Today :: <span>Today</span> -->
 	                		<!-- CHANGE: class="grid-container" :: class="cal-container" -->
 	                   	<!--div id="eventDate" class="event-date full-width"><span>Today</span></div>
@@ -71,8 +71,8 @@
 	                        	<div id="venueName" class="venue-name full-width"><a>Lounge #1</a></div>
 	                        </div>
 	                        <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
-	                    </div-->
-	                </div>
+	                    </div
+	                </div>-->
 	                <!--div class="grid-container-pad0">
 	                    <div id="eventDate" class="event-date full-width"><span>Today</span></div>
 	                    <div class="cal-container">
