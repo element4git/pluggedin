@@ -94,6 +94,8 @@ h2 {
 	}*/
 }
 
+#mainContent.minHeight {min-height:130em;}
+
 #mainContent {
 	@include highlight($hl-color, $hl-alpha);
 
