@@ -58,8 +58,12 @@
 					</div>
                 </div>
    				<div id="masterList" class="full-width"> <!-- preferred name: schedule -->
-	                <div class="grid-container">
-	                   <!--div id="eventDate" class="event-date full-width"><span>Today</span></div>
+	                <!-- CHANGE: grid-container :: grid-container-pad0 !-->
+	                <div class="grid-container-pad0">
+	                	<!-- CHANGE: event-date grid12 :: event-date full-width -->
+	                	<!-- CHANGE: Today :: <span>Today</span> -->
+	                		<!-- CHANGE: class="grid-container" :: class="cal-container" -->
+	                   	<!--div id="eventDate" class="event-date full-width"><span>Today</span></div>
 	                    <div class="cal-container">
 	                        <div id="eventTime" class="event-time grid-3">7:30pm</div>
 	                        <div class="grid-7">
@@ -69,21 +73,21 @@
 	                        <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
 	                    </div-->
 	                </div>
-	                <!--<div class="grid-container">
-	                    <div id="eventDate" class="event-date grid-12">3/12/2013</div>
-	                    <div class="full-width">
-	                        <div id="eventTime" class="event-time grid-3">8:00pm</div>
+	                <!--div class="grid-container-pad0">
+	                    <div id="eventDate" class="event-date full-width"><span>Today</span></div>
+	                    <div class="cal-container">
+	                        <div id="eventTime" class="event-time grid-3">7:30pm</div>
 	                        <div class="grid-7">
-	                        	<div id="bandName" class="band-name full-width">Bano</div>
-	                        	<div id="venueName" class="venue-name full-width"><a>Dive Bar</a></div>
+	                        	<div id="bandName" class="band-name full-width">The Greatest Band in the World</div>
+	                        	<div id="venueName" class="venue-name full-width"><a>Lounge #1</a></div>
 	                        </div>
 	                        <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
 	                    </div>
-	                    <div class="full-width">
-	                        <div id="eventTime" class="event-time grid-3">9:15pm</div>
+	                    <div class="cal-container">
+	                        <div id="eventTime" class="event-time grid-3">7:30pm</div>
 	                        <div class="grid-7">
-	                        	<div id="bandName" class="band-name full-width">The 2nd Greatest Band in the World</div>
-	                        	<div id="venueName" class="venue-name full-width"><a>Stage 6</a></div>
+	                        	<div id="bandName" class="band-name full-width">The Greatest Band in the World</div>
+	                        	<div id="venueName" class="venue-name full-width"><a>Lounge #1</a></div>
 	                        </div>
 	                        <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
 	                    </div>
