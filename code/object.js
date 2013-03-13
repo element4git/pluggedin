@@ -20,7 +20,11 @@ var sxswObject = function(){
 			
 			$.each(searchAutoComplete, function(i, el){
 				var string = searchAutoComplete[i].toUpperCase();
-				if(string.search(searchSet.toUpperCase()) != -1){
+				var searchCon = searchSet.toUpperCase()
+				
+				
+				
+				if(string.search(searchCon) != -1){
 					searchUnique.push(searchAutoComplete[i])
 				}
 			});
@@ -37,13 +41,18 @@ var sortList = function(){
 			var gigs = sxswObject.searchAutoComplete();
 			var results = []
 			
+			
+			// REVISIT THIS. If the gigset is larger than 300 it break the system. I'll have to rebuild this.
+			if(gigSet.length > 300)
+				return false;
+			
 			for(var i=0; i < gigSet.length; i++){
 				if($.inArray(gigSet[i], gigs) != -1){
 					
 					results.push('.'+gigSet[i].replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,''));
 				}
 			}
-						
+				
 			this.showGigs(results);
 			
 		},
@@ -51,7 +60,11 @@ var sortList = function(){
 			var gigHTML = sxswObject.gigHTML();
 			
 			
-			$('#masterList div').remove();
+			
+			//return false;
+			
+			$('#masterList .grid-container div').remove();
+			
 			
 			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
@@ -59,12 +72,20 @@ var sortList = function(){
 				today = new Date(),
 				text_day = '';
 			
+			
+			var gridContain = '';
+			
 			$.each(currentHTML,function(key, value){
-				var $date = $(value).find('.gigInfo input[name=date]').val();
+				var $date = $(value).find('form[name=gigInfo] input[name=date]').val();
+				
 				
 				if(currentDate != $date){
 					currentDate = $date;
 					var jsdate = new Date($date+'T12:00');
+					
+					gridContain = $('<div class="grid-container-pad0" />');
+					
+					
 					if(today.getDay() == jsdate.getDay())
 						text_day = 'today';
 					else if(today.getDay() - jsdate.getDay() == -1)
@@ -72,9 +93,12 @@ var sortList = function(){
 					else
 						text_day = days[jsdate.getDay()];
 					
-					$('#masterList .grid-container').append('<div id="eventDate" class="event-date grid-12">'+text_day+'</div>');
+					gridContain.append('<div id="eventDate" class="event-date grid-12"><span>'+text_day+'</span></div>');
+					
+					$('#masterList').append(gridContain);
 				}
-				$('#masterList .grid-container').append(value);
+								
+				gridContain.append(value);
 			});
 			
 			scrollWindow.go();
@@ -207,11 +231,7 @@ var scrollWindow = function(){
 					pos = pos+10;
 					$(document).scrollTop(pos);
 				}
-				
-				debug.log(pos);
-				debug.log(searchBarOffset)
-				debug.log('inter');
-			},10);
+			},5);
 		}
 	}
 }();

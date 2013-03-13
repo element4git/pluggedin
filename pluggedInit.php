@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 			$FBID = '456738747726141';
 			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
 			$soundCloudRedirect = 'http://pluggedin.com/soundcloudAuth';
-			define('mongoServer', 'mongodb://127.0.0.1');
+			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds053607.mongolab.com:53607/pluggedin');//define('mongoServer', 'mongodb://127.0.0.1');
 		break;
 	}
 
@@ -42,7 +42,7 @@ error_reporting(E_ALL);
 				<div style="margin:0 auto; width:640px;"><img src="images/plugged_in_error.jpg" /></div>
 			</body>
 			</html>';
-		return false;
+		die();
 	}
 	
 	
@@ -62,7 +62,10 @@ error_reporting(E_ALL);
 		$searchArray[] = $gig['band_name'];
 		$searchArray[] = $gig['venue_name'];
 		
-		$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"></a></div><div class="gigInfo"><input type="hidden" name="date" value="'.$gig['date'].'" /></div></div>';
+		//$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"><form name="gigInfo"><input type="hidden" name="band" value="'.$gig['band_name'].'" /><input type="hidden" name="venue" value="'.$gig['venue_name'].'" /><input type="hidden" name="date" value="'.$gig['date'].'" /><input type="hidden" name="startTime" value="'.$gig['start_time'].'" /></form></a></div></div>';
+		
+		$html .='<div class="cal-container gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].' </div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"><form name="gigInfo"><input type="hidden" name="band" value="'.$gig['band_name'].'" /><input type="hidden" name="venue" value="'.$gig['venue_name'].'" /><input type="hidden" name="date" value="'.$gig['date'].'" /><input type="hidden" name="startTime" value="'.$gig['start_time'].'" /></form></a></div></div>';
+		
 	}
 	
 	$html = str_replace("'","\\'",$html);
