@@ -207,11 +207,7 @@ var scrollWindow = function(){
 					pos = pos+10;
 					$(document).scrollTop(pos);
 				}
-				
-				debug.log(pos);
-				debug.log(searchBarOffset)
-				debug.log('inter');
-			},10);
+			},50);
 		}
 	}
 }();
