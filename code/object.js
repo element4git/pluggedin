@@ -87,13 +87,13 @@ var sortList = function(){
 					
 					
 					if(today.getDay() == jsdate.getDay())
-						text_day = 'today';
+						text_day = 'Today';
 					else if(today.getDay() - jsdate.getDay() == -1)
-						text_day = 'tomorrow';
+						text_day = 'Tomorrow';
 					else
 						text_day = days[jsdate.getDay()];
 					
-					gridContain.append('<div id="eventDate" class="event-date grid-12"><span>'+text_day+'</span></div>');
+					gridContain.append('<div id="eventDate" class="event-date full-width"><span>'+text_day+'</span></div>');
 					
 					$('#masterList').append(gridContain);
 				}
