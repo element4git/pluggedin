@@ -63,7 +63,7 @@ var sortList = function(){
 			
 			//return false;
 			
-			$('#masterList .grid-container div').remove();
+			$('#masterList div').remove();
 			
 			
 			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
