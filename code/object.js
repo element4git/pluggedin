@@ -207,7 +207,7 @@ var scrollWindow = function(){
 					pos = pos+10;
 					$(document).scrollTop(pos);
 				}
-			},50);
+			},5);
 		}
 	}
 }();
