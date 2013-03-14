@@ -23,7 +23,7 @@ var sxswObject = function(){
 				else
 					loader = '.'
 				
-			},100);
+			},500);
 			
 			
 			$.ajax({
