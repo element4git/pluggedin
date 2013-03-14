@@ -120,7 +120,10 @@ var user = function(){
 		SDsongs = [],
 		optionsSelected = {},
 		selectedObject,
-		checkSpotify = false;
+		checkSpotify = false,
+		storeSRC = '',
+		loadingButton = new Image();
+		loadingButton.src = "images/buttons/social_btn.png";
 	return {
 		setCalendar : function(data){
 			//debug.log(data)
@@ -129,8 +132,11 @@ var user = function(){
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
 			
-			if(!paging)
+			if(!paging){
 				selectedObject.append('<img class="loading" src="images/loading.gif" />');
+				storeSRC = $('#scToggle img')[0].src;
+				$('#scToggle img')[0].src = loadingButton.src;
+			}
 			
 			SC.get(url, function(r) {	
 				if(r.length > 0){
@@ -144,13 +150,17 @@ var user = function(){
 				selectedObject.off('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
 				user.toggle('SDsongs');
 				$('.loading').remove();
+				$('#scToggle img')[0].src = storeSRC;
 			});
 			
 		},
 		initFB : function(paging){
 			
-			if(!paging && !checkSpotify)
+			if(!paging && !checkSpotify){
+				storeSRC = $('#fbToggle img')[0].src;
+				$('#fbToggle img')[0].src = loadingButton.src;
 				selectedObject.append('<img class="loading" src="images/loading.gif" />');
+			}
 			
 			
 			
@@ -198,6 +208,7 @@ var user = function(){
 					user.toggle('FBLikes');
 					
 					$('.loading').remove();
+					$('#fbToggle img')[0].src = storeSRC;
 				}
 			});
 		},
@@ -294,4 +305,6 @@ $(function(){
 	}).on('focus',function(){
 		scrollWindow.go();
 	});
+	
+	
 });

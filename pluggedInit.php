@@ -66,7 +66,7 @@
 		
 		//$html .= '<div class="full-width gig '.$cleanBandName.' '.$cleanVenueName.'"><div id="eventTime" class="event-time grid-3">'.$gig['start_time'].'</div><div class="grid-7"><div id="bandName" class="band-name full-width">'.$gig['band_name'].'</div><div id="venueName" class="venue-name full-width"><a>'.$gig['venue_name'].'</a></div></div><div class="add-to-cal grid-2"><a class="ico-calendar"><form name="gigInfo"><input type="hidden" name="band" value="'.$gig['band_name'].'" /><input type="hidden" name="venue" value="'.$gig['venue_name'].'" /><input type="hidden" name="date" value="'.$gig['date'].'" /><input type="hidden" name="startTime" value="'.$gig['start_time'].'" /></form></a></div></div>';
 		$convert =  strtotime($gig['start_time']);
-		$convertEnd =  strtotime($gig['end_time']);
+		$convertEnd =  (isset($gig['end_time'])) ? strtotime($gig['end_time']) : strtotime('11:00PM');
 		
 		$myDate = str_replace('-','',$gig['date']);
 		
