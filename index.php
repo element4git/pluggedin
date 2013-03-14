@@ -26,11 +26,11 @@
                 	<div class="grid-12">
                 		<ul>
 	                		<li id="fbToggle">
-	                			<a href="#"><img class="toggle-on" src="/images/buttons/social_btn_fb.png"/></a>
+	                			<a href="javascript:void(0)"><img class="toggle-on" src="/images/buttons/social_btn_fb.png"/></a>
 	                			<a href="#"><img class="toggle-off displayNone" src="/images/buttons/social_btn_fb_active.png"/></a>
 	                		</li>
 	                		<li id="scToggle">
-	                			<a href="#"><img class="toggle-on" src="/images/buttons/social_btn_sc.png"/></a>
+	                			<a href="javascript:void(0)"><img class="toggle-on" src="/images/buttons/social_btn_sc.png"/></a>
 	                			<a href="#"><img class="toggle-off displayNone" src="/images/buttons/social_btn_sc_active.png"/></a>
 	                		</li>
 	                		<!--li id="rdioToggle" class="displayNone">
