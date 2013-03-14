@@ -20,9 +20,6 @@ html, body {
   background: black;
 }
 
-
-.ico-calendar{display:none;}
-
 /* line 33, global.scss */
 div, p, span, h1, h2, h3, h4, h5, h6, input, a {
   color: #fcfcfc;
@@ -280,9 +277,28 @@ hr {
   padding: 0.25em 0 0.1em 0;
 }
 
+/* line 293, global.scss */
+#scToggle, #fbToggle {
+  position: relative;
+}
+
+/* line 295, global.scss */
+#mainContent li img.loading {
+  position: absolute;
+  width: auto;
+  right: 24%;
+  top: 38%;
+  z-index: 10;
+}
+
+/* line 296, global.scss */
+#mainContent li#fbToggle img.loading {
+  right: 32%;
+}
+
 /* Fluid Grid 
 ---------------------------------------------------------*/
-/* line 295, global.scss */
+/* line 300, global.scss */
 .grid-container, .grid-container-pad0, .cal-container {
   width: 90%;
   margin-left: 5%;
@@ -292,28 +308,28 @@ hr {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
-/* line 303, global.scss */
+/* line 308, global.scss */
 .grid-container div, .grid-container-pad0 div, .cal-container div {
   height: auto;
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
 
-/* line 309, global.scss */
+/* line 314, global.scss */
 .cal-container {
   width: 93.2%;
   margin-left: 3.4%;
   margin-right: 3.4%;
 }
 
-/* line 315, global.scss */
+/* line 320, global.scss */
 .grid-container-pad0 {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
 }
 
-/* line 332, global.scss */
+/* line 337, global.scss */
 .grid-1,
 .grid-2,
 .grid-3,
@@ -333,122 +349,122 @@ hr {
   margin-right: 1%;
 }
 
-/* line 340, global.scss */
+/* line 345, global.scss */
 .grid-1 {
   width: 6.333%;
 }
 
-/* line 344, global.scss */
+/* line 349, global.scss */
 .grid-2 {
   width: 14.667%;
 }
 
-/* line 348, global.scss */
+/* line 353, global.scss */
 .grid-3 {
   width: 23.0%;
 }
 
-/* line 352, global.scss */
+/* line 357, global.scss */
 .grid-4 {
   width: 31.333%;
 }
 
-/* line 356, global.scss */
+/* line 361, global.scss */
 .grid-5 {
   width: 39.667%;
 }
 
-/* line 360, global.scss */
+/* line 365, global.scss */
 .grid-6 {
   width: 48.0%;
 }
 
-/* line 364, global.scss */
+/* line 369, global.scss */
 .grid-7 {
   width: 56.333%;
 }
 
-/* line 368, global.scss */
+/* line 373, global.scss */
 .grid-8 {
   width: 64.667%;
 }
 
-/* line 372, global.scss */
+/* line 377, global.scss */
 .grid-9 {
   width: 73.0%;
 }
 
-/* line 376, global.scss */
+/* line 381, global.scss */
 .grid-10 {
   width: 81.333%;
 }
 
-/* line 380, global.scss */
+/* line 385, global.scss */
 .grid-11 {
   width: 89.667%;
 }
 
-/* line 384, global.scss */
+/* line 389, global.scss */
 .grid-12 {
   width: 98.0%;
 }
 
 /* grid height */
-/* line 389, global.scss */
+/* line 394, global.scss */
 .pad-1 {
   padding-top: 3.1665%;
   padding-bottom: 3.1665%;
 }
 
-/* line 393, global.scss */
+/* line 398, global.scss */
 .pad-2 {
   padding-top: 7.3335%;
   padding-bottom: 7.3335%;
 }
 
-/* line 398, global.scss */
+/* line 403, global.scss */
 .pad-3 {
   padding-top: 11.5%;
   padding-bottom: 11.5%;
 }
 
-/* line 403, global.scss */
+/* line 408, global.scss */
 .pad-4 {
   padding-top: 15.6665%;
   padding-bottom: 15.6665%;
 }
 
-/* line 408, global.scss */
+/* line 413, global.scss */
 .pad-5 {
   padding-top: 19.833%;
   padding-bottom: 19.833%;
 }
 
-/* line 413, global.scss */
+/* line 418, global.scss */
 .pad-6 {
   padding-top: 24%;
   padding-bottom: 24%;
 }
 
-/* line 418, global.scss */
+/* line 423, global.scss */
 .pad-7 {
   padding-top: 28.1665%;
   padding-bottom: 28.1665%;
 }
 
-/* line 423, global.scss */
+/* line 428, global.scss */
 .pad-8 {
   padding-top: 32.3335%;
   padding-bottom: 32.3335%;
 }
 
-/* line 428, global.scss */
+/* line 433, global.scss */
 .pad-9 {
   padding-top: 36.5%;
   padding-bottom: 36.5%;
 }
 
-/* line 433, global.scss */
+/* line 438, global.scss */
 .pad-10 {
   padding-top: 41.5%;
   padding-bottom: 41.5%;

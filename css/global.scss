@@ -290,6 +290,11 @@ hr {
 	}
 }
 
+#scToggle,#fbToggle{position:relative;}
+
+#mainContent li img.loading{position:absolute; width:auto; right: 24%; top: 38%; z-index:10;}
+#mainContent li#fbToggle img.loading{right:32%}
+
 /* Fluid Grid 
 ---------------------------------------------------------*/
 .grid-container, .grid-container-pad0, .cal-container {

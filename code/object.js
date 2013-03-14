@@ -119,6 +119,10 @@ var user = function(){
 	return {
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
+			
+			if(!paging)
+				selectedObject.append('<img class="loading" src="images/loading.gif" />');
+			
 			SC.get(url, function(r) {	
 				if(r.length > 0){
 					for(var i=0; i < r.length; i++){
@@ -130,12 +134,16 @@ var user = function(){
 				}
 				selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
 				user.toggle('SDsongs');
+				$('.loading').remove();
 			});
 			
 		},
 		initFB : function(paging){
 			
-			//Start Loading Grapic
+			if(!paging && !checkSpotify)
+				selectedObject.append('<img class="loading" src="images/loading.gif" />');
+			
+			
 			
 			var initialized = true;
 			var url = (paging) ? paging : '/me/music';
@@ -181,7 +189,7 @@ var user = function(){
 					selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
 					user.toggle('FBLikes');
 					
-					//End Loading Graphic Here
+					//$('.loading').remove();
 				}
 			});
 		},
