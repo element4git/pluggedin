@@ -61,6 +61,12 @@ var sortList = function(){
 			
 			$('#masterList div').remove();
 			
+			debug.log(gigSet);
+			
+			if(gigSet == 'searching'){
+				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">Searching...</div><div class="venue-name full-width" id="venueName"><a>If nothing comes up, keep typing or try a different search term</a></div></div></div></div>');
+			} else if(gigSet.length == 0)
+				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">No Results</div><div class="venue-name full-width" id="venueName"><a>Try the search bar</a></div></div></div></div>');
 			
 			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
@@ -301,7 +307,7 @@ $(function(){
 		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
 		else
-			sortList.checkResults([]);
+			sortList.showGigs('searching');
 	}).on('focus',function(){
 		scrollWindow.go();
 	});
