@@ -5,8 +5,82 @@ var sxswObject = function(){
 	return{
 		init:function(){
 			
-			searchAutoComplete = phpSearchArray;
-			gigHTML = phpGigHTML;
+			//searchAutoComplete = phpSearchArray;
+			//gigHTML = phpGigHTML;
+			
+			debug.log('here')
+			
+			var loader = '.'
+			
+			var loading = setInterval(function(){
+				
+				$('#searchForm').attr('value','Loading Gigs'+loader);
+				
+				if(loader == '.')
+					loader = '..'
+				else if(loader == '..')
+					loader = '...'
+				else if (loader == '...')
+					loader = '.'
+				
+			},400);
+			
+			
+			$.ajax({
+				url : '/',
+				type : 'post',
+				dataType:'json',
+				data:{getGig:true},
+				success:function(r){
+					
+					if(r.status == 'fail'){
+						$('body').html('<div style="margin:0 auto; width:640px;"><img src="images/plugged_in_error.jpg" /></div>')
+					}
+					
+					gigHTML = $(r.gigSet);
+					searchAutoComplete = r.searchSet;
+					
+					clearInterval(loading);
+					
+					$('#fbToggle').on('click',function(e){
+						var $this = $(this);
+						FB.login(function(response) {
+						   if (response.authResponse) {
+							 debug.log('Welcome!  Fetching your information.... ');
+							 user.setObject($this);
+							 user.initFB();
+						   } else {
+							 debug.log('User cancelled login or did not fully authorize.');
+							 setBtnToggle(e);
+						   }
+						},{scope:'user_likes,user_actions.music'});
+						return false;
+					});
+					$('#scToggle').on('click',function(e){
+						var $this = $(this);
+						user.setObject($this);
+						SC.connect(function() {
+						  user.initSC();
+						});
+						return false;
+					});
+					$('#rdioToggle').on('click',function(e){
+						setBtnToggle(e);
+						$.ajax({
+							url:'service/getInvatationURLs.php'
+						})
+					});
+					$('#searchForm').on('keyup',function(ev){
+						if(this.value.length > 2)
+							sxswObject.searchValue(this.value);
+						else
+							sortList.showGigs('searching');
+					}).on('focus',function(){
+						user.toggleOff();
+						scrollWindow.go();
+					}).attr('value','');
+				}
+			})
 						
 		},
 		searchAutoComplete : function(){
@@ -20,7 +94,11 @@ var sxswObject = function(){
 			
 			$.each(searchAutoComplete, function(i, el){
 				var string = searchAutoComplete[i].toUpperCase();
-				if(string.search(searchSet.toUpperCase()) != -1){
+				var searchCon = searchSet.toUpperCase()
+				
+				
+				
+				if(string.search(searchCon) != -1){
 					searchUnique.push(searchAutoComplete[i])
 				}
 			});
@@ -37,21 +115,32 @@ var sortList = function(){
 			var gigs = sxswObject.searchAutoComplete();
 			var results = []
 			
-			for(var i=0; i < gigSet.length; i++){
+			
+			// REVISIT THIS. If the gigset is larger than 300 it break the system. I'll have to rebuild this.
+			setLength = (gigSet.length > 300) ? 200 : gigSet.length;
+			
+			
+			for(var i=0; i < setLength; i++){
 				if($.inArray(gigSet[i], gigs) != -1){
 					
 					results.push('.'+gigSet[i].replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,''));
 				}
 			}
-						
+				
 			this.showGigs(results);
 			
 		},
 		showGigs:function(gigSet){
 			var gigHTML = sxswObject.gigHTML();
 			
+			$('#masterList div').remove();
 			
-			$('#masterList .grid-container div').remove();
+			debug.log(gigSet);
+			
+			if(gigSet == 'searching'){
+				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">Searching...</div><div class="venue-name full-width" id="venueName"><a>If nothing comes up, keep typing or try a different search term.</a></div></div></div></div>');
+			} else if(gigSet.length == 0)
+				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">No Results</div><div class="venue-name full-width" id="venueName"><a>Try the search bar.</a></div></div></div></div>');
 			
 			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
@@ -59,31 +148,51 @@ var sortList = function(){
 				today = new Date(),
 				text_day = '';
 			
+			
+			var gridContain = '';
+			
 			$.each(currentHTML,function(key, value){
-				var $date = $(value).find('.gigInfo input[name=date]').val();
+				var $date = $(value).find('.date input').val();
+				var jsdate = new Date($date);
 				
-				if(currentDate != $date){
-					currentDate = $date;
-					var jsdate = new Date($date+'T12:00');
-					if(today.getDay() == jsdate.getDay())
-						text_day = 'today';
-					else if(today.getDay() - jsdate.getDay() == -1)
-						text_day = 'tomorrow';
-					else
-						text_day = days[jsdate.getDay()];
-					
-					$('#masterList .grid-container').append('<div id="eventDate" class="event-date grid-12">'+text_day+'</div>');
+				
+				
+				if(today.getDate() - jsdate.getDate() <= 0){
+					if(currentDate != $date.split('T')[0]){
+						currentDate = $date.split('T')[0];
+						
+						gridContain = $('<div class="grid-container-pad0" />');
+						
+						
+						debug.log(today.getDate() + " <-- today ")
+						debug.log(jsdate.getDate() + " <-- event day ")
+						
+						if(today.getDate() == jsdate.getDate())
+							text_day = 'Today';
+						else if(today.getDate() - jsdate.getDate() == -1)
+							text_day = 'Tomorrow';
+						else
+							text_day = days[jsdate.getDay()];
+						
+						gridContain.append('<div id="eventDate" class="event-date full-width"><span>'+text_day+'</span></div>');
+						
+						$('#masterList').append(gridContain);
+					}
+											
+					gridContain.append(value);
 				}
-				$('#masterList .grid-container').append(value);
 			});
 			
 			scrollWindow.go();
 			
 			
-			
+			$('.add-to-cal').on('click',function(){
+				user.setCalendar($(this).find('form[name=gigInfo]').serialize());
+			});
 		}
 	}
 }();
+
 
 var user = function(){
 	var initialized = false,
@@ -91,10 +200,24 @@ var user = function(){
 		SDsongs = [],
 		optionsSelected = {},
 		selectedObject,
-		checkSpotify = false;
+		checkSpotify = false,
+		storeSRC = '',
+		loadingButton = new Image();
+		loadingButton.src = "images/buttons/social_btn.png";
 	return {
+		setCalendar : function(data){
+			//debug.log(data)
+			window.open('http://www.google.com/calendar/event?action=TEMPLATE&'+data);
+		},
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
+			
+			if(!paging){
+				selectedObject.append('<img class="loading" src="images/loading.gif" />');
+				storeSRC = $('#scToggle img')[0].src;
+				$('#scToggle img')[0].src = loadingButton.src;
+			}
+			
 			SC.get(url, function(r) {	
 				if(r.length > 0){
 					for(var i=0; i < r.length; i++){
@@ -104,14 +227,22 @@ var user = function(){
 				if(r.hasOwnProperty('next_href')){
 					user.initSC(r.next_href);
 				}
-				selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
+				selectedObject.off('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
 				user.toggle('SDsongs');
+				$('.loading').remove();
+				$('#scToggle img')[0].src = storeSRC;
 			});
 			
 		},
 		initFB : function(paging){
 			
-			//Start Loading Grapic
+			if(!paging && !checkSpotify){
+				storeSRC = $('#fbToggle img')[0].src;
+				$('#fbToggle img')[0].src = loadingButton.src;
+				selectedObject.append('<img class="loading" src="images/loading.gif" />');
+			}
+			
+			
 			
 			var initialized = true;
 			var url = (paging) ? paging : '/me/music';
@@ -135,7 +266,6 @@ var user = function(){
 								case 'musician':
 									FBLikes.push(r.data[i].data[a].title);
 									break;
-								
 							}
 						}
 					}					
@@ -154,10 +284,11 @@ var user = function(){
 					return false;
 				}
 				else{
-					selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
+					selectedObject.off('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
 					user.toggle('FBLikes');
 					
-					//End Loading Graphic Here
+					$('.loading').remove();
+					$('#fbToggle img')[0].src = storeSRC;
 				}
 			});
 		},
@@ -184,6 +315,11 @@ var user = function(){
 			};
 			
 			sortList.checkResults(joinedArrays);
+		},
+		toggleOff : function(){
+			optionsSelected = {};
+			$('.toggle-on').removeClass("displayNone");
+			$('.toggle-off').addClass("displayNone");
 		}
 	}
 }();
@@ -193,6 +329,9 @@ var scrollWindow = function(){
 	var pos = 0;
 	return{
 		go:function(){
+			setTimeout(scrollWindow.exec,100)
+		},
+		exec : function(){
 			if(typeof searchBarOffset == 'string')
 				searchBarOffset = $('#searchForm').offset().top;
 			
@@ -207,11 +346,7 @@ var scrollWindow = function(){
 					pos = pos+10;
 					$(document).scrollTop(pos);
 				}
-				
-				debug.log(pos);
-				debug.log(searchBarOffset)
-				debug.log('inter');
-			},10);
+			},5);
 		}
 	}
 }();
@@ -222,40 +357,7 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('#fbToggle').bind('click',function(e){
-		var $this = $(this);
-		FB.login(function(response) {
-		   if (response.authResponse) {
-			 debug.log('Welcome!  Fetching your information.... ');
-			 user.setObject($this);
-			 user.initFB();
-		   } else {
-			 debug.log('User cancelled login or did not fully authorize.');
-			 setBtnToggle(e);
-		   }
-		},{scope:'user_likes,user_actions.music'});
-		return false;
-	});
-	$('#scToggle').bind('click',function(e){
-		var $this = $(this);
-		user.setObject($this);
-		SC.connect(function() {
-		  user.initSC();
-		});
-		return false;
-	});
-	$('#rdioToggle').bind('click',function(e){
-		setBtnToggle(e);
-		$.ajax({
-			url:'service/getInvatationURLs.php'
-		})
-	});
-	$('#searchForm').bind('keyup',function(ev){
-		if(this.value.length > 2)
-			sxswObject.searchValue(this.value);
-		else
-			sortList.checkResults([]);
-	}).bind('focus',function(){
-		scrollWindow.go();
-	});
+	
+	
+	
 });

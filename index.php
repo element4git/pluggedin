@@ -6,13 +6,9 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta id="viewport" name="viewport" width="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="viewport" content="user-scalable=no" />
 <title> Plugged In - by R/GA </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
-<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
-<!--[if lt IE 7]>
-	<link rel="stylesheet" type="text/css" href="css/ie.css" />
-<![endif]-->
 </head>
 <body>
 	<div id="mainContainer" class="full-width">
@@ -30,11 +26,11 @@
                 	<div class="grid-12">
                 		<ul>
 	                		<li id="fbToggle">
-	                			<a href="#"><img class="toggle-on" src="/images/buttons/social_btn_fb.png"/></a>
+	                			<a href="javascript:void(0)"><img class="toggle-on" src="/images/buttons/social_btn_fb.png"/></a>
 	                			<a href="#"><img class="toggle-off displayNone" src="/images/buttons/social_btn_fb_active.png"/></a>
 	                		</li>
 	                		<li id="scToggle">
-	                			<a href="#"><img class="toggle-on" src="/images/buttons/social_btn_sc.png"/></a>
+	                			<a href="javascript:void(0)"><img class="toggle-on" src="/images/buttons/social_btn_sc.png"/></a>
 	                			<a href="#"><img class="toggle-off displayNone" src="/images/buttons/social_btn_sc_active.png"/></a>
 	                		</li>
 	                		<!--li id="rdioToggle" class="displayNone">
@@ -59,8 +55,8 @@
                 </div>
    				<div id="masterList" class="full-width"> <!-- preferred name: schedule -->
 	                <!-- CHANGE: grid-container :: grid-container-pad0 !-->
-	                <div class="grid-container-pad0">
-	                	<!-- CHANGE: event-date grid12 :: event-date full-width -->
+	                <!-- <div class="grid-container-pad0">
+	                	CHANGE: event-date grid12 :: event-date full-width -->
 	                	<!-- CHANGE: Today :: <span>Today</span> -->
 	                		<!-- CHANGE: class="grid-container" :: class="cal-container" -->
 	                   	<!--div id="eventDate" class="event-date full-width"><span>Today</span></div>
@@ -71,8 +67,8 @@
 	                        	<div id="venueName" class="venue-name full-width"><a>Lounge #1</a></div>
 	                        </div>
 	                        <div class="add-to-cal grid-2"><a class="ico-calendar"></a></div>
-	                    </div-->
-	                </div>
+	                    </div
+	                </div>-->
 	                <!--div class="grid-container-pad0">
 	                    <div id="eventDate" class="event-date full-width"><span>Today</span></div>
 	                    <div class="cal-container">
@@ -135,8 +131,6 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	var phpGigHTML = <?php echo $html; ?>;
-	var phpSearchArray = <?php echo json_encode($searchArray); ?>;
 	sxswObject.init();
 </script>
 </html>

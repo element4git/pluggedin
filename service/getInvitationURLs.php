@@ -50,5 +50,5 @@ class JWInviteSet {
 
 $set = new JWInviteSet($_POST['eventId'], $_POST['datetime'],$_POST['location'], $_POST['subject'],$_POST['description']);
 $inviteArr = $set->getInviteUrls();
-echo json_encode($inviteArr);
+echo json_encode($inviteArr,JSON_ESCAPED_SLASHES);
 ?>
