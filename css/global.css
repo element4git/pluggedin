@@ -20,6 +20,9 @@ html, body {
   background: black;
 }
 
+
+.ico-calendar{display:none;}
+
 /* line 33, global.scss */
 div, p, span, h1, h2, h3, h4, h5, h6, input, a {
   color: #fcfcfc;
