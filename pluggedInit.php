@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
- 	ini_set("display_errors", 1);
+	//error_reporting(E_ALL);
+ 	//ini_set("display_errors", 1);
 	$server = explode('www.',$_SERVER['SERVER_NAME']);
 	
 	$server = (isset($server[1])) ?  $server[1] : $server[0];
