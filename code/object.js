@@ -19,7 +19,43 @@ var sxswObject = function(){
 					gigHTML = $(r.gigSet);
 					searchAutoComplete = r.searchSet;
 					
-					debug.log(gigHTML);
+					$('#fbToggle').on('click',function(e){
+						var $this = $(this);
+						FB.login(function(response) {
+						   if (response.authResponse) {
+							 debug.log('Welcome!  Fetching your information.... ');
+							 user.setObject($this);
+							 user.initFB();
+						   } else {
+							 debug.log('User cancelled login or did not fully authorize.');
+							 setBtnToggle(e);
+						   }
+						},{scope:'user_likes,user_actions.music'});
+						return false;
+					});
+					$('#scToggle').on('click',function(e){
+						var $this = $(this);
+						user.setObject($this);
+						SC.connect(function() {
+						  user.initSC();
+						});
+						return false;
+					});
+					$('#rdioToggle').on('click',function(e){
+						setBtnToggle(e);
+						$.ajax({
+							url:'service/getInvatationURLs.php'
+						})
+					});
+					$('#searchForm').on('keyup',function(ev){
+						if(this.value.length > 2)
+							sxswObject.searchValue(this.value);
+						else
+							sortList.showGigs('searching');
+					}).on('focus',function(){
+						user.toggleOff();
+						scrollWindow.go();
+					}).attr('value','');
 				}
 			})
 						
@@ -298,43 +334,7 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('#fbToggle').on('click',function(e){
-		var $this = $(this);
-		FB.login(function(response) {
-		   if (response.authResponse) {
-			 debug.log('Welcome!  Fetching your information.... ');
-			 user.setObject($this);
-			 user.initFB();
-		   } else {
-			 debug.log('User cancelled login or did not fully authorize.');
-			 setBtnToggle(e);
-		   }
-		},{scope:'user_likes,user_actions.music'});
-		return false;
-	});
-	$('#scToggle').on('click',function(e){
-		var $this = $(this);
-		user.setObject($this);
-		SC.connect(function() {
-		  user.initSC();
-		});
-		return false;
-	});
-	$('#rdioToggle').on('click',function(e){
-		setBtnToggle(e);
-		$.ajax({
-			url:'service/getInvatationURLs.php'
-		})
-	});
-	$('#searchForm').on('keyup',function(ev){
-		if(this.value.length > 2)
-			sxswObject.searchValue(this.value);
-		else
-			sortList.showGigs('searching');
-	}).on('focus',function(){
-		user.toggleOff();
-		scrollWindow.go();
-	});
+	
 	
 	
 });

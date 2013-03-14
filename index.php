@@ -48,7 +48,7 @@
                 <div class="search-bar grid-container">
                     <div class="grid-12">
                     	<form>
-							<input type="text" id="searchForm" placeholder="Search bands or local venues" />
+							<input type="text" id="searchForm" value = "Loading Gigs..." placeholder="Search bands or local venues" />
 							<input type="button" class="displayNone co-font" value="s"/>
 						</form>
 					</div>
