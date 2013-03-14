@@ -20,7 +20,7 @@ var sxswObject = function(){
 					loader = '..'
 				else if(loader == '..')
 					loader = '...'
-				else
+				else if (loader == '...')
 					loader = '.'
 				
 			},100);
