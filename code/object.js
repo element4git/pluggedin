@@ -10,6 +10,8 @@ var sxswObject = function(){
 			
 			debug.log('here')
 			
+			$('#searchForm').attr('value','Loading Gigs...');
+			
 			$.ajax({
 				url : '/',
 				type : 'post',
