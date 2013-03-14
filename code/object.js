@@ -59,10 +59,6 @@ var sortList = function(){
 		showGigs:function(gigSet){
 			var gigHTML = sxswObject.gigHTML();
 			
-			
-			
-			//return false;
-			
 			$('#masterList div').remove();
 			
 			
@@ -76,38 +72,47 @@ var sortList = function(){
 			var gridContain = '';
 			
 			$.each(currentHTML,function(key, value){
-				var $date = $(value).find('form[name=gigInfo] input[name=date]').val();
+				var $date = $(value).find('.date input').val();
+				var jsdate = new Date($date);
 				
 				
-				if(currentDate != $date){
-					currentDate = $date;
-					var jsdate = new Date($date+'T12:00');
-					
-					gridContain = $('<div class="grid-container-pad0" />');
-					
-					
-					if(today.getDay() == jsdate.getDay())
-						text_day = 'Today';
-					else if(today.getDay() - jsdate.getDay() == -1)
-						text_day = 'Tomorrow';
-					else
-						text_day = days[jsdate.getDay()];
-					
-					gridContain.append('<div id="eventDate" class="event-date full-width"><span>'+text_day+'</span></div>');
-					
-					$('#masterList').append(gridContain);
+				
+				if(today.getDate() - jsdate.getDate() <= 0){
+					if(currentDate != $date.split('T')[0]){
+						currentDate = $date.split('T')[0];
+						
+						gridContain = $('<div class="grid-container-pad0" />');
+						
+						
+						debug.log(today.getDate() + " <-- today ")
+						debug.log(jsdate.getDate() + " <-- event day ")
+						
+						if(today.getDate() == jsdate.getDate())
+							text_day = 'Today';
+						else if(today.getDate() - jsdate.getDate() == -1)
+							text_day = 'Tomorrow';
+						else
+							text_day = days[jsdate.getDay()];
+						
+						gridContain.append('<div id="eventDate" class="event-date full-width"><span>'+text_day+'</span></div>');
+						
+						$('#masterList').append(gridContain);
+					}
+											
+					gridContain.append(value);
 				}
-								
-				gridContain.append(value);
 			});
 			
 			scrollWindow.go();
 			
 			
-			
+			$('.add-to-cal').on('click',function(){
+				user.setCalendar($(this).find('form[name=gigInfo]').serialize());
+			});
 		}
 	}
 }();
+
 
 var user = function(){
 	var initialized = false,
@@ -117,6 +122,10 @@ var user = function(){
 		selectedObject,
 		checkSpotify = false;
 	return {
+		setCalendar : function(data){
+			//debug.log(data)
+			window.open('http://www.google.com/calendar/event?action=TEMPLATE&'+data);
+		},
 		initSC : function(paging){
 			var url = (paging) ? paging : '/me/followings';
 			
@@ -132,7 +141,7 @@ var user = function(){
 				if(r.hasOwnProperty('next_href')){
 					user.initSC(r.next_href);
 				}
-				selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
+				selectedObject.off('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('SDsongs'); return false;});
 				user.toggle('SDsongs');
 				$('.loading').remove();
 			});
@@ -167,7 +176,6 @@ var user = function(){
 								case 'musician':
 									FBLikes.push(r.data[i].data[a].title);
 									break;
-								
 							}
 						}
 					}					
@@ -186,7 +194,7 @@ var user = function(){
 					return false;
 				}
 				else{
-					selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
+					selectedObject.off('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
 					user.toggle('FBLikes');
 					
 					$('.loading').remove();
@@ -250,7 +258,7 @@ $(function(){
 	  source: sxswObject.searchAutoComplete(),
 	  response: function( event, ui ) { console.log(ui)}
 	});*/
-	$('#fbToggle').bind('click',function(e){
+	$('#fbToggle').on('click',function(e){
 		var $this = $(this);
 		FB.login(function(response) {
 		   if (response.authResponse) {
@@ -264,7 +272,7 @@ $(function(){
 		},{scope:'user_likes,user_actions.music'});
 		return false;
 	});
-	$('#scToggle').bind('click',function(e){
+	$('#scToggle').on('click',function(e){
 		var $this = $(this);
 		user.setObject($this);
 		SC.connect(function() {
@@ -272,18 +280,18 @@ $(function(){
 		});
 		return false;
 	});
-	$('#rdioToggle').bind('click',function(e){
+	$('#rdioToggle').on('click',function(e){
 		setBtnToggle(e);
 		$.ajax({
 			url:'service/getInvatationURLs.php'
 		})
 	});
-	$('#searchForm').bind('keyup',function(ev){
+	$('#searchForm').on('keyup',function(ev){
 		if(this.value.length > 2)
 			sxswObject.searchValue(this.value);
 		else
 			sortList.checkResults([]);
-	}).bind('focus',function(){
+	}).on('focus',function(){
 		scrollWindow.go();
 	});
 });
