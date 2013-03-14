@@ -255,6 +255,9 @@ var scrollWindow = function(){
 	var pos = 0;
 	return{
 		go:function(){
+			setTimeout(scrollWindow.exec,100)
+		},
+		exec : function(){
 			if(typeof searchBarOffset == 'string')
 				searchBarOffset = $('#searchForm').offset().top;
 			

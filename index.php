@@ -9,10 +9,6 @@
 <meta name="viewport" content="user-scalable=no" />
 <title> Plugged In - by R/GA </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
-<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css" />
-<!--[if lt IE 7]>
-	<link rel="stylesheet" type="text/css" href="css/ie.css" />
-<![endif]-->
 </head>
 <body>
 	<div id="mainContainer" class="full-width">
@@ -135,8 +131,6 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	var phpGigHTML = <?php echo $html; ?>;
-	var phpSearchArray = <?php echo json_encode($searchArray); ?>;
-	sxswObject.init();
+	
 </script>
 </html>
