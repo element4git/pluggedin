@@ -39,9 +39,7 @@ var sxswObject = function(){
 					
 					gigHTML = $(r.gigSet);
 					searchAutoComplete = r.searchSet;
-					
-					clearInterval(loading);
-					
+										
 					$('#fbToggle').on('click',function(e){
 						var $this = $(this);
 						FB.login(function(response) {
@@ -84,7 +82,9 @@ var sxswObject = function(){
 							this.blur();
 						}
 						
-					})
+					});
+					
+					clearInterval(loading);
 				}
 			})
 						
