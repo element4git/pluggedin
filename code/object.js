@@ -189,7 +189,7 @@ var user = function(){
 					selectedObject.unbind('click').bind('click',function(){var $this = $(this); user.setObject($this); user.toggle('FBLikes'); return false;});
 					user.toggle('FBLikes');
 					
-					//$('.loading').remove();
+					$('.loading').remove();
 				}
 			});
 		},

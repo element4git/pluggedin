@@ -286,8 +286,8 @@ hr {
 #mainContent li img.loading {
   position: absolute;
   width: auto;
-  right: 24%;
-  top: 38%;
+  right: 22%;
+  top: 33%;
   z-index: 10;
 }
 
