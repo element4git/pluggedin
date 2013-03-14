@@ -5,8 +5,23 @@ var sxswObject = function(){
 	return{
 		init:function(){
 			
-			searchAutoComplete = phpSearchArray;
-			gigHTML = phpGigHTML;
+			//searchAutoComplete = phpSearchArray;
+			//gigHTML = phpGigHTML;
+			
+			debug.log('here')
+			
+			$.ajax({
+				url : '/',
+				type : 'post',
+				dataType:'json',
+				data:{getGig:true},
+				success:function(r){
+					gigHTML = $(r.gigSet);
+					searchAutoComplete = r.searchSet;
+					
+					debug.log(gigHTML);
+				}
+			})
 						
 		},
 		searchAutoComplete : function(){

@@ -131,8 +131,6 @@ SC.initialize({
 <script type="text/javascript" src="code/object.js"></script>
 
 <script type="text/javascript">
-	var phpGigHTML = <?php echo $html; ?>;
-	var phpSearchArray = <?php echo json_encode($searchArray); ?>;
 	sxswObject.init();
 </script>
 </html>
