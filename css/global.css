@@ -390,52 +390,38 @@ hr {
 /* line 264, global.scss */
 #mainContent li img.loading {
   position: absolute;
-  width: auto;
-  right: 21%;
-  top: 33%;
-  z-index: 10;
-}
-
-/* line 265, global.scss */
-#mainContent li#fbToggle img.loading {
-  right: 31%;
-}
-
-/* line 266, global.scss */
-#mainContent li img.loading {
-  position: absolute;
   right: 1%;
   top: -3%;
   z-index: 10;
 }
 
-/* line 269, global.scss */
+/* line 268, global.scss */
 #masterList {
   background: black;
   /* grid mod */
 }
-/* line 273, global.scss */
+/* line 272, global.scss */
 #masterList .grid-3 {
   width: 18.3% !important;
 }
-/* line 276, global.scss */
+/* line 275, global.scss */
 #masterList .grid-7 {
   width: 61% !important;
 }
-/* line 280, global.scss */
+/* line 279, global.scss */
 #masterList a {
   cursor: pointer;
   color: #666;
 }
-/* line 285, global.scss */
+/* line 284, global.scss */
 #masterList a:hover {
   color: #8c8c8c;
 }
-/* line 289, global.scss */
+/* line 288, global.scss */
 #masterList a:active {
   color: #8c8c8c;
 }
-/* line 293, global.scss */
+/* line 292, global.scss */
 #masterList .event-date {
   font-size: 3.75em;
   font-weight: 600;
@@ -445,13 +431,13 @@ hr {
   background-image: url("../images/list_header_bg.jpg");
   background-repeat: repeat-x;
 }
-/* line 305, global.scss */
+/* line 304, global.scss */
 #masterList .event-date span {
   padding-left: 23.6%;
   color: #666;
   text-transform: capitalize;
 }
-/* line 312, global.scss */
+/* line 311, global.scss */
 #masterList .event-time {
   font-size: 1.8em;
   font-weight: 600;
@@ -459,7 +445,7 @@ hr {
   text-align: left;
   padding-top: 1.2%;
 }
-/* line 322, global.scss */
+/* line 321, global.scss */
 #masterList .band-name {
   font-size: 3.75em;
   font-weight: 600;
@@ -468,7 +454,7 @@ hr {
   padding: 0 0 0.2em 0;
   text-align: left;
 }
-/* line 333, global.scss */
+/* line 332, global.scss */
 #masterList .venue-name {
   font-size: 2em;
   font-weight: 600;
@@ -476,32 +462,32 @@ hr {
   text-align: left;
   padding: 0 0 1em 0;
 }
-/* line 344, global.scss */
+/* line 343, global.scss */
 #masterList .add-to-cal {
   font-size: 4.7em;
   text-align: right;
   padding-top: 1.5%;
 }
 
-/* line 351, global.scss */
+/* line 350, global.scss */
 #footer {
   display: block;
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.05);
 }
-/* line 357, global.scss */
+/* line 356, global.scss */
 #footer .wrapper {
   display: inline-block;
 }
-/* line 359, global.scss */
+/* line 358, global.scss */
 #footer .wrapper .label {
   color: #555;
   font-size: 2.2em;
   float: left;
   padding: 0.92em 0;
 }
-/* line 365, global.scss */
+/* line 364, global.scss */
 #footer .wrapper .logo {
   float: left;
   color: #555;
@@ -511,7 +497,7 @@ hr {
 
 /* Fluid Grid 
 ---------------------------------------------------------*/
-/* line 377, global.scss */
+/* line 376, global.scss */
 .grid-container, .grid-container-pad0, .cal-container {
   width: 90%;
   margin-left: 5%;
@@ -521,28 +507,28 @@ hr {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
-/* line 385, global.scss */
+/* line 384, global.scss */
 .grid-container div, .grid-container-pad0 div, .cal-container div {
   height: auto;
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
 
-/* line 391, global.scss */
+/* line 390, global.scss */
 .cal-container {
   width: 93.2%;
   margin-left: 3.4%;
   margin-right: 3.4%;
 }
 
-/* line 397, global.scss */
+/* line 396, global.scss */
 .grid-container-pad0 {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
 }
 
-/* line 414, global.scss */
+/* line 413, global.scss */
 .grid-1,
 .grid-2,
 .grid-3,
@@ -562,122 +548,122 @@ hr {
   margin-right: 1%;
 }
 
-/* line 422, global.scss */
+/* line 421, global.scss */
 .grid-1 {
   width: 6.333%;
 }
 
-/* line 426, global.scss */
+/* line 425, global.scss */
 .grid-2 {
   width: 14.667%;
 }
 
-/* line 430, global.scss */
+/* line 429, global.scss */
 .grid-3 {
   width: 23.0%;
 }
 
-/* line 434, global.scss */
+/* line 433, global.scss */
 .grid-4 {
   width: 31.333%;
 }
 
-/* line 438, global.scss */
+/* line 437, global.scss */
 .grid-5 {
   width: 39.667%;
 }
 
-/* line 442, global.scss */
+/* line 441, global.scss */
 .grid-6 {
   width: 48.0%;
 }
 
-/* line 446, global.scss */
+/* line 445, global.scss */
 .grid-7 {
   width: 56.333%;
 }
 
-/* line 450, global.scss */
+/* line 449, global.scss */
 .grid-8 {
   width: 64.667%;
 }
 
-/* line 454, global.scss */
+/* line 453, global.scss */
 .grid-9 {
   width: 73.0%;
 }
 
-/* line 458, global.scss */
+/* line 457, global.scss */
 .grid-10 {
   width: 81.333%;
 }
 
-/* line 462, global.scss */
+/* line 461, global.scss */
 .grid-11 {
   width: 89.667%;
 }
 
-/* line 466, global.scss */
+/* line 465, global.scss */
 .grid-12 {
   width: 98.0%;
 }
 
 /* grid height */
-/* line 471, global.scss */
+/* line 470, global.scss */
 .pad-1 {
   padding-top: 3.1665%;
   padding-bottom: 3.1665%;
 }
 
-/* line 475, global.scss */
+/* line 474, global.scss */
 .pad-2 {
   padding-top: 7.3335%;
   padding-bottom: 7.3335%;
 }
 
-/* line 480, global.scss */
+/* line 479, global.scss */
 .pad-3 {
   padding-top: 11.5%;
   padding-bottom: 11.5%;
 }
 
-/* line 485, global.scss */
+/* line 484, global.scss */
 .pad-4 {
   padding-top: 15.6665%;
   padding-bottom: 15.6665%;
 }
 
-/* line 490, global.scss */
+/* line 489, global.scss */
 .pad-5 {
   padding-top: 19.833%;
   padding-bottom: 19.833%;
 }
 
-/* line 495, global.scss */
+/* line 494, global.scss */
 .pad-6 {
   padding-top: 24%;
   padding-bottom: 24%;
 }
 
-/* line 500, global.scss */
+/* line 499, global.scss */
 .pad-7 {
   padding-top: 28.1665%;
   padding-bottom: 28.1665%;
 }
 
-/* line 505, global.scss */
+/* line 504, global.scss */
 .pad-8 {
   padding-top: 32.3335%;
   padding-bottom: 32.3335%;
 }
 
-/* line 510, global.scss */
+/* line 509, global.scss */
 .pad-9 {
   padding-top: 36.5%;
   padding-bottom: 36.5%;
 }
 
-/* line 515, global.scss */
+/* line 514, global.scss */
 .pad-10 {
   padding-top: 41.5%;
   padding-bottom: 41.5%;
