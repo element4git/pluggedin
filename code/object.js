@@ -78,7 +78,13 @@ var sxswObject = function(){
 					}).on('focus',function(){
 						user.toggleOff();
 						scrollWindow.go();
-					}).attr('value','');
+					}).attr('value','').on('keypress',function(ev){
+						if(ev.keyCode == 13){
+							ev.preventDefault();
+							this.blur();
+						}
+						
+					})
 				}
 			})
 						
