@@ -18,12 +18,12 @@ var sxswObject = function(){
 				
 				if(loader == '.')
 					loader = '..'
-				else if(loader = '..')
+				else if(loader == '..')
 					loader = '...'
 				else
 					loader = '.'
 				
-			},500);
+			},100);
 			
 			
 			$.ajax({
