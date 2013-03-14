@@ -43,10 +43,10 @@ var sortList = function(){
 			
 			
 			// REVISIT THIS. If the gigset is larger than 300 it break the system. I'll have to rebuild this.
-			if(gigSet.length > 300)
-				return false;
+			setLength = (gigSet.length > 300) ? 200 : gigSet.length;
 			
-			for(var i=0; i < gigSet.length; i++){
+			
+			for(var i=0; i < setLength; i++){
 				if($.inArray(gigSet[i], gigs) != -1){
 					
 					results.push('.'+gigSet[i].replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|@| /g,''));
@@ -64,9 +64,9 @@ var sortList = function(){
 			debug.log(gigSet);
 			
 			if(gigSet == 'searching'){
-				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">Searching...</div><div class="venue-name full-width" id="venueName"><a>If nothing comes up, keep typing or try a different search term</a></div></div></div></div>');
+				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">Searching...</div><div class="venue-name full-width" id="venueName"><a>If nothing comes up, keep typing or try a different search term.</a></div></div></div></div>');
 			} else if(gigSet.length == 0)
-				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">No Results</div><div class="venue-name full-width" id="venueName"><a>Try the search bar</a></div></div></div></div>');
+				$('#masterList').append('<div class="grid-container-pad0"><div class="cal-container gig NorthernFaces Barbarella"><div class="event-time grid-3" id="eventTime"></div><div class="grid-7"><div class="band-name full-width" id="bandName">No Results</div><div class="venue-name full-width" id="venueName"><a>Try the search bar.</a></div></div></div></div>');
 			
 			var currentHTML = gigHTML.find(gigSet.toString()).clone(),
 				currentDate = '',
