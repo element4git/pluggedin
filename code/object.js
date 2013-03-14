@@ -241,6 +241,11 @@ var user = function(){
 			};
 			
 			sortList.checkResults(joinedArrays);
+		},
+		toggleOff : function(){
+			optionsSelected = {};
+			$('.toggle-on').removeClass("displayNone");
+			$('.toggle-off').addClass("displayNone");
 		}
 	}
 }();
@@ -309,6 +314,7 @@ $(function(){
 		else
 			sortList.showGigs('searching');
 	}).on('focus',function(){
+		user.toggleOff();
 		scrollWindow.go();
 	});
 	
