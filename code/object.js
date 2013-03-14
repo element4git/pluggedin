@@ -10,7 +10,21 @@ var sxswObject = function(){
 			
 			debug.log('here')
 			
-			$('#searchForm').attr('value','Loading Gigs...');
+			var loader = '.'
+			
+			var loading = setInterval(function(){
+				
+				$('#searchForm').attr('value','Loading Gigs'+loader);
+				
+				if(loader == '.')
+					loader = '..'
+				else if(loader = '..')
+					loader = '...'
+				else
+					loader = '.'
+				
+			},100);
+			
 			
 			$.ajax({
 				url : '/',
@@ -20,6 +34,8 @@ var sxswObject = function(){
 				success:function(r){
 					gigHTML = $(r.gigSet);
 					searchAutoComplete = r.searchSet;
+					
+					clearInterval(loading);
 					
 					$('#fbToggle').on('click',function(e){
 						var $this = $(this);
