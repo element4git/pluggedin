@@ -8,11 +8,11 @@
 /* Test: Rounded corner mixin partial */
 /* Variables 
 ---------------------------------------------------------*/
-/*$hl-alpha: 0.1;
-$bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
+/*$bg-home: "images/pluggedin_bg_home_debug.jpg";*/
+/* Max width: for debug alignment */
 /* Default 
 ---------------------------------------------------------*/
-/* line 26, global.scss */
+/* line 29, global.scss */
 html, body {
   padding: 0;
   margin: 0;
@@ -20,87 +20,293 @@ html, body {
   background: black;
 }
 
-/* line 33, global.scss */
+/* line 36, global.scss */
 div, p, span, h1, h2, h3, h4, h5, h6, input, a {
   color: #fcfcfc;
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   font-size: 1em;
 }
 
-/* line 41, global.scss */
+/* line 44, global.scss */
 a {
   text-decoration: none;
   border: 0;
 }
 
-/* line 46, global.scss */
+/* line 49, global.scss */
 h1 {
   font-size: 1.9em;
   font-weight: 600;
   line-height: 1.04em;
 }
 
-/* line 54, global.scss */
+/* line 57, global.scss */
 h2 {
-  font-size: 2em;
   font-weight: 600;
   line-height: 40.5%;
 }
 
-/* line 62, global.scss */
+/* line 64, global.scss */
 hr {
   border-style: solid;
   border-right: 0;
   border-left: 0;
   border-top: 0;
-  padding: 1.07em 0;
-  /*padding: 7.6% 0;*/
+  padding: 0.8em 0;
 }
 
+/* Media Querries */
+@media all and (min-width: 5em) {
+  /*h1, h2 { color: #999 !important; }*/
+  /* line 77, global.scss */
+  h1, h2 {
+    font-size: 0.75em;
+  }
+
+  /* line 78, global.scss */
+  hr {
+    padding: 0.35em 0;
+  }
+
+  /* line 79, global.scss */
+  input[type="text"] {
+    font-size: 0.55em;
+  }
+
+  /* line 80, global.scss */
+  form {
+    margin: 0 4.2% 7.5%;
+  }
+}
+@media all and (min-width: 20em) {
+  /*h1, h2 { color: #666 !important; }*/
+  /* line 84, global.scss */
+  h1, h2 {
+    font-size: 1.15em;
+  }
+
+  /* line 85, global.scss */
+  hr {
+    padding: 0.6em 0;
+  }
+
+  /* line 86, global.scss */
+  input[type="text"] {
+    font-size: 1.05em;
+  }
+
+  /* line 87, global.scss */
+  form {
+    margin: 0 4.2% 7.5%;
+  }
+}
+@media all and (min-width: 30em) {
+  /*h1, h2 { color: teal !important; }*/
+  /* line 91, global.scss */
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  /* line 92, global.scss */
+  hr {
+    padding: 0.8em 0;
+  }
+
+  /* line 93, global.scss */
+  input[type="text"] {
+    font-size: 1.55em;
+  }
+
+  /* line 94, global.scss */
+  form {
+    margin: 0 4.2% 7.5%;
+  }
+}
+@media all and (min-width: 40em) {
+  /*h1, h2 { color: red !important; }*/
+  /* this is the default */
+  /* line 99, global.scss */
+  h1, h2 {
+    font-size: 2em;
+  }
+
+  /* line 100, global.scss */
+  hr {
+    padding: 1.07em 0;
+  }
+
+  /* line 101, global.scss */
+  input[type="text"] {
+    font-size: 2.15em;
+  }
+
+  /* line 102, global.scss */
+  form {
+    margin: 0 4.2% 7.8%;
+  }
+}
+@media all and (min-width: 50em) {
+  /*h1, h2 { color: yellow !important; }*/
+  /* line 106, global.scss */
+  h1, h2 {
+    font-size: 2.5em;
+  }
+
+  /* line 107, global.scss */
+  hr {
+    padding: 1.37em 0;
+  }
+
+  /* line 108, global.scss */
+  input[type="text"] {
+    font-size: 2.65em;
+  }
+
+  /* line 109, global.scss */
+  form {
+    margin: 0 4.2% 7.8%;
+  }
+}
+@media all and (min-width: 60em) {
+  /*h1, h2 { color: green !important; }*/
+  /* line 113, global.scss */
+  h1, h2 {
+    font-size: 3em;
+  }
+
+  /* line 114, global.scss */
+  hr {
+    padding: 1.57em 0;
+  }
+
+  /* line 115, global.scss */
+  input[type="text"] {
+    font-size: 3.25em;
+  }
+
+  /* line 116, global.scss */
+  form {
+    margin: 0 4.2% 8%;
+  }
+}
+@media all and (min-width: 70em) {
+  /*h1, h2 { color: blue !important; }*/
+  /* line 120, global.scss */
+  h1, h2 {
+    font-size: 3.5em;
+  }
+
+  /* line 121, global.scss */
+  hr {
+    padding: 1.87em 0;
+  }
+
+  /* line 122, global.scss */
+  input[type="text"] {
+    font-size: 3.75em;
+  }
+
+  /* line 123, global.scss */
+  form {
+    margin: 0 4.2% 8%;
+  }
+}
+@media all and (min-width: 80em) {
+  /*h1, h2 { color: orange !important; }*/
+  /* line 127, global.scss */
+  h1, h2 {
+    font-size: 4em;
+  }
+
+  /* line 128, global.scss */
+  hr {
+    padding: 2.17em 0;
+  }
+
+  /* line 129, global.scss */
+  input[type="text"] {
+    font-size: 4.35em;
+  }
+
+  /* line 130, global.scss */
+  form {
+    margin: 0 4.2% 8.2%;
+  }
+}
+@media all and (min-width: 90em) {
+  /*h1, h2 { color: purple !important; }*/
+  /* line 134, global.scss */
+  h1, h2 {
+    font-size: 4.6em;
+  }
+
+  /* line 135, global.scss */
+  hr {
+    padding: 2.47em 0;
+  }
+
+  /* line 136, global.scss */
+  input[type="text"] {
+    font-size: 4.85em;
+  }
+
+  /* line 137, global.scss */
+  form {
+    margin: 0 4.2% 8.2%;
+  }
+}
+	/*
+@media all and (min-width: 90em) {
+	/* Relults stuff
+	.event-date { font-size: 4.85em !important; margin: 0 0 3.8% !important;}
+	.event-time { font-size: 2.1em !important; }
+	.band-name { font-size: 4.55em !important; }
+	.venue-name { font-size: 2.4em !important; }
+	.add-to-cal { font-size: 5.5em !important; }
+	#footer .wrapper .label { font-size: 1.9em !important; padding: 0.92em 0 !important; }
+	#footer .wrapper .logo { font-size: 3.3em !important; padding: 0.35em 0 0.1em !important; }
+	#mainContent { padding-bottom: 2em; }
+}
+}*/
 /* Utilities 
 ---------------------------------------------------------*/
-/* line 76, global.scss */
+/* line 157, global.scss */
 .full-width {
   width: 100%;
 }
 
-/* line 80, global.scss */
+/* line 161, global.scss */
 .displayNone {
   display: none;
 }
 
 /* Custom 
 ---------------------------------------------------------*/
-/* line 86, global.scss */
+/* line 167, global.scss */
 #mainContainer {
   display: block;
   min-height: 100%;
   /*height: 100% /* for IE only */
   position: relative;
   text-align: center;
-  background-image: url("/images/pluggedin_bg.jpg");
+  background-image: url("../images/pluggedin_bg.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
-  /*
-  @media screen and (min-width: 40em) {
-  	background-size: 40em;
-  }
-  */
 }
 
-/* line 107, global.scss */
+/* line 182, global.scss */
 #topSpacer div {
   padding-top: 0%;
   padding-bottom: 64.6%;
 }
 
-/* line 113, global.scss */
+/* line 188, global.scss */
 #mainContent.minHeight {
   min-height: 130em;
 }
 
-/* line 115, global.scss */
+/* line 190, global.scss */
 #mainContent {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
@@ -108,58 +314,56 @@ hr {
   /*max-width: $max-width;*/
   padding-bottom: 6.5em;
 }
-/* line 122, global.scss */
+/* line 197, global.scss */
 #mainContent ul {
   list-style-type: none;
   text-align: center;
   margin: 0;
   padding: 0;
 }
-/* line 128, global.scss */
+/* line 203, global.scss */
 #mainContent li {
   display: inline-block;
   width: 27.5%;
   margin: 0.3% 3.4% 0;
 }
-/* line 132, global.scss */
+/* line 207, global.scss */
 #mainContent li a {
   display: block;
 }
-/* line 135, global.scss */
+/* line 210, global.scss */
 #mainContent li img {
   width: 100%;
 }
-/* line 140, global.scss */
+/* line 215, global.scss */
 #mainContent .connect-lbl {
   padding: 0 9.7%;
 }
-/* line 144, global.scss */
+/* line 219, global.scss */
 #mainContent .divider {
   padding-bottom: 1.9%;
 }
-/* line 146, global.scss */
+/* line 221, global.scss */
 #mainContent .divider .pad-left {
   margin: 0 4.2% 0 10.8%;
 }
-/* line 149, global.scss */
+/* line 224, global.scss */
 #mainContent .divider .pad-right {
   margin: 0 12% 0 1.4%;
 }
-/* line 155, global.scss */
+/* line 230, global.scss */
 #mainContent .search-bar form {
   height: 0;
   padding-bottom: 18%;
   position: relative;
-  margin: 0 4.2% 8.6%;
 }
-/* line 162, global.scss */
+/* line 236, global.scss */
 #mainContent .search-bar input {
   position: absolute;
   height: 100%;
 }
-/* line 167, global.scss */
+/* line 241, global.scss */
 #mainContent .search-bar input[type=text] {
-  font-size: 2.15em;
   width: 90%;
   left: 0;
   border: 0;
@@ -167,7 +371,7 @@ hr {
   border-style: none;
   color: black;
 }
-/* line 176, global.scss */
+/* line 249, global.scss */
 #mainContent .search-bar input[type=button] {
   cursor: pointer;
   width: 13%;
@@ -178,56 +382,57 @@ hr {
   background: white;
 }
 
-/* line 188, global.scss */
+/* line 261, global.scss */
 #masterList {
   background: black;
   /* grid mod */
 }
-/* line 192, global.scss */
+/* line 265, global.scss */
 #masterList .grid-3 {
   width: 18.3% !important;
 }
-/* line 195, global.scss */
+/* line 268, global.scss */
 #masterList .grid-7 {
   width: 61% !important;
 }
-/* line 199, global.scss */
+/* line 272, global.scss */
 #masterList a {
   cursor: pointer;
   color: #666;
 }
-/* line 204, global.scss */
+/* line 277, global.scss */
 #masterList a:hover {
   color: #8c8c8c;
 }
-/* line 208, global.scss */
+/* line 281, global.scss */
 #masterList a:active {
   color: #8c8c8c;
 }
-/* line 212, global.scss */
+/* line 285, global.scss */
 #masterList .event-date {
   font-size: 3.75em;
   font-weight: 600;
   padding: 0.22em 0 0.4em;
   margin: 0 0 4.5%;
   text-align: left;
-  background-image: url("/images/list_header_bg.jpg");
+  background-image: url("../images/list_header_bg.jpg");
   background-repeat: repeat-x;
 }
-/* line 224, global.scss */
+/* line 297, global.scss */
 #masterList .event-date span {
   padding-left: 23.6%;
   color: #666;
+  text-transform: capitalize;
 }
-/* line 230, global.scss */
+/* line 304, global.scss */
 #masterList .event-time {
   font-size: 1.8em;
   font-weight: 600;
   color: #8c8c8c !important;
   text-align: left;
-  padding-top: 0.15em;
+  padding-top: 1.2%;
 }
-/* line 240, global.scss */
+/* line 314, global.scss */
 #masterList .band-name {
   font-size: 3.75em;
   font-weight: 600;
@@ -236,7 +441,7 @@ hr {
   padding: 0 0 0.2em 0;
   text-align: left;
 }
-/* line 251, global.scss */
+/* line 325, global.scss */
 #masterList .venue-name {
   font-size: 2em;
   font-weight: 600;
@@ -244,32 +449,32 @@ hr {
   text-align: left;
   padding: 0 0 1em 0;
 }
-/* line 262, global.scss */
+/* line 336, global.scss */
 #masterList .add-to-cal {
-  font-size: 4.7em !important;
+  font-size: 4.7em;
   text-align: right;
-  padding-top: 0.05em;
+  padding-top: 1.5%;
 }
 
-/* line 269, global.scss */
+/* line 343, global.scss */
 #footer {
   display: block;
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.05);
 }
-/* line 275, global.scss */
+/* line 349, global.scss */
 #footer .wrapper {
   display: inline-block;
 }
-/* line 277, global.scss */
+/* line 351, global.scss */
 #footer .wrapper .label {
   color: #555;
   font-size: 2.2em;
   float: left;
   padding: 0.92em 0;
 }
-/* line 283, global.scss */
+/* line 357, global.scss */
 #footer .wrapper .logo {
   float: left;
   color: #555;
@@ -279,7 +484,7 @@ hr {
 
 /* Fluid Grid 
 ---------------------------------------------------------*/
-/* line 295, global.scss */
+/* line 369, global.scss */
 .grid-container, .grid-container-pad0, .cal-container {
   width: 90%;
   margin-left: 5%;
@@ -289,28 +494,28 @@ hr {
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
-/* line 303, global.scss */
+/* line 377, global.scss */
 .grid-container div, .grid-container-pad0 div, .cal-container div {
   height: auto;
   /*outline: rgba(black, $alpha) dotted thin;*/
   background-color: rgba(255, 255, 255, 0);
 }
 
-/* line 309, global.scss */
+/* line 383, global.scss */
 .cal-container {
   width: 93.2%;
   margin-left: 3.4%;
   margin-right: 3.4%;
 }
 
-/* line 315, global.scss */
+/* line 389, global.scss */
 .grid-container-pad0 {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
 }
 
-/* line 332, global.scss */
+/* line 406, global.scss */
 .grid-1,
 .grid-2,
 .grid-3,
@@ -330,122 +535,122 @@ hr {
   margin-right: 1%;
 }
 
-/* line 340, global.scss */
+/* line 414, global.scss */
 .grid-1 {
   width: 6.333%;
 }
 
-/* line 344, global.scss */
+/* line 418, global.scss */
 .grid-2 {
   width: 14.667%;
 }
 
-/* line 348, global.scss */
+/* line 422, global.scss */
 .grid-3 {
   width: 23.0%;
 }
 
-/* line 352, global.scss */
+/* line 426, global.scss */
 .grid-4 {
   width: 31.333%;
 }
 
-/* line 356, global.scss */
+/* line 430, global.scss */
 .grid-5 {
   width: 39.667%;
 }
 
-/* line 360, global.scss */
+/* line 434, global.scss */
 .grid-6 {
   width: 48.0%;
 }
 
-/* line 364, global.scss */
+/* line 438, global.scss */
 .grid-7 {
   width: 56.333%;
 }
 
-/* line 368, global.scss */
+/* line 442, global.scss */
 .grid-8 {
   width: 64.667%;
 }
 
-/* line 372, global.scss */
+/* line 446, global.scss */
 .grid-9 {
   width: 73.0%;
 }
 
-/* line 376, global.scss */
+/* line 450, global.scss */
 .grid-10 {
   width: 81.333%;
 }
 
-/* line 380, global.scss */
+/* line 454, global.scss */
 .grid-11 {
   width: 89.667%;
 }
 
-/* line 384, global.scss */
+/* line 458, global.scss */
 .grid-12 {
   width: 98.0%;
 }
 
 /* grid height */
-/* line 389, global.scss */
+/* line 463, global.scss */
 .pad-1 {
   padding-top: 3.1665%;
   padding-bottom: 3.1665%;
 }
 
-/* line 393, global.scss */
+/* line 467, global.scss */
 .pad-2 {
   padding-top: 7.3335%;
   padding-bottom: 7.3335%;
 }
 
-/* line 398, global.scss */
+/* line 472, global.scss */
 .pad-3 {
   padding-top: 11.5%;
   padding-bottom: 11.5%;
 }
 
-/* line 403, global.scss */
+/* line 477, global.scss */
 .pad-4 {
   padding-top: 15.6665%;
   padding-bottom: 15.6665%;
 }
 
-/* line 408, global.scss */
+/* line 482, global.scss */
 .pad-5 {
   padding-top: 19.833%;
   padding-bottom: 19.833%;
 }
 
-/* line 413, global.scss */
+/* line 487, global.scss */
 .pad-6 {
   padding-top: 24%;
   padding-bottom: 24%;
 }
 
-/* line 418, global.scss */
+/* line 492, global.scss */
 .pad-7 {
   padding-top: 28.1665%;
   padding-bottom: 28.1665%;
 }
 
-/* line 423, global.scss */
+/* line 497, global.scss */
 .pad-8 {
   padding-top: 32.3335%;
   padding-bottom: 32.3335%;
 }
 
-/* line 428, global.scss */
+/* line 502, global.scss */
 .pad-9 {
   padding-top: 36.5%;
   padding-bottom: 36.5%;
 }
 
-/* line 433, global.scss */
+/* line 507, global.scss */
 .pad-10 {
   padding-top: 41.5%;
   padding-bottom: 41.5%;

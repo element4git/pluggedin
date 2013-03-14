@@ -11,15 +11,18 @@
 /* Variables 
 ---------------------------------------------------------*/
 $hl-color: white;
-/*$hl-alpha: 0.1;
-$bg-home: "/images/pluggedin_bg_home_debug.jpg";*/
 $hl-alpha: 0.0;
-$bg-home: "/images/pluggedin_bg.jpg";
+/*$bg-home: "images/pluggedin_bg_home_debug.jpg";*/
+$bg-home: "images/pluggedin_bg.jpg";
+$img-loc: "../";
 $default-color: #fcfcfc;
 $default-size: 1em;
 $full: 100%;
-$max-width: 640px;
 $padding-btm: 6.5em;
+/* Max width: for debug alignment */;
+$max-width: 640px;
+
+
 
 /* Default 
 ---------------------------------------------------------*/
@@ -53,7 +56,6 @@ h1 {
 
 h2 {
 	font: {
-		size: 2em;
 		weight: 600;
 	}
 	line-height: 40.5%;
@@ -66,9 +68,88 @@ hr {
 		left: 0;
 		top: 0;
 	}
-    padding: 1.07em 0;
-    /*padding: 7.6% 0;*/
+    padding: 0.8em 0;
 }
+
+/* Media Querries */
+@media all and (min-width: 5em) {
+	/*h1, h2 { color: #999 !important; }*/
+	h1, h2 { font-size: 0.75em; }
+	hr { padding: 0.35em 0; }
+	input[type="text"] { font-size: 0.55em; }
+	form { margin: 0 4.2% 7.5%; }
+}
+@media all and (min-width: 20em) {
+	/*h1, h2 { color: #666 !important; }*/
+	h1, h2 { font-size: 1.15em; }
+	hr { padding: 0.6em 0; }
+	input[type="text"] { font-size: 1.05em; }
+	form { margin: 0 4.2% 7.5%; }
+}
+@media all and (min-width: 30em) {
+	/*h1, h2 { color: teal !important; }*/
+	h1, h2 { font-size: 1.5em; }
+	hr { padding: 0.8em 0; }
+	input[type="text"] { font-size: 1.55em; }
+	form { margin: 0 4.2% 7.5%; }
+}
+@media all and (min-width: 40em) {
+	/*h1, h2 { color: red !important; }*/
+	/* this is the default */
+	h1, h2 { font-size: 2em; }
+	hr { padding: 1.07em 0; }
+	input[type="text"] { font-size: 2.15em; }
+	form { margin: 0 4.2% 7.8%; }
+}
+@media all and (min-width: 50em) {
+	/*h1, h2 { color: yellow !important; }*/
+	h1, h2 { font-size: 2.5em; }
+	hr { padding: 1.37em 0; }
+	input[type="text"] { font-size: 2.65em; }
+	form { margin: 0 4.2% 7.8%; }
+}
+@media all and (min-width: 60em) {
+	/*h1, h2 { color: green !important; }*/
+	h1, h2 { font-size: 3em; }
+	hr { padding: 1.57em 0; }
+	input[type="text"] { font-size: 3.25em; }
+	form { margin: 0 4.2% 8%; }
+}
+@media all and (min-width: 70em) {
+	/*h1, h2 { color: blue !important; }*/
+	h1, h2 { font-size: 3.5em; }
+	hr { padding: 1.87em 0; }
+	input[type="text"] { font-size: 3.75em; }
+	form { margin: 0 4.2% 8%; }
+}
+@media all and (min-width: 80em) {
+	/*h1, h2 { color: orange !important; }*/
+	h1, h2 { font-size: 4em; }
+	hr { padding: 2.17em 0; }
+	input[type="text"] { font-size: 4.35em; }
+	form { margin: 0 4.2% 8.2%; }
+}
+@media all and (min-width: 90em) {
+	/*h1, h2 { color: purple !important; }*/
+	h1, h2 { font-size: 4.6em; }
+	hr { padding: 2.47em 0; }
+	input[type="text"] { font-size: 4.85em; }
+	form { margin: 0 4.2% 8.2%; }
+}
+
+/*
+@media all and (min-width: 90em) {
+	/* Relults stuff
+	.event-date { font-size: 4.85em !important; margin: 0 0 3.8% !important;}
+	.event-time { font-size: 2.1em !important; }
+	.band-name { font-size: 4.55em !important; }
+	.venue-name { font-size: 2.4em !important; }
+	.add-to-cal { font-size: 5.5em !important; }
+	#footer .wrapper .label { font-size: 1.9em !important; padding: 0.92em 0 !important; }
+	#footer .wrapper .logo { font-size: 3.3em !important; padding: 0.35em 0 0.1em !important; }
+	#mainContent { padding-bottom: 2em; }
+}
+}*/
 
 
 /* Utilities 
@@ -90,17 +171,11 @@ hr {
     text-align: center;
 
 	background: {
-		image: url($bg-home);
+		image: url($img-loc + $bg-home);
 		repeat: no-repeat;
 		size: $full;
 		position: top;
 	}
-
-	/*
-	@media screen and (min-width: 40em) {
-		background-size: 40em;
-	}
-	*/
 }
 
 #topSpacer {
@@ -110,7 +185,7 @@ hr {
 	}
 }
 
-#mainContent.minHeight {min-height:130em;}
+#mainContent.minHeight { min-height:130em; }
 
 #mainContent {
 	@include highlight($hl-color, $hl-alpha);
@@ -156,7 +231,6 @@ hr {
     		height: 0;
     		padding-bottom: 18%;
     		position: relative;
-    		margin: 0 4.2% 8.6%;
     	}
 
     	input {
@@ -165,7 +239,6 @@ hr {
     	}
 
     	input[type=text] {
-    		font-size: 2.15em;
     		width: 90%;
     		left: 0;
     		border: 0;
@@ -218,12 +291,13 @@ hr {
 		margin: 0 0 4.5%;
 		text-align: left;
 		background: {
-			image: url("/images/list_header_bg.jpg");
+			image: url($img-loc + "images/list_header_bg.jpg");
 			repeat: repeat-x;
 		}
 		span {
 			padding-left: 23.6%;
 			color: #666;
+			text-transform: capitalize;
 		}
 	}
 
@@ -234,7 +308,7 @@ hr {
 		}
 		color: #8c8c8c !important;
 		text-align: left;
-		padding-top: 0.15em;
+		padding-top: 1.2%;
 	} 
 
 	.band-name {
@@ -260,9 +334,9 @@ hr {
 	}
 	
 	.add-to-cal {
-		font-size: 4.7em !important;
+		font-size: 4.7em;
 		text-align: right;
-		padding-top: 0.05em;
+		padding-top: 1.5%;
 	}
 }
 
