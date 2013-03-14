@@ -286,14 +286,14 @@ hr {
 #mainContent li img.loading {
   position: absolute;
   width: auto;
-  right: 22%;
+  right: 21%;
   top: 33%;
   z-index: 10;
 }
 
 /* line 296, global.scss */
 #mainContent li#fbToggle img.loading {
-  right: 32%;
+  right: 31%;
 }
 
 /* Fluid Grid 
