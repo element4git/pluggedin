@@ -75,7 +75,7 @@ var sxswObject = function(){
 						
 					});
 					
-					setTimeout(function(){clearInterval(loading)},1000);
+					clearInterval(loading);
 				}
 			})
 						
