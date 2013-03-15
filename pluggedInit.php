@@ -15,6 +15,12 @@
 			$soundCloudRedirect = 'http://pluggedin.rga.com/soundcloudAuth/';
 			define('mongoServer','mongodb://dbuser:fj47FH47hfh@ds053607.mongolab.com:53607/pluggedin');
 		break;
+		case 'pluggedin.web.rga.com':
+			$FBID = '439511386129295';
+			$soundCloudID = '37b4cbf041d27eafb17741805c38ceda';
+			$soundCloudRedirect = 'http://pluggedin.rga.com/soundcloudAuth/';
+			define('mongoServer', 'mongodb://127.0.0.1');
+		break;
 		default:
 			$FBID = '456738747726141';
 			$soundCloudID = '303569302e749627d95c37b8b1666cbb';
