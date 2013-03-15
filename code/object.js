@@ -30,10 +30,13 @@ var sxswObject = function(){
 					if(r.status == 'fail'){
 						$('body').html('<div style="margin:0 auto; width:640px;"><img src="images/plugged_in_error.jpg" /></div>');
 						_gaq.push(['_trackEvent', 'DB', 'fail']);
+						return false;
 					}
 					
 					gigHTML = $(r.gigSet);
 					searchAutoComplete = r.searchSet;
+					
+					clearInterval(loading);
 										
 					$('#fbToggle').on('click',function(e){
 						_gaq.push(['_trackEvent', 'SocialConnect', 'Facebook','called']);
@@ -74,8 +77,6 @@ var sxswObject = function(){
 						}
 						
 					});
-					
-					clearInterval(loading);
 				}
 			})
 						
