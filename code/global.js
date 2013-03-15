@@ -1,5 +1,5 @@
 var debug = function(){
-	var logOn = true;
+	var logOn = false;
 	return {
 		log : function(msg){
 			if(window.console && logOn)

@@ -4,12 +4,6 @@ var sxswObject = function(){
 		gigHTML ='';
 	return{
 		init:function(){
-			
-			//searchAutoComplete = phpSearchArray;
-			//gigHTML = phpGigHTML;
-			
-			debug.log('here')
-			
 			var loader = '.'
 			
 			var loading = setInterval(function(){
@@ -34,39 +28,36 @@ var sxswObject = function(){
 				success:function(r){
 					
 					if(r.status == 'fail'){
-						$('body').html('<div style="margin:0 auto; width:640px;"><img src="images/plugged_in_error.jpg" /></div>')
+						$('body').html('<div style="margin:0 auto; width:640px;"><img src="images/plugged_in_error.jpg" /></div>');
+						_gaq.push(['_trackEvent', 'DB', 'fail']);
 					}
 					
 					gigHTML = $(r.gigSet);
 					searchAutoComplete = r.searchSet;
 										
 					$('#fbToggle').on('click',function(e){
+						_gaq.push(['_trackEvent', 'SocialConnect', 'Facebook','called']);
 						var $this = $(this);
 						FB.login(function(response) {
 						   if (response.authResponse) {
-							 debug.log('Welcome!  Fetching your information.... ');
+							 _gaq.push(['_trackEvent', 'SocialConnect', 'Facebook','permission_granted']);
 							 user.setObject($this);
 							 user.initFB();
 						   } else {
-							 debug.log('User cancelled login or did not fully authorize.');
-							 setBtnToggle(e);
+							 _gaq.push(['_trackEvent', 'SocialConnect', 'Facebook','permission_denied']);
 						   }
 						},{scope:'user_likes,user_actions.music'});
 						return false;
 					});
 					$('#scToggle').on('click',function(e){
+						_gaq.push(['_trackEvent', 'SocialConnect', 'soundcloud','called']);
 						var $this = $(this);
 						user.setObject($this);
 						SC.connect(function() {
+							_gaq.push(['_trackEvent', 'SocialConnect', 'soundcloud','permission_granted']);
 						  user.initSC();
 						});
 						return false;
-					});
-					$('#rdioToggle').on('click',function(e){
-						setBtnToggle(e);
-						$.ajax({
-							url:'service/getInvatationURLs.php'
-						})
 					});
 					$('#searchForm').on('keyup',function(ev){
 						if(this.value.length > 2)
@@ -122,7 +113,10 @@ var sortList = function(){
 			var results = []
 			
 			
-			// REVISIT THIS. If the gigset is larger than 300 it break the system. I'll have to rebuild this.
+			// REVISIT THIS.  I'll have to build pagination.
+			if(gigSet.length > 300)
+				_gaq.push(['_trackEvent', 'gigSet', 'larger_than_300']);
+			
 			setLength = (gigSet.length > 300) ? 200 : gigSet.length;
 			
 			
@@ -194,6 +188,7 @@ var sortList = function(){
 			
 			$('.add-to-cal').on('click',function(){
 				user.setCalendar($(this).find('form[name=gigInfo]').serialize());
+				_gaq.push(['_trackEvent', 'calendar', 'event_added',]);
 			});
 		}
 	}
