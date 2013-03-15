@@ -12,7 +12,7 @@
 ---------------------------------------------------------*/
 $hl-color: white;
 $hl-alpha: 0.0;
-/*$bg-home: "images/pluggedin_bg_home_debug.jpg";*/
+/*$bg-home: "images/pluggedin_bg_home_debug.jpg"; */
 $bg-home: "images/pluggedin_bg.jpg";
 $img-loc: "../";
 $default-color: #fcfcfc;
@@ -116,40 +116,36 @@ hr {
 	form { margin: 0 4.2% 8%; }
 }
 @media all and (min-width: 70em) {
-	/*h1, h2 { color: blue !important; }*/
-	h1, h2 { font-size: 3.5em; }
-	hr { padding: 1.87em 0; }
-	input[type="text"] { font-size: 3.75em; }
-	form { margin: 0 4.2% 8%; }
-}
-@media all and (min-width: 80em) {
 	/*h1, h2 { color: orange !important; }*/
-	h1, h2 { font-size: 4em; }
-	hr { padding: 2.17em 0; }
-	input[type="text"] { font-size: 4.35em; }
-	form { margin: 0 4.2% 8.2%; }
-}
-@media all and (min-width: 90em) {
-	/*h1, h2 { color: purple !important; }*/
-	h1, h2 { font-size: 4.6em; }
-	hr { padding: 2.47em 0; }
-	input[type="text"] { font-size: 4.85em; }
-	form { margin: 0 4.2% 8.2%; }
-}
+	h1, h2 { font-size: 1.75em; }
+	hr { padding: 0.95em 0; }
+	input[type="text"] { font-size: 1.85em; }
+	form { margin: 0 4.2% 7.5%; }
+	#mainContainer { background-size: 36em !important; }
+	#mainContent { 
+		max-width: 36em; 
+		padding-bottom: 4em !important;
 
-/*
-@media all and (min-width: 90em) {
-	/* Relults stuff
-	.event-date { font-size: 4.85em !important; margin: 0 0 3.8% !important;}
-	.event-time { font-size: 2.1em !important; }
-	.band-name { font-size: 4.55em !important; }
-	.venue-name { font-size: 2.4em !important; }
-	.add-to-cal { font-size: 5.5em !important; }
-	#footer .wrapper .label { font-size: 1.9em !important; padding: 0.92em 0 !important; }
-	#footer .wrapper .logo { font-size: 3.3em !important; padding: 0.35em 0 0.1em !important; }
-	#mainContent { padding-bottom: 2em; }
+		-webkit-box-shadow: 0 -122px 165px -50px #333 ;
+		-moz-box-shadow: 0 -122px 165px -50px #333;
+		box-shadow: 0 -122px 165px -50px #333;
+
+		.event-date { 
+			font-size: 2.45em !important; 
+			margin: 0 0 3.8% !important;
+			background: {
+				image: url($img-loc + "images/list_header_bg_sml.jpg") !important;
+			}
+		}
+		.event-time { font-size: 1.4em !important; padding-top: 0 !important; }
+		.band-name { font-size: 2.1em !important; }
+		.venue-name { font-size: 1.8em !important; }
+		.add-to-cal { font-size: 3.6em !important; padding-top: 0 !important; }
+	}
+	#footer { max-width: 36em; background: none repeat scroll 0 0 rgba(255, 255, 255, 0.027) !important; }
+	#footer .wrapper .label { font-size: 1.3em !important; padding: 0.92em 0 !important; }
+	#footer .wrapper .logo { font-size: 2.2em !important; padding: 0.35em 0 0.1em !important; }
 }
-}*/
 
 
 /* Utilities 
