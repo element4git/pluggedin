@@ -196,6 +196,7 @@ hr {
     	margin: 0;
     	padding: 0;
     }
+
     li {
     	display: inline-block;
     	width: 27.5%;
@@ -253,6 +254,12 @@ hr {
     	}
     }
 }
+
+#scToggle,#fbToggle{position:relative;}
+ 
+#mainContent li img.loading{position:absolute; right: 1%; top: -3%; z-index:10;}
+
+
 
 #masterList {
 	background: rgba(black, 1);
