@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="user-scalable=no" />
+<meta property="og:image" content="images/icon.jpeg"/> 
 <title> Plugged In - by R/GA </title>
 <link rel="stylesheet" type="text/css" href="css/global.css" />
 </head>
