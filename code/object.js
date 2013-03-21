@@ -158,7 +158,7 @@ var sortList = function(){
 				
 				
 				
-				if(today.getDate() - jsdate.getDate() <= 0){
+				//if(today.getDate() - jsdate.getDate() <= 0){
 					if(currentDate != $date.split('T')[0]){
 						currentDate = $date.split('T')[0];
 						
@@ -181,7 +181,7 @@ var sortList = function(){
 					}
 											
 					gridContain.append(value);
-				}
+				//}
 			});
 			
 			scrollWindow.go();
